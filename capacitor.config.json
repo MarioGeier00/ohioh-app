@@ -1,8 +1,12 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "de.mgprogramms.ohioh",
   "appName": "ohioh",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "cordova": {}
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.8.100:8101",
+    "cleartext": true
+  }
 }
