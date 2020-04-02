@@ -15,12 +15,10 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-footer>
-          <ion-menu-toggle auto-hide="false" >
-            <ion-item (click)="deleteAll()" lines="none" detail="false" color="danger">
-              <ion-icon slot="start" name="trash" ></ion-icon>
-              <ion-label>Alle Daten endültig löschen</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item button (click)="deleteAll()" lines="none" detail="false" color="danger">
+            <ion-icon slot="start" name="trash" style="color: white;"></ion-icon>
+            <ion-label>Alle Daten endültig löschen</ion-label>
+          </ion-item>
         </ion-footer>
 
       </ion-list>
