@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
 })
 export class WelcomePage implements OnInit {
 
-  slideOpts = {
-    initialSlide: 4
-  };
+  slideOpts;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.slideOpts = {
+      initialSlide: 0
+    };
   }
 
   onNextClick() {
