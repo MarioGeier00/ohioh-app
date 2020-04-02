@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>user-data</ion-title>
+    <ion-title>Benutzerdaten</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <p>Hier können Sie Ihre Daten eingeben. Keine Felder müssen ausgefüllt sein.</p>
+
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Telefonnummer</ion-label>
+    <ion-input type="tel"></ion-input>
+  </ion-item>
 
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-justify-content-end">
+      <ion-col size="auto">
+        <ion-button (click)="applyData()">Übernehmen</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
