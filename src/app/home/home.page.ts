@@ -13,6 +13,7 @@ export class HomePage implements OnInit {
               public toastController: ToastController) { }
 
   ngOnInit() {
+    this.qrScanner.pausePreview();
   }
 
   async presentToast(msg: string) {
@@ -49,6 +50,7 @@ export class HomePage implements OnInit {
   }
 
   scannQRCode() {
+    this.qrScanner.destroy();
     // Optionally request the permission early
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
@@ -60,8 +62,10 @@ export class HomePage implements OnInit {
           let scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
             this.presentToast('Scanned something' + text);
+            this.qrScanner.pausePreview();
 
             this.qrScanner.hide(); // hide camera preview
+            this.qrScanner.destroy();
             scanSub.unsubscribe(); // stop scanning
           });
 

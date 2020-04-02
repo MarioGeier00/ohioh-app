@@ -21,6 +21,21 @@ export class AppComponent implements OnInit {
       title: 'Einführungstutorial',
       url: '/welcome',
       icon: 'information-circle'
+    },
+    {
+      title: 'Daten verwalten',
+      url: '/user-data',
+      icon: 'settings'
+    },
+    {
+      title: 'Daten verwalten',
+      url: '/user-data',
+      icon: 'settings'
+    },
+    {
+      title: 'Aufenthalt nachtragen',
+      url: '/location/add',
+      icon: 'settings'
     }
   ];
 
@@ -44,5 +59,9 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  deleteAll() {
+    throw new Error();
   }
 }
