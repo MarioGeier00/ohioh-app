@@ -97,6 +97,7 @@ export class HomePage implements OnInit {
       // resp.coords.latitude
       // resp.coords.longitude
      }).catch((error) => {
+       this.presentToast(error.message);
        console.log('Error getting location', error);
      });
 
@@ -112,13 +113,12 @@ export class HomePage implements OnInit {
         msg = 'Fehler';
       } else {
         msg = data.coords.latitude.toString() + '\t' +  data.coords.latitude.toString();
+        const toast = await this.toastController.create({
+          message: msg,
+          duration: 400
+        });
+        toast.present();
       }
-
-      const toast = await this.toastController.create({
-        message: msg,
-        duration: 400
-      });
-      toast.present();
 
      });
   }
