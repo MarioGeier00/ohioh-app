@@ -54,14 +54,15 @@ export class HomePage implements OnInit {
     // Optionally request the permission early
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
+        this.qrScanner.openSettings();
         if (status.authorized) {
           // camera permission was granted
-          this.presentToast('connected');
+          this.presentToast('QR Code Scanner gestartet');
           this.qrScanner.show();
           // start scanning
           let scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
-            this.presentToast('Scanned something' + text);
+            this.presentToast(text);
             this.qrScanner.pausePreview();
 
             this.qrScanner.hide(); // hide camera preview
@@ -70,18 +71,18 @@ export class HomePage implements OnInit {
           });
 
         } else if (status.denied) {
-          this.presentToast('denied');
+          this.presentToast('Der Kamerazugriff wurde verweigert');
           // camera permission was permanently denied
           // you must use QRScanner.openSettings() method to guide the user to the settings page
           // then they can grant the permission from there
         } else {
           // permission was denied, but not permanently. You can ask for permission again at a later time.
-          this.presentToast('not permanently denied');
+          this.presentToast('Bitte geben Sie den Kamerazugriff unter den App-Einstellungen frei');
         }
       })
       .catch((e: any) => {
         console.log('Error is', e);
-        this.presentToast('Error: ' + e);
+        this.presentToast('Es ist ein Fehler aufgetreten oder es ist keine Kamera vorhanden');
       });
   }
 
