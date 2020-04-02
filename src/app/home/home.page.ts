@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController } from '@ionic/angular';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,12 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
+  public locations: Geoposition[] = new Array();
+
   constructor(private qrScanner: QRScanner,
-              public toastController: ToastController) { }
+              public toastController: ToastController,
+              private geolocation: Geolocation
+              ) { }
 
   ngOnInit() {
     this.qrScanner.pausePreview();
@@ -60,7 +65,7 @@ export class HomePage implements OnInit {
           this.presentToast('QR Code Scanner gestartet');
           this.qrScanner.show();
           // start scanning
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+          const scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
             this.presentToast(text);
             this.qrScanner.pausePreview();
@@ -84,6 +89,38 @@ export class HomePage implements OnInit {
         console.log('Error is', e);
         this.presentToast('Es ist ein Fehler aufgetreten oder es ist keine Kamera vorhanden');
       });
+  }
+
+
+  scanGeolocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+
+    const watch = this.geolocation.watchPosition();
+    watch.subscribe(async (data) => {
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.latitude
+      // data.coords.longitude
+      console.log(data);
+      this.locations.push(data);
+      let msg;
+      if (!data.coords) {
+        msg = 'Fehler';
+      } else {
+        msg = data.coords.latitude.toString() + '\t' +  data.coords.latitude.toString();
+      }
+
+      const toast = await this.toastController.create({
+        message: msg,
+        duration: 400
+      });
+      toast.present();
+
+     });
   }
 
 }
