@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'user-data',
     loadChildren: () => import('./user-data/user-data.module').then( m => m.UserDataPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
 ];
 
