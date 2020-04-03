@@ -1,0 +1,18 @@
+.input-sub-text ion-icon {
+    display       : inline-block;
+    font-size     : 24px;
+    color         : #ffC977;
+    vertical-align: middle;
+}
+
+.input-sub-text span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.input-sub-text.danger {
+    color: var(--ion-color-danger);
+}
+.input-sub-text.danger ion-icon {
+    color: var(--ion-color-danger);
+}
