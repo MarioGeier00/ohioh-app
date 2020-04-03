@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,13 @@ export class HomePage implements OnInit {
 
   public locations: Geoposition[] = new Array();
 
+  private locationWatcher: Observable<Geoposition>;
+  private locationSubscription: Subscription;
+
   constructor(private qrScanner: QRScanner,
-              public toastController: ToastController,
-              private geolocation: Geolocation
-              ) { }
+    public toastController: ToastController,
+    private geolocation: Geolocation
+  ) { }
 
   ngOnInit() {
     this.qrScanner.pausePreview();
@@ -91,36 +95,46 @@ export class HomePage implements OnInit {
       });
   }
 
+  isScanningLocation(): boolean {
+    if (!this.locationSubscription)
+      return false;
+    return this.locationSubscription.closed;
+  }
 
   scanGeolocation() {
+    
     this.geolocation.getCurrentPosition().then((resp) => {
       // resp.coords.latitude
       // resp.coords.longitude
-     }).catch((error) => {
-       this.presentToast(error.message);
-       console.log('Error getting location', error);
-     });
+    }).catch((error) => {
+      this.presentToast(error.message);
+      console.log('Error getting location', error);
+    });
 
-    const watch = this.geolocation.watchPosition();
-    watch.subscribe(async (data) => {
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-      console.log(data);
-      this.locations.push(data);
-      let msg;
-      if (!data.coords) {
-        msg = 'Fehler';
-      } else {
-        msg = data.coords.latitude.toString() + '\t' +  data.coords.latitude.toString();
-        const toast = await this.toastController.create({
-          message: msg,
-          duration: 400
-        });
-        toast.present();
-      }
+    if (this.isScanningLocation()) {
+      this.locationSubscription.unsubscribe();
+      return;
+    } else {
+      this.locationWatcher = this.geolocation.watchPosition();
+      this.locationSubscription = this.locationWatcher.subscribe(data => this.processLocation(data));
+    }
 
-     });
+  }
+
+  async processLocation(pos: Geoposition) {
+    console.log(pos);
+    this.locations = [pos, ...this.locations];
+    let msg;
+    if (!pos.coords) {
+      msg = 'Fehler';
+    } else {
+      msg = pos.coords.latitude.toString() + '\t' + pos.coords.latitude.toString();
+      const toast = await this.toastController.create({
+        message: msg,
+        duration: 400
+      });
+      toast.present();
+    }
   }
 
 }
