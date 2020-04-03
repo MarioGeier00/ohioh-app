@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +11,10 @@ export class WelcomePage implements OnInit {
 
   slideOpts;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private menuCtrl: MenuController) {
+    this.menuCtrl.enable(false);
+  }
 
   ngOnInit() {
     this.slideOpts = {
