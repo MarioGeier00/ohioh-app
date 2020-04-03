@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageSelectorComponent implements OnInit {
 
+
+  public languages = [
+    { name: 'Deutsch', id: 'de' },
+    { name: 'Englisch', id: 'en' },
+    { name: 'Türkisch', id: 'tr' },
+    { name: 'Russisch', id: 'ru' },
+    { name: 'Polnisch', id: 'pl' },
+    { name: 'Arabisch', id: 'sa' },
+    { name: 'Kurdisch', id: 'ku' }
+  ];
+
   constructor() { }
 
   ngOnInit() {}
