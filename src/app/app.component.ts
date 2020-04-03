@@ -41,7 +41,12 @@ export class AppComponent implements OnInit {
       title: 'Aufenthalt nachtragen',
       url: '/location/add',
       icon: 'settings'
-    }
+    },
+    {
+      title: 'Über die Entwickler',
+      url: '/credits',
+      icon: 'code'
+    },
   ];
 
   constructor(
