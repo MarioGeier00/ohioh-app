@@ -23,14 +23,14 @@ export class AppComponent implements OnInit {
       icon: 'information-circle'
     },
     {
+      title: 'Daten zur Person ändern',
+      url: '/user-data',
+      icon: 'person-circle'
+    },
+    {
       title: 'Privatsphäreneinstellungen',
       url: '/user-data',
       icon: 'shield-checkmark'
-    },
-    {
-      title: 'Daten verwalten',
-      url: '/user-data',
-      icon: 'add-circle'
     },
     {
       title: 'Einstellungen',
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Aufenthalt nachtragen',
       url: '/location/add',
-      icon: 'settings'
+      icon: 'add-circle'
     },
     {
       title: 'Über die Entwickler',
