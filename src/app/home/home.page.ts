@@ -3,6 +3,8 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Observable, Subscription } from 'rxjs';
+import { BackgroundGeolocation, BackgroundGeolocationConfig, 
+  BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 
 @Component({
   selector: 'app-home',
@@ -12,18 +14,62 @@ import { Observable, Subscription } from 'rxjs';
 export class HomePage implements OnInit {
 
   public locations: Geoposition[] = new Array();
+  public backroundLocations: BackgroundGeolocationResponse[] = new Array();
 
   private locationWatcher: Observable<Geoposition>;
   private locationSubscription: Subscription;
 
   constructor(private qrScanner: QRScanner,
     public toastController: ToastController,
+    private backgroundGeolocation: BackgroundGeolocation,
     private geolocation: Geolocation
   ) { }
 
   ngOnInit() {
     this.qrScanner.pausePreview();
+
+    const config: BackgroundGeolocationConfig = {
+      desiredAccuracy: 10,
+      stationaryRadius: 20,
+      distanceFilter: 30,
+      debug: true, //  enable this hear sounds for background-geolocation life-cycle.
+      stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+    };
+    this.backgroundGeolocation.configure(config)
+      .then(() => {
+
+        this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
+          console.log(location);
+          this.backroundLocations = [location, ...this.backroundLocations];
+          // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
+          // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
+          // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
+          this.backgroundGeolocation.finish(); // FOR IOS ONLY
+        });
+
+      });
   }
+
+
+
+  startBackgroudGeo() {
+    // start recording location
+    this.backgroundGeolocation.start();
+  }
+
+
+
+
+  stopBackgroudGeo() {
+    // If you wish to turn OFF background-tracking, call the #stop method.
+    this.backgroundGeolocation.stop();
+  }
+
+
+
+
+
+
 
   async presentToast(msg: string) {
     const toast = await this.toastController.create({
@@ -102,7 +148,7 @@ export class HomePage implements OnInit {
   }
 
   scanGeolocation() {
-    
+
     this.geolocation.getCurrentPosition().then((resp) => {
       // resp.coords.latitude
       // resp.coords.longitude
