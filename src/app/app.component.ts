@@ -33,6 +33,11 @@ export class AppComponent implements OnInit {
       icon: 'add-circle'
     },
     {
+      title: 'Einstellungen',
+      url: '/settings',
+      icon: 'settings'
+    },
+    {
       title: 'Aufenthalt nachtragen',
       url: '/location/add',
       icon: 'settings'
