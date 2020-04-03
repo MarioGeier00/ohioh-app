@@ -7,20 +7,10 @@
 
   <ion-radio-group value="de">
 
-    <ion-item>
+    <ion-item *ngFor="let lang of languages">
       <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Deutsch</ion-label>
-      <ion-radio slot="end" value="de"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Englisch</ion-label>
-      <ion-radio slot="end" value="en"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Französisch</ion-label>
-      <ion-radio slot="end" value="fr"></ion-radio>
+      <ion-label>{{lang.name}}</ion-label>
+      <ion-radio slot="end" [value]="lang.id"></ion-radio>
     </ion-item>
 
   </ion-radio-group>
