@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, config } from 'rxjs';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, 
   BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 
@@ -27,19 +27,40 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.qrScanner.pausePreview();
+  }
 
-    const config: BackgroundGeolocationConfig = {
-      desiredAccuracy: 10,
-      stationaryRadius: 20,
-      distanceFilter: 30,
-      debug: true, //  enable this hear sounds for background-geolocation life-cycle.
-      stopOnTerminate: false, // enable this to clear background location settings when the app terminates
-    };
-    this.backgroundGeolocation.configure(config)
+  config: BackgroundGeolocationConfig = {
+    desiredAccuracy: 100,
+    stationaryRadius: 1,
+    distanceFilter: 1,
+    debug: true, //  enable this hear sounds for background-geolocation life-cycle.
+    stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+  };
+  
+  changeValB(value: number) {
+    this.config.stationaryRadius = value;
+  }
+  
+  changeValAcc(value: number) {
+    this.config.desiredAccuracy = value;
+  }
+
+  changeValA(value: number) {
+    this.config.distanceFilter = value;
+  }
+
+  startBackgroudGeo() {
+    console.log (this.config);
+    this.backgroundGeolocation.configure(this.config)
       .then(() => {
 
         this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
           console.log(location);
+          const toast = this.toastController.create({
+            message: JSON.stringify(location),
+            duration: 2000
+          }).then(() => toast.present());
+
           this.backroundLocations = [location, ...this.backroundLocations];
           // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
           // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
@@ -48,15 +69,14 @@ export class HomePage implements OnInit {
         });
 
       });
-  }
 
-
-
-  startBackgroudGeo() {
     // start recording location
     this.backgroundGeolocation.start();
   }
 
+  getVal(val: BackgroundGeolocationResponse) {
+    return JSON.stringify(val);
+  }
 
 
 

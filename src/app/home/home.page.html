@@ -14,11 +14,29 @@
   <ion-button (click)="scanGeolocation()">{{ isScanningLocation() ? 'Stop ' : ''}}Geolocation Scan</ion-button>
   <ion-button (click)="startBackgroudGeo()">Backround Geo Scan</ion-button>
   <ion-button (click)="stopBackgroudGeo()" color="danger">Backround Geo stop</ion-button>
+  <ion-item>
+    <ion-range #b min="0" max="200" color="secondary" (ionChange)="changeValB(b.value)">
+      <ion-label slot="start">0m</ion-label>
+      <ion-label slot="end">200m</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-range #acc min="0" max="200" color="secondary" (ionChange)="changeValAcc(acc.value)">
+      <ion-label slot="start">0m</ion-label>
+      <ion-label slot="end">200m</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-range #a min="0" max="200" color="secondary" (ionChange)="changeValA(a.value)">
+      <ion-label slot="start">0m</ion-label>
+      <ion-label slot="end">200m</ion-label>
+    </ion-range>
+  </ion-item>
 
-  <p>{{locations.length / 60}}</p>
+  <p>{{backroundLocations.length}}</p>
   <ion-list>
     <ion-item *ngFor="let location of backroundLocations">
-      {{location.time | date: 'HH:mm:ss'}}
+      <b>{{location.time | date: 'HH:mm:ss'}}</b>  {{getVal(location)}}
     </ion-item>
   </ion-list>
 </ion-content>
