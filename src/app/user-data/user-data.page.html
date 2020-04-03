@@ -28,20 +28,24 @@
 
     <ion-item>
       <ion-label position="floating">Alter</ion-label>
-      <ion-input formControlName="age" type="number"></ion-input>
+      <ion-input formControlName="age" type="number" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
     <div class="input-sub-text danger ion-padding" *ngIf="validations_form.controls.age.invalid">
       <ion-icon name="alert-circle"></ion-icon>
       <span>Ihr Alter muss größer als 0 sein</span>
     </div>
 
+
+    
     <ion-item>
       <ion-label position="floating">Wohnort</ion-label>
       <ion-input formControlName="residence"></ion-input>
     </ion-item>
 
-    <ion-button color="light" (click)="cancel()">Abbrechen</ion-button>
-    <ion-button type="submit" color="success" (click)="applyData()">Übernehmen</ion-button>
+    <div class="ion-padding">
+      <ion-button class="ion-float-right" type="submit" color="success" (click)="applyData()">Übernehmen</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">Abbrechen</ion-button>
+    </div>
   </form>
 
 </ion-content>

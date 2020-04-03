@@ -24,7 +24,7 @@ export class UserDataPage implements OnInit {
       prename: new FormControl('', Validators.nullValidator),
       name: new FormControl('', Validators.nullValidator),
       phone: new FormControl('', Validators.nullValidator),
-      age: new FormControl('', Validators.min(1)),
+      age: new FormControl('', Validators.compose([Validators.min(1), Validators.pattern('[0-9]*')]) ),
       residence: new FormControl('', Validators.nullValidator),
     });
   }
@@ -38,6 +38,15 @@ export class UserDataPage implements OnInit {
       return;
     }
     this.navigateHome();
+  }
+
+  numberOnlyValidation(event: any) {
+    const inputChar = String.fromCharCode(event.charCode);
+    const value = parseInt(inputChar);
+    if (isNaN(value)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
   }
 
   cancel() {
