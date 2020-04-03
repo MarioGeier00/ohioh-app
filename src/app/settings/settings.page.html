@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Einstellungen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p>Hier können Sie die Speicherdauer Ihrer Daten einstellen.</p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Speicherdauer GPS-Daten (Tage)</ion-label>
+      <ion-input type="num" [(ngModel)]="gpsDataStorageDuration" (ionChange)="settingsChanged()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Speicherdauer andere Daten (Tage)</ion-label>
+      <ion-input type="num" [(ngModel)]="otherDataStorageDuration" (ionChange)="settingsChanged()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Speicherintervall (Minuten)</ion-label>
+      <ion-input type="num" [(ngModel)]="trackingInterval" (ionChange)="settingsChanged()"></ion-input>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
