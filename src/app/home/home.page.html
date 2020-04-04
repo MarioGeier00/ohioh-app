@@ -3,51 +3,52 @@
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title>OHIOH Home</ion-title>
+    <ion-title>{{ 'home.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="content">
     <ion-button (click)="openInfectionWarning()" color="warning">
-      <ion-icon name="warning" class="ion-padding"></ion-icon>Simuliere Infektionswarnung
+      <ion-icon name="warning" class="ion-padding"></ion-icon>
+      {{ 'home.simulationInfectionWarning' | translate }}
     </ion-button>
 
       <ion-list>
         <ion-list-header>
-          OHIO Statusanzeige
+          {{ 'home.stateOverview.title' | translate }}
         </ion-list-header>
 
         <ion-item>
           <ion-icon size="large" name="warning" slot="start"></ion-icon>
           <ion-label>
-            <h2>Keine Infektionswarnung</h2>
-            <p>Es liegen aktell keine Warnungen vor</p>
+            <h2>{{ 'home.stateOverview.infection.noWarning.title' | translate }}</h2>
+            <p>{{ 'home.stateOverview.infection.noWarning.description' | translate }}</p>
           </ion-label>
         </ion-item>
 
         <ion-item>
           <ion-icon size="large" name="cloud-done" slot="start"></ion-icon>
           <ion-label>
-            <h2>Daten synchronisiert</h2>
-            <p>Ihre Daten wurde vor fünf Minuten hochgeladen</p>
-            <p>Es besteht Internetverbindung</p>
+            <h2>{{ 'home.stateOverview.sync.inSync.title' | translate }}</h2>
+            <p>{{ 'home.stateOverview.sync.inSync.lastUpload' | translate }}</p>
+            <p>{{ 'home.stateOverview.sync.inSync.connected' | translate }}</p>
           </ion-label>
         </ion-item>
 
         <ion-item>
           <ion-icon size="large" name="locate" slot="start"></ion-icon>
           <ion-label>
-            <h2>Standorterfassung aktiv</h2>
-            <p>Ihr Standort wurde zuletzt vor einer Minute erfasst</p>
+            <h2>{{ 'home.stateOverview.gps.active.title' | translate }}</h2>
+            <p>{{ 'home.stateOverview.gps.active.lastUpdate' | translate }}</p>
           </ion-label>
         </ion-item>
 
         <ion-item>
           <ion-icon size="large" name="call" slot="start"></ion-icon>
           <ion-label>
-            <h2>Perönliche Daten hinterlegt</h2>
-            <p>Sie haben alle nötigen Kontaktdaten hinterlegt</p>
+            <h2>{{ 'home.stateOverview.personalData.active.title' | translate }}</h2>
+            <p>{{ 'home.stateOverview.personalData.active.description' | translate }}</p>
           </ion-label>
         </ion-item>
 
@@ -58,6 +59,7 @@
 
 <ion-footer class="ion-padding ion-text-center">
   <ion-button (click)="openQRScan()">
-    <ion-icon name="qr-code" class="ion-padding"></ion-icon>QR-Code Scanner
+    <ion-icon name="qr-code" class="ion-padding"></ion-icon>
+    {{ 'home.qrCodeScanner' | translate }}
   </ion-button>
 </ion-footer>

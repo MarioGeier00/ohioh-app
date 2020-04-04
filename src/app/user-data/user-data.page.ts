@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-data',
@@ -12,7 +14,8 @@ export class UserDataPage implements OnInit {
 
   constructor(private router: Router,
     private menuCtrl: MenuController,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private _translate: TranslateService) {
     this.menuCtrl.enable(false);
   }
 
@@ -27,6 +30,13 @@ export class UserDataPage implements OnInit {
       age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200), Validators.pattern('[0-9]*')]) ),
       residence: new FormControl('', Validators.nullValidator),
     });
+  }
+
+  ionViewDidEnter() {
+    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
+    if (selectedLanguage != null) {
+      this._translate.use(selectedLanguage);
+    }
   }
 
   private navigateHome(): void {

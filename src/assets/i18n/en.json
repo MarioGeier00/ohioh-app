@@ -1,0 +1,13 @@
+{
+    "welcome": {
+        "slides": {
+            "language": {
+                "title": "Welcome",
+                "advice": "You can change the language selection in settings later on."
+            }
+        }
+    },
+    "languageSelection": {
+        "description": "Please choose your language:"
+    }
+}

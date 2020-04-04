@@ -1,0 +1,134 @@
+{
+    "home": {
+        "title": "OHIOH Home",
+        "simulationInfectionWarning": "Simuliere Infektionswarnung",
+        "stateOverview": {
+            "title": "OHIOH Statusanzeige",
+            "infection": {
+                "noWarning": {
+                    "title": "Keine Infektionswarnung",
+                    "description": "Es liegen aktell keine Warnungen vor"
+                }
+            },
+            "sync": {
+                "inSync": {
+                    "title": "Daten synchronisiert",
+                    "lastUpload": "Ihre Daten wurde vor fünf Minuten hochgeladen.",
+                    "connected": "Es besteht Internetverbindung."
+                }
+            },
+            "gps": {
+                "active": {
+                    "title": "Standorterfassung aktiv",
+                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst"
+                }
+            },
+            "personalData": {
+                "active": {
+                    "title": "Perönliche Daten hinterlegt",
+                    "description": "Sie haben alle nötigen Kontaktdaten hinterlegt."
+                }
+            }
+        },
+        "qrCodeScanner": "QR-Code Scanner"
+    },
+    "welcome": {
+        "slides": {
+            "welcome": {
+                "title": "Willkommen zu OHIOH",
+                "description": "Du wirst im Folgenden Schritt für Schritt an die App herangeführt.",
+                "advice": "Wische nach links für den nächsten Schritt!"
+            },
+            "language": {
+                "title": "Willkommen",
+                "advice": "Die Sprache kann später in den Einstellungen geändert werden."
+            },
+            "what": {
+                "title": "Was heißt OHIOH?",
+                "description": "OHIO steht für <b>Our Health In Our Hands</b>. Es ist ein Projekt, dass der Ausbreitung des Coronavirus entgegenwirken soll."
+            },
+            "why": {
+                "title": "Warum sollte ich OHIO verwenden?",
+                "description": "Das Ziel der OHIOH-App ist die <b>Ausbreitung von Viren zu bremsen.</b> Es liegt der Fokus auf dem Filtern von Infektionsketten in der Bevölkerungunter dem Schutz der persönlichen Entscheidung bei User*in über die Art und Umfang der Daten. Diese Vorgehen ermöglicht ein frühzeitiges Informieren der Nutzer und damit den Kontakt zu Ärzten*in. Mit den bereitgestellten Information können Ärzte*in, dieRegierung, Unternehmer*in und die Nutzer*in im Einklang Infektionsketten unterbrechen."
+            },
+            "how": {
+                "title": "Wie funktioniert die App?",
+                "description": "Schauen Sie sich folgendes Erklärvideo an:",
+                "videoLink": "OHIOH"
+            },
+            "nextSteps": {
+                "title": "Wie geht es weiter?",
+                "description": "Im nächsten Schritt können <b>freiwillig</b> Daten eingetragen werden. Sie entscheiden welche Daten Sie zur Verfügung stellen.",
+                "continue": "Weiter"
+            }
+        }
+    },
+    "userData": {
+        "title": "Benutzerdaten",
+        "description": "Hier können Sie Ihre Daten eingeben. Keine Felder müssen ausgefüllt sein.",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "phone": "Telenonnummer",
+        "age": "Alter",
+        "ageValidationMessage": "Ihr Alter muss zwischen einem und 200 Jahren liegen.",
+        "city": "Wohnort",
+        "submit": "Übernehmen",
+        "cancel": "Abbrechen"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "description": "Hier können Sie die Speicherdauer Ihrer Daten einstellen.",
+        "gpsDataStorageDuration": "Speicherdauer GPS-Daten (Tage)",
+        "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
+        "trackingInterval": "Speicherintervall (Minuten)"
+    },
+    "credits": {
+        "title": "Über die Entwickler",
+        "motivation": {
+            "title": "Entstehung und Motivation",
+            "description": "Beim Hackathon der Bundesregierung begann alles. Durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+        },
+        "team": {
+            "title": "Team",
+            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
+            "coordination": "Koordination",
+            "frontendDevelopment": "Entwicklung Frontend",
+            "university": "Die Professor*en*in der Fachhochschule Kiel",
+            "thankYou": "Danke für die gute Zusammenarbeit!"
+        },
+        "attribution": {
+            "title": "Attribution",
+            "description": "Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a>"
+        },
+        "copyright": {
+            "title": "Impressum"
+        },
+        "gtc": {
+            "title": "AGBs"
+        }
+    },
+    "dataProtection": {
+        "title": "Privatsphäreeinstellungen",
+        "usePersonalData": "Privatdaten nutzen",
+        "useGps": "GPS-Daten nutzen",
+        "sendData": "Daten übermitteln"
+    },
+    "infectionWarning": {
+        "pageTitle": "Warnmeldung",
+        "title": "Infektionswarnung",
+        "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
+        "nextSteps": {
+            "maybeNotInfected": "Möglicher Weise bist du gar nicht infiziert. Safty First",
+            "goToDoctor": "Bitte suche dennoch zeitnah einen Arzt auf und bespreche weiteres vorgehen.",
+            "informAboutOhioh": "Sag dem Arzt bitte,dass du die OHIOH-APP nutzt",
+            "findSolution": "Es hilft euch schnell eine Lösung zu finden",
+            "goodLuck": "Wir drücken dir die Daumen",
+            "linksToDoctors": "Arzt Verlinkung in der Nähe"
+        },
+        "continue": "Weitere Schritte",
+        "accept": "Warnung akzeptieren"
+    },
+    "languageSelection": {
+        "description": "Bitte wählen Sie Ihre Sprache aus:"
+    }
+}
