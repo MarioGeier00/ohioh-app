@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
@@ -29,6 +30,14 @@ const routes: Routes = [
   {
     path: 'qr-scanner',
     loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+  },
+  {
+    path: 'data-protection',
+    loadChildren: () => import('./data-protection/data-protection.module').then( m => m.DataProtectionPageModule)
+  },
+  {
+    path: 'infection-warning',
+    loadChildren: () => import('./infection-warning/infection-warning.module').then( m => m.InfectionWarningPageModule)
   }
 
 ];

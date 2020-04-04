@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Privatsphäreneinstellungen',
-      url: '/user-data',
+      url: '/data-protection',
       icon: 'shield-checkmark'
     },
     {

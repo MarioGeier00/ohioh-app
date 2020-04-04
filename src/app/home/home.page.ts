@@ -33,4 +33,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['/qr-scanner']);
   }
 
+  openInfectionWarning() {
+    this.router.navigate(['/infection-warning']);
+  }
 }

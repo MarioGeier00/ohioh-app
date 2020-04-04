@@ -1,0 +1,6 @@
+@import "../../global.scss";
+
+.content {
+    @extend .margin-right-left-auto;
+    max-width: 500px;
+}
