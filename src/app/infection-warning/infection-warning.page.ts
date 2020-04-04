@@ -17,4 +17,8 @@ export class InfectionWarningPage implements OnInit {
   ngOnInit() {
   }
 
+  onNextClick() {
+    
+  }
+
 }
