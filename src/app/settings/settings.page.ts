@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 
 @Component({
   selector: 'app-settings',
@@ -11,9 +13,16 @@ export class SettingsPage implements OnInit {
   private otherDataStorageDuration = 90;
   private trackingInterval = 5;
 
-  constructor() { }
+  constructor(private _translate: TranslateService) { }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
+    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
+    if (selectedLanguage != null) {
+      this._translate.use(selectedLanguage);
+    }
   }
 
   settingsChanged() {
