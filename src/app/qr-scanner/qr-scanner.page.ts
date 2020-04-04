@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./qr-scanner.page.scss'],
 })
 export class QrScannerPage implements OnInit {
+
+  scanSub: Subscription;
 
   constructor(private qrScanner: QRScanner,
     public toastController: ToastController,
@@ -26,6 +29,10 @@ export class QrScannerPage implements OnInit {
   }
 
   close() {
+    this.scanSub.unsubscribe();
+    this.qrScanner.hide();
+    this.qrScanner.pausePreview();
+    // this.qrScanner.destroy();
     this.router.navigate(['/home']);
   }
 
@@ -34,17 +41,16 @@ export class QrScannerPage implements OnInit {
   }
 
   scannQRCode() {
-    this.qrScanner.destroy();
     // Optionally request the permission early
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
-        this.qrScanner.openSettings();
+        // this.qrScanner.openSettings();
         if (status.authorized) {
           // camera permission was granted
           this.presentToast('QR Code Scanner gestartet');
           this.qrScanner.show();
           // start scanning
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+          this.scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
             this.presentToast(text);
 
