@@ -2,10 +2,10 @@
 <ion-list>
   
   <ion-list-header>
-    <h6>Bitte wählen Sie Ihre Sprache aus:</h6>
+    <h6>{{ 'languageSelection.description' | translate }}</h6>
   </ion-list-header>
 
-  <ion-radio-group value="de">
+  <ion-radio-group value="de" (ionChange)="languageSelected($event)">
 
     <ion-item *ngFor="let lang of languages">
       <ion-icon name="flag" slot="start"></ion-icon>

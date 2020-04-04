@@ -1,5 +1,8 @@
 {
     "home": {
         "title": "OHIOH Home"
+    },
+    "languageSelection": {
+        "description": "Bitte wählen Sie Ihre Sprache aus:"
     }
 }
