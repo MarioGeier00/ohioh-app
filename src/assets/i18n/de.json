@@ -33,6 +33,18 @@
             }
         }
     },
+    "userData": {
+        "title": "Benutzerdaten",
+        "description": "Hier können Sie Ihre Daten eingeben. Keine Felder müssen ausgefüllt sein.",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "phone": "Telenonnummer",
+        "age": "Alter",
+        "ageValidationMessage": "Ihr Alter muss zwischen einem und 200 Jahren liegen.",
+        "city": "Wohnort",
+        "submit": "Übernehmen",
+        "cancel": "Abbrechen"
+    },
     "languageSelection": {
         "description": "Bitte wählen Sie Ihre Sprache aus:"
     }

@@ -1,50 +1,51 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <ion-icon name="person" style="margin-right: 10px"></ion-icon>Benutzerdaten
+      <ion-icon name="person" style="margin-right: 10px"></ion-icon>
+      {{ 'userData.title' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <p>Hier können Sie Ihre Daten eingeben. Keine Felder müssen ausgefüllt sein.</p>
+  <p>{{ 'userData.description' | translate }}</p>
   <form [formGroup]="validations_form" (ngSubmit)="applyData()">
 
     <ion-item>
-      <ion-label position="floating">Vorname</ion-label>
+      <ion-label position="floating">{{ 'userData.firstName' | translate }}</ion-label>
       <ion-input formControlName="prename" autocapitalize="'words'" autofocus=true></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Nachname</ion-label>
+      <ion-label position="floating">{{ 'userData.lastName' | translate }}</ion-label>
       <ion-input formControlName="name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Telefonnummer</ion-label>
+      <ion-label position="floating">{{ 'userData.phone' | translate }}</ion-label>
       <ion-input formControlName="phone" inputmode="tel"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Alter</ion-label>
+      <ion-label position="floating">{{ 'userData.age' | translate }}</ion-label>
       <ion-input formControlName="age" type="number" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
     <div class="input-sub-text danger ion-padding" *ngIf="validations_form.controls.age.invalid">
       <ion-icon name="alert-circle"></ion-icon>
-      <span>Ihr Alter muss zwischen einem und 200 Jahren liegen</span>
+      <span>{{ 'userData.ageValidationMessage' | translate }}</span>
     </div>
 
 
-    
+
     <ion-item>
-      <ion-label position="floating">Wohnort</ion-label>
+      <ion-label position="floating">{{ 'userData.city' | translate }}</ion-label>
       <ion-input formControlName="residence"></ion-input>
     </ion-item>
 
     <div class="ion-padding">
-      <ion-button class="ion-float-right" type="submit" color="success" (click)="applyData()">Übernehmen</ion-button>
-      <ion-button class="ion-float-right" color="light" (click)="cancel()">Abbrechen</ion-button>
+      <ion-button class="ion-float-right" type="submit" color="success" (click)="applyData()">{{ 'userData.submit' | translate }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}</ion-button>
     </div>
   </form>
 
