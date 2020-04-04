@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'qr-scanner',
     loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+  },
+  {
+    path: 'infection-warning',
+    loadChildren: () => import('./infection-warning/infection-warning.module').then( m => m.InfectionWarningPageModule)
   }
 
 ];
