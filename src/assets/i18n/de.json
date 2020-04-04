@@ -1,6 +1,36 @@
 {
     "home": {
-        "title": "OHIOH Home"
+        "title": "OHIOH Home",
+        "simulationInfectionWarning": "Simuliere Infektionswarnung",
+        "stateOverview": {
+            "title": "OHIOH Statusanzeige",
+            "infection": {
+                "noWarning": {
+                    "title": "Keine Infektionswarnung",
+                    "description": "Es liegen aktell keine Warnungen vor"
+                }
+            },
+            "sync": {
+                "inSync": {
+                    "title": "Daten synchronisiert",
+                    "lastUpload": "Ihre Daten wurde vor fünf Minuten hochgeladen.",
+                    "connected": "Es besteht Internetverbindung."
+                }
+            },
+            "gps": {
+                "active": {
+                    "title": "Standorterfassung aktiv",
+                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst"
+                }
+            },
+            "personalData": {
+                "active": {
+                    "title": "Perönliche Daten hinterlegt",
+                    "description": "Sie haben alle nötigen Kontaktdaten hinterlegt."
+                }
+            }
+        },
+        "qrCodeScanner": "QR-Code Scanner"
     },
     "welcome": {
         "slides": {
