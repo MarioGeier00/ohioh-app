@@ -113,6 +113,21 @@
         "useGps": "GPS-Daten nutzen",
         "sendData": "Daten übermitteln"
     },
+    "infectionWarning": {
+        "pageTitle": "Warnmeldung",
+        "title": "Infektionswarnung",
+        "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
+        "nextSteps": {
+            "maybeNotInfected": "Möglicher Weise bist du gar nicht infiziert. Safty First",
+            "goToDoctor": "Bitte suche dennoch zeitnah einen Arzt auf und bespreche weiteres vorgehen.",
+            "informAboutOhioh": "Sag dem Arzt bitte,dass du die OHIOH-APP nutzt",
+            "findSolution": "Es hilft euch schnell eine Lösung zu finden",
+            "goodLuck": "Wir drücken dir die Daumen",
+            "linksToDoctors": "Arzt Verlinkung in der Nähe"
+        },
+        "continue": "Weitere Schritte",
+        "accept": "Warnung akzeptieren"
+    },
     "languageSelection": {
         "description": "Bitte wählen Sie Ihre Sprache aus:"
     }

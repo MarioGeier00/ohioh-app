@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 
 @Component({
   selector: 'app-infection-warning',
@@ -10,11 +12,19 @@ import { Router } from '@angular/router';
 export class InfectionWarningPage implements OnInit {
 
   constructor(private menuCtrl: MenuController,
-    private router: Router) {
+    private router: Router,
+    private _translate: TranslateService) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
+    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
+    if (selectedLanguage != null) {
+      this._translate.use(selectedLanguage);
+    }
   }
 
   onNextClick() {
