@@ -29,10 +29,14 @@ export class QrScannerPage implements OnInit {
   }
 
   close() {
-    this.scanSub.unsubscribe();
+    if (this.scanSub) {
+      this.scanSub.unsubscribe();
+    }
     this.qrScanner.hide();
     this.qrScanner.pausePreview();
     // this.qrScanner.destroy();
+
+    this.menuCtrl.enable(true);
     this.router.navigate(['/home']);
   }
 
