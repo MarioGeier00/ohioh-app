@@ -24,7 +24,7 @@ export class UserDataPage implements OnInit {
       prename: new FormControl('', Validators.nullValidator),
       name: new FormControl('', Validators.nullValidator),
       phone: new FormControl('', Validators.nullValidator),
-      age: new FormControl('', Validators.compose([Validators.min(1), Validators.pattern('[0-9]*')]) ),
+      age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200), Validators.pattern('[0-9]*')]) ),
       residence: new FormControl('', Validators.nullValidator),
     });
   }
