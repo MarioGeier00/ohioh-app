@@ -11,6 +11,7 @@ import { LanguageSelectorComponent } from '../shared/language-selector/language-
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../i18n-config';
 import { HttpClient } from '@angular/common/http';
+import { LogoComponent } from '../shared/logo/logo.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { HttpClient } from '@angular/common/http';
   ],
   declarations: [
     WelcomePage,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    LogoComponent
   ]
 })
 export class WelcomePageModule { }
