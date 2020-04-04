@@ -8,13 +8,23 @@ import { WelcomePageRoutingModule } from './welcome-routing.module';
 
 import { WelcomePage } from './welcome.page';
 import { LanguageSelectorComponent } from '../shared/language-selector/language-selector.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from '../i18n-config';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    WelcomePageRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   declarations: [
     WelcomePage,

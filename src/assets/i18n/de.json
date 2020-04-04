@@ -2,6 +2,37 @@
     "home": {
         "title": "OHIOH Home"
     },
+    "welcome": {
+        "slides": {
+            "welcome": {
+                "title": "Willkommen zu OHIOH",
+                "description": "Du wirst im Folgenden Schritt für Schritt an die App herangeführt.",
+                "advice": "Wische nach links für den nächsten Schritt!"
+            },
+            "language": {
+                "title": "Willkommen",
+                "advice": "Die Sprache kann später in den Einstellungen geändert werden."
+            },
+            "what": {
+                "title": "Was heißt OHIOH?",
+                "description": "OHIO steht für <b>Our Health In Our Hands</b>. Es ist ein Projekt, dass der Ausbreitung des Coronavirus entgegenwirken soll."
+            },
+            "why": {
+                "title": "Warum sollte ich OHIO verwenden?",
+                "description": "Das Ziel der OHIOH-App ist die <b>Ausbreitung von Viren zu bremsen.</b> Es liegt der Fokus auf dem Filtern von Infektionsketten in der Bevölkerungunter dem Schutz der persönlichen Entscheidung bei User*in über die Art und Umfang der Daten. Diese Vorgehen ermöglicht ein frühzeitiges Informieren der Nutzer und damit den Kontakt zu Ärzten*in. Mit den bereitgestellten Information können Ärzte*in, dieRegierung, Unternehmer*in und die Nutzer*in im Einklang Infektionsketten unterbrechen."
+            },
+            "how": {
+                "title": "Wie funktioniert die App?",
+                "description": "Schauen Sie sich folgendes Erklärvideo an:",
+                "videoLink": "OHIOH"
+            },
+            "nextSteps": {
+                "title": "Wie geht es weiter?",
+                "description": "Im nächsten Schritt können <b>freiwillig</b> Daten eingetragen werden. Sie entscheiden welche Daten Sie zur Verfügung stellen.",
+                "continue": "Weiter"
+            }
+        }
+    },
     "languageSelection": {
         "description": "Bitte wählen Sie Ihre Sprache aus:"
     }
