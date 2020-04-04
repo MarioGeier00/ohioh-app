@@ -47,11 +47,12 @@ export class QrScannerPage implements OnInit {
           let scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
             this.presentToast(text);
-            this.qrScanner.pausePreview();
 
-            this.qrScanner.hide(); // hide camera preview
-            this.qrScanner.destroy();
-            scanSub.unsubscribe(); // stop scanning
+            // this.qrScanner.pausePreview();
+
+            // this.qrScanner.hide(); // hide camera preview
+            // this.qrScanner.destroy();
+            // scanSub.unsubscribe(); // stop scanning
           });
 
         } else if (status.denied) {
