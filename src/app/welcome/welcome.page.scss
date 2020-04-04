@@ -3,6 +3,11 @@ ion-slide {
   overflow-y: auto;
 }
 
+app-logo.big svg {
+  width: 50% !important;
+  height: 50% !important;
+}
+
 .swiper-slide {
   display: block;
 }
@@ -19,9 +24,9 @@ ion-slide {
 }
 
 .swiper-slide img.size-big {
-  max-height    : 50%;
-  max-width     : 80%;
-  margin        : 40px 0 30px;
+  max-height: 50%;
+  max-width : 80%;
+  margin    : 40px 0 30px;
 }
 
 b {
