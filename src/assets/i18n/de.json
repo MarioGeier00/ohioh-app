@@ -52,6 +52,31 @@
         "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
         "trackingInterval": "Speicherintervall (Minuten)"
     },
+    "credits": {
+        "title": "Über die Entwickler",
+        "motivation": {
+            "title": "Entstehung und Motivation",
+            "description": "Beim Hackathon der Bundesregierung begann alles. Durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+        },
+        "team": {
+            "title": "Team",
+            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
+            "coordination": "Koordination",
+            "frontendDevelopment": "Entwicklung Frontend",
+            "university": "Die Professor*en*in der Fachhochschule Kiel",
+            "thankYou": "Danke für die gute Zusammenarbeit!"
+        },
+        "attribution": {
+            "title": "Attribution",
+            "description": "Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a>"
+        },
+        "copyright": {
+            "title": "Impressum"
+        },
+        "gtc": {
+            "title": "AGBs"
+        }
+    },
     "languageSelection": {
         "description": "Bitte wählen Sie Ihre Sprache aus:"
     }

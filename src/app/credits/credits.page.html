@@ -2,29 +2,20 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
-      <!-- <ion-back-button></ion-back-button> -->
     </ion-buttons>
-    <ion-title>Über die Entwickler</ion-title>
+    <ion-title>{{ 'credits.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <h3>Entstehung und Motivation</h3>
-  <p>
-    Beim Hackathon der Bundesregierung begann alles.
-    Durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team.
-    Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden.
-  </p>
+  <h3>{{ 'credits.motivation.title' | translate }}</h3>
+  <p>{{ 'credits.motivation.description' | translate }}</p>
 
-  <h3>Team</h3>
-  <p>
-    Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen.
-    Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner
-    Dank an euch alle:
-  </p>
+  <h3>{{ 'credits.team.title' | translate }}</h3>
+  <p>{{ 'credits.team.description' | translate }}</p>
   <ul>
-    <h5>Coordination</h5>
+    <h5>{{ 'credits.team.coordination' | translate }}</h5>
     <li>Tjark Ziehm</li>
     <li>Peter</li>
     <li>Oska</li>
@@ -38,22 +29,21 @@
     <li>Saad</li>
     <li>Mohsin</li>
 
-    <h5>Frontend Developement</h5>
-    <li>Jnnwnk</li>
+    <h5>{{ 'credits.team.frontendDevelopment' | translate }}</h5>
+    <li>Janna Wieneke</li>
     <li>Mario Geier</li>
 
-    <h5>Die Professor*en*in der Fachhochschule Kiel</h5>
+    <h5>{{ 'credits.team.university' | translate }}</h5>
     <li>Christian</li>
     <li>Daniel</li>
 
   </ul>
-  <h5>Danke für die gute Zusammenarbeit!</h5>
+  <h5>{{ 'credits.team.thankYou' | translate }}</h5>
 
-  <h3>Attribution</h3>
-  <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a
-      href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <h3>{{ 'credits.attribution.title' | translate }}</h3>
+  <div [innerHTML]="'credits.attribution.description' | translate"></div>
 
-  <h3>Impressum</h3>
+  <h3>{{ 'credits.copyright.title' | translate }}</h3>
   <p>
     <small>
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -64,7 +54,7 @@
       sanctus est Lorem ipsum dolor sit amet.
     </small>
   </p>
-  <h3>AGBs</h3>
+  <h3>{{ 'credits.gtc.title' | translate }}</h3>
   <p>
     <small>
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
