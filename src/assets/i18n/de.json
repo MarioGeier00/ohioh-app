@@ -107,6 +107,12 @@
             "title": "AGBs"
         }
     },
+    "dataProtection": {
+        "title": "Privatsphäreeinstellungen",
+        "usePersonalData": "Privatdaten nutzen",
+        "useGps": "GPS-Daten nutzen",
+        "sendData": "Daten übermitteln"
+    },
     "languageSelection": {
         "description": "Bitte wählen Sie Ihre Sprache aus:"
     }
