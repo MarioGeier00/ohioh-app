@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'credits',
     loadChildren: () => import('./credits/credits.module').then( m => m.CreditsPageModule)
+  },
+  {
+    path: 'qr-scanner',
+    loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
   }
 
 ];
