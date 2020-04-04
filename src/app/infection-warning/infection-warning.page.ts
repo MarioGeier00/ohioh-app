@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infection-warning',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfectionWarningPage implements OnInit {
 
-  constructor() { }
+  constructor(private menuCtrl: MenuController,
+    private router: Router) {
+    this.menuCtrl.enable(false);
+  }
 
   ngOnInit() {
   }
