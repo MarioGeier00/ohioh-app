@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'data-protection',
     loadChildren: () => import('./data-protection/data-protection.module').then( m => m.DataProtectionPageModule)
+  },
+  {
+    path: 'infection-warning',
+    loadChildren: () => import('./infection-warning/infection-warning.module').then( m => m.InfectionWarningPageModule)
   }
 
 ];
