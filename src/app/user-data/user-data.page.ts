@@ -50,6 +50,10 @@ export class UserDataPage implements OnInit {
     this.navigateHome();
   }
 
+  cancel() {
+    this.navigateHome();
+  }
+  
   numberOnlyValidation(event: any) {
     const inputChar = String.fromCharCode(event.charCode);
     const value = parseInt(inputChar);
@@ -59,8 +63,5 @@ export class UserDataPage implements OnInit {
     }
   }
 
-  cancel() {
-    this.navigateHome();
-  }
 
 }
