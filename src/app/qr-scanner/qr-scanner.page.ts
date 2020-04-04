@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ToastController, MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -11,7 +12,8 @@ export class QrScannerPage implements OnInit {
 
   constructor(private qrScanner: QRScanner,
     public toastController: ToastController,
-    private menuCtrl: MenuController) {
+    private menuCtrl: MenuController,
+    private router: Router) {
     this.menuCtrl.enable(false);
   }
 
@@ -21,6 +23,10 @@ export class QrScannerPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  close() {
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {
