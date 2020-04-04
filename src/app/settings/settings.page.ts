@@ -9,9 +9,9 @@ import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 })
 export class SettingsPage implements OnInit {
 
-  private gpsDataStorageDuration = 14;
-  private otherDataStorageDuration = 90;
-  private trackingInterval = 5;
+  public gpsDataStorageDuration = 14;
+  public otherDataStorageDuration = 90;
+  public trackingInterval = 5;
 
   constructor(private _translate: TranslateService) { }
 

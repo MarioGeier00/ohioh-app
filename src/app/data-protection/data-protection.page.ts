@@ -9,9 +9,9 @@ import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 })
 export class DataProtectionPage implements OnInit {
   
-  private usePersonalData = false;
-  private useGpsData = false;
-  private sendData = false;
+  public usePersonalData = false;
+  public useGpsData = false;
+  public sendData = false;
   
   constructor(private _translate: TranslateService) { }
 
