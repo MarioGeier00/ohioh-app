@@ -4,7 +4,7 @@ ion-slide {
 }
 
 app-logo.big svg {
-  width: 50% !important;
+  width : 50% !important;
   height: 50% !important;
 }
 
@@ -42,4 +42,10 @@ p {
 
 p b {
   color: var(--ion-text-color, #000000);
+}
+
+ion-fab-button {
+  position: absolute;
+  bottom  : 23px;
+  right   : 16px;
 }

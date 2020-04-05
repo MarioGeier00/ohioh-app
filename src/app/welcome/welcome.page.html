@@ -18,7 +18,7 @@
         <br />
         <b>{{ 'welcome.slides.welcome.advice' | translate }}</b>
       </p>
-      <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
@@ -28,7 +28,7 @@
       <h2>{{ 'welcome.slides.language.title' | translate }}</h2>
       <app-language-selector></app-language-selector>
       <p>{{ 'welcome.slides.language.advice' | translate }}</p>
-      <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
@@ -38,7 +38,7 @@
       <app-logo></app-logo>
       <h2>{{ 'welcome.slides.what.title' | translate }}</h2>
       <p [innerHTML]="'welcome.slides.what.description' | translate"></p>
-      <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
@@ -47,7 +47,7 @@
       <app-logo></app-logo>
       <h2>{{ 'welcome.slides.why.title' | translate }}</h2>
       <p [innerHTML]="'welcome.slides.why.description' | translate"></p>
-      <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
@@ -62,7 +62,7 @@
         {{ 'welcome.slides.how.videoLink' | translate }}
         <ion-icon slot="end" style="font-size: 16px;" name="open-outline"></ion-icon>
       </ion-button>
-      <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
