@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
     private _translate: TranslateService) {
     this.menuCtrl.enable(true);
   }
-  
+
   ngOnInit() {
   }
 
