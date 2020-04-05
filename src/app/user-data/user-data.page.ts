@@ -55,8 +55,7 @@ export class UserDataPage implements OnInit {
     if (this.userDataForm.invalid) {
       return;
     }
-    this.userData.updateUserData(this.userDataForm.value);
-    this.navigateHome();
+    this.userData.updateUserData(this.userDataForm.value).then(() => this.navigateHome());
   }
 
   cancel() {

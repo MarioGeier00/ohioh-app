@@ -11,8 +11,8 @@ export class UserService {
 
   constructor(private storage: Storage) { }
 
-  public updateUserData(user: User): void {
-    this.storage.set(UserService.USER_STORE_KEY, user);
+  public updateUserData(user: User): Promise<any> {
+    return this.storage.set(UserService.USER_STORE_KEY, user);
   }
 
   public getUser(): Promise<User> {
