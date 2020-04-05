@@ -47,6 +47,7 @@ export class UserDataPage implements OnInit {
   }
 
   private navigateHome(): void {
+    this.menuCtrl.enable(true);
     this.router.navigate(['/home']);
   }
 
