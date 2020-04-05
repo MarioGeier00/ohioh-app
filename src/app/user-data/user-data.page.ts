@@ -13,6 +13,8 @@ import { UserService } from '../shared/data-services/user-service/user.service';
 })
 export class UserDataPage implements OnInit {
 
+  public userDataForm: FormGroup;
+
   constructor(private router: Router,
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
@@ -21,16 +23,18 @@ export class UserDataPage implements OnInit {
     this.menuCtrl.enable(false);
   }
 
-  validations_form: FormGroup;
-
   ngOnInit() {
-
-    this.validations_form = this.formBuilder.group({
+    this.userDataForm = this.formBuilder.group({
       prename: new FormControl('', Validators.nullValidator),
       name: new FormControl('', Validators.nullValidator),
       phone: new FormControl('', Validators.nullValidator),
-      age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200), Validators.pattern('[0-9]*')]) ),
+      age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200), Validators.pattern('[0-9]*')])),
       residence: new FormControl('', Validators.nullValidator),
+    });
+
+    this.userData.getUser().then((user) => {
+      console.log(user);
+      this.userDataForm.setValue(user);
     });
   }
 
@@ -46,19 +50,20 @@ export class UserDataPage implements OnInit {
   }
 
   applyData() {
-    if (this.validations_form.invalid) {
+    if (this.userDataForm.invalid) {
       return;
     }
-    this.userData.updateUserData(this.validations_form.value);
+    this.userData.updateUserData(this.userDataForm.value);
     this.navigateHome();
   }
 
   cancel() {
     this.navigateHome();
   }
-  
+
   numberOnlyValidation(event: any) {
     const inputChar = String.fromCharCode(event.charCode);
+    // tslint:disable-next-line: radix
     const value = parseInt(inputChar);
     if (isNaN(value)) {
       // invalid character, prevent input

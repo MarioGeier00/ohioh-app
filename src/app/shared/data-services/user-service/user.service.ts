@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../data-structures/user';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,11 @@ export class UserService {
   constructor(private storage: Storage) { }
 
   public updateUserData(user: User) {
-    console.log(user);
-    this.storage.set('user', JSON.stringify(user));
+    this.storage.set('user', user);
   }
 
-  public getUser(): User {
-    const jsonData = this.storage.getItem('user');
-    if (!jsonData) {
-      return undefined;
-    }
-    const user: User = JSON.parse(jsonData);
-    return user;
+  public getUser(): Promise<User> {
+    return this.storage.get('user');
   }
 
 }

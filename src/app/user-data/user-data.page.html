@@ -10,7 +10,7 @@
 <ion-content class="ion-padding">
 
   <p>{{ 'userData.description' | translate }}</p>
-  <form [formGroup]="validations_form" (ngSubmit)="applyData()">
+  <form [formGroup]="userDataForm" (ngSubmit)="applyData()">
 
     <ion-item>
       <ion-label position="floating">{{ 'userData.firstName' | translate }}</ion-label>
