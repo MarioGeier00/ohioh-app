@@ -56,7 +56,12 @@
       <app-logo></app-logo>
       <h2>{{ 'welcome.slides.how.title' | translate }}</h2>
       <p>{{ 'welcome.slides.how.description' | translate }}</p>
-      <a href="https://youtube.de">{{ 'welcome.slides.how.videoLink' | translate }}</a>
+      <a></a>
+      <ion-button fill="clear" href="https://youtube.de">
+        <ion-icon name="logo-youtube" size="large" slot="start"></ion-icon>
+        {{ 'welcome.slides.how.videoLink' | translate }}
+        <ion-icon slot="end" style="font-size: 16px;" name="open-outline"></ion-icon>
+      </ion-button>
       <ion-fab-button color="primary" class="ion-float-right" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
