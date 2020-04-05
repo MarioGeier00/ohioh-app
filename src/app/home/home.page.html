@@ -44,11 +44,18 @@
         </ion-label>
       </ion-item>
 
-      <ion-item>
+      <ion-item [class.warning]="!userDataAvailable">
         <ion-icon size="large" name="call" slot="start"></ion-icon>
         <ion-label>
-          <h2>{{ (userDataAvailable ? 'home.stateOverview.personalData.active.title' : 'home.stateOverview.personalData.inactive.title') | translate }}</h2>
-          <p>{{ (userDataAvailable ? 'home.stateOverview.personalData.active.description' : 'home.stateOverview.personalData.inactive.description') | translate }}</p>
+          <h2>
+            {{ (userDataAvailable ? 'home.stateOverview.personalData.active.title' : 'home.stateOverview.personalData.inactive.title') | translate }}
+          </h2>
+          <p>
+            {{ (userDataAvailable ? 'home.stateOverview.personalData.active.description' : 'home.stateOverview.personalData.inactive.description') | translate }}
+          </p>
+          <ion-button fill="clear" *ngIf="!userDataAvailable" (click)="navigateToUserData()">{{ 'home.stateOverview.personalData.addData' | translate }}
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
         </ion-label>
       </ion-item>
 

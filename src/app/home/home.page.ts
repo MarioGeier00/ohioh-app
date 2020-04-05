@@ -49,4 +49,9 @@ export class HomePage implements OnInit {
   openInfectionWarning() {
     this.router.navigate(['/infection-warning']);
   }
+
+  navigateToUserData() {
+    this.router.navigate(['/user-data']);
+  }
+
 }

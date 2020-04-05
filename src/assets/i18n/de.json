@@ -31,7 +31,8 @@
                 "inactive": {
                     "title": "Keine Persönlichen Daten hinterlegt",
                     "description": "Sie haben noch keine Kontaktdaten eingetragen."
-                }
+                },
+                "addData": "Daten eintragen"
             }
         },
         "qrCodeScanner": "QR-Code Scanner"

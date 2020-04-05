@@ -4,3 +4,17 @@
     @extend .margin-right-left-auto;
     max-width: 500px;
 }
+
+ion-item.warning {
+    --ion-background-color: #ffedb4;
+}
+
+ion-item h2 {
+    margin-top: 8px;
+}
+
+ion-item ion-button {
+    float     : right;
+    margin-top: 10px;
+    height    : 36px;
+}
