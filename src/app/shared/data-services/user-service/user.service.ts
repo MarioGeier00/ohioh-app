@@ -23,4 +23,11 @@ export class UserService {
     this.storage.remove(UserService.USER_STORE_KEY);
   }
 
+  public isUserStored(): Promise<boolean> {
+    return this.getUser().then<boolean>(user => {
+      if (user) return true;
+      return false;
+    });
+  }
+
 }
