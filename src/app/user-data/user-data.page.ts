@@ -33,8 +33,9 @@ export class UserDataPage implements OnInit {
     });
 
     this.userData.getUser().then((user) => {
-      console.log(user);
-      this.userDataForm.setValue(user);
+      if (user) {
+        this.userDataForm.setValue(user);
+      }
     });
   }
 
