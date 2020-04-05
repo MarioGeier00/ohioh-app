@@ -53,7 +53,7 @@
     </ion-slide>
 
     <ion-slide>
-      <img src="../../assets/icon/favicon.svg" />
+      <app-logo></app-logo>
       <h2>{{ 'welcome.slides.how.title' | translate }}</h2>
       <p>{{ 'welcome.slides.how.description' | translate }}</p>
       <a href="https://youtube.de">{{ 'welcome.slides.how.videoLink' | translate }}</a>
@@ -63,7 +63,7 @@
     </ion-slide>
 
     <ion-slide>
-      <img src="../../assets/icon/favicon.svg" />
+      <app-logo></app-logo>
       <h2>{{ 'welcome.slides.nextSteps.title' | translate }}</h2>
       <p [innerHTML]="'welcome.slides.nextSteps.description' | translate"></p>
       <ion-button fill="clear" (click)="onNextClick()">{{ 'welcome.slides.nextSteps.continue' | translate }}<ion-icon
