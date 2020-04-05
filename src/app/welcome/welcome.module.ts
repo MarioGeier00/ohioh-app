@@ -12,6 +12,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../i18n-config';
 import { HttpClient } from '@angular/common/http';
 import { LogoComponent } from '../shared/logo/logo.component';
+import { LanguageFlagComponent } from '../shared/language-flag/language-flag.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { LogoComponent } from '../shared/logo/logo.component';
   ],
   declarations: [
     WelcomePage,
+    LanguageFlagComponent,
     LanguageSelectorComponent,
     LogoComponent
   ]

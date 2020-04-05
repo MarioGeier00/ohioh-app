@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageSelectorComponent implements OnInit {
 
 
-  public languages = [
+  public languages: {name: string, id: string}[] = [
     { name: 'Deutsch', id: 'de' },
     { name: 'Englisch', id: 'en' },
     { name: 'Türkisch', id: 'tr' },
