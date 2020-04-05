@@ -4,6 +4,7 @@ import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../shared/data-services/user-service/user.service';
 
 @Component({
   selector: 'app-user-data',
@@ -15,7 +16,8 @@ export class UserDataPage implements OnInit {
   constructor(private router: Router,
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
-    private _translate: TranslateService) {
+    private _translate: TranslateService,
+    private userData: UserService) {
     this.menuCtrl.enable(false);
   }
 
@@ -47,6 +49,7 @@ export class UserDataPage implements OnInit {
     if (this.validations_form.invalid) {
       return;
     }
+    this.userData.updateUserData(this.validations_form.value);
     this.navigateHome();
   }
 
