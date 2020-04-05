@@ -31,7 +31,7 @@
       <ion-label position="floating">{{ 'userData.age' | translate }}</ion-label>
       <ion-input formControlName="age" type="number" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
-    <div class="input-sub-text danger ion-padding" *ngIf="validations_form.controls.age.invalid">
+    <div class="input-sub-text danger ion-padding" *ngIf="userDataForm.controls.age.invalid">
       <ion-icon name="alert-circle"></ion-icon>
       <span>{{ 'userData.ageValidationMessage' | translate }}</span>
     </div>

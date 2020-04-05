@@ -7,14 +7,20 @@ import { Storage } from '@ionic/storage';
 })
 export class UserService {
 
+  private static readonly USER_STORE_KEY = 'user';
+
   constructor(private storage: Storage) { }
 
-  public updateUserData(user: User) {
-    this.storage.set('user', user);
+  public updateUserData(user: User): void {
+    this.storage.set(UserService.USER_STORE_KEY, user);
   }
 
   public getUser(): Promise<User> {
-    return this.storage.get('user');
+    return this.storage.get(UserService.USER_STORE_KEY);
+  }
+
+  public deleteUser(): void {
+    this.storage.remove(UserService.USER_STORE_KEY);
   }
 
 }
