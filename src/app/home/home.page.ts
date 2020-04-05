@@ -13,16 +13,22 @@ import { UserService } from '../shared/data-services/user-service/user.service';
 })
 export class HomePage implements OnInit {
 
+  public userDataAvailable: boolean;
+
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
     private _translate: TranslateService,
-    private userService: UserService) {
+    public userService: UserService) {
     this.menuCtrl.enable(true);
     this.userService.isUserStored().then((isUserStored) => {
       if (!isUserStored) {
         this.router.navigate(['/welcome']);
       }
+    });
+    this.userService.isUserDataEmpty().then(isEmpty => {
+      console.log(isEmpty);
+      this.userDataAvailable = !isEmpty;
     });
   }
 

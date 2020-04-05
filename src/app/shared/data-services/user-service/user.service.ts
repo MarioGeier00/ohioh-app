@@ -30,4 +30,15 @@ export class UserService {
     });
   }
 
+  private isEmpty(value: string): boolean {
+    if (!value) return true;
+    return value.length === 0;
+  }
+
+  public isUserDataEmpty(): Promise<boolean> {
+    return this.getUser().then<boolean>(user => {
+      return this.isEmpty(user.prename) && this.isEmpty(user.name) && this.isEmpty(user.phone) && this.isEmpty(user.residence);
+    });
+  }
+
 }

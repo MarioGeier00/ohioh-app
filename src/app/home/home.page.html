@@ -47,8 +47,8 @@
       <ion-item>
         <ion-icon size="large" name="call" slot="start"></ion-icon>
         <ion-label>
-          <h2>{{ 'home.stateOverview.personalData.active.title' | translate }}</h2>
-          <p>{{ 'home.stateOverview.personalData.active.description' | translate }}</p>
+          <h2>{{ (userDataAvailable ? 'home.stateOverview.personalData.active.title' : 'home.stateOverview.personalData.inactive.title') | translate }}</h2>
+          <p>{{ (userDataAvailable ? 'home.stateOverview.personalData.active.description' : 'home.stateOverview.personalData.inactive.description') | translate }}</p>
         </ion-label>
       </ion-item>
 
