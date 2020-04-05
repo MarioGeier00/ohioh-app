@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'OHIO Home',
+      title: 'OHIOH Home',
       url: '/home',
       icon: 'home'
     },
@@ -76,5 +76,5 @@ export class AppComponent implements OnInit {
   deleteAll() {
     this.userService.deleteUser();
   }
-  
+
 }
