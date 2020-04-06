@@ -10,6 +10,7 @@ import { UserDataPage } from './user-data.page';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../i18n-config';
 import { HttpClient } from '@angular/common/http';
+import { ReplacePipe } from '../shared/replace.pipe';
 
 @NgModule({
   imports: [
@@ -26,6 +27,6 @@ import { HttpClient } from '@angular/common/http';
       }
     })
   ],
-  declarations: [UserDataPage]
+  declarations: [UserDataPage, ReplacePipe]
 })
 export class UserDataPageModule {}
