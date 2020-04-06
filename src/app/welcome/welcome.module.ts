@@ -8,11 +8,9 @@ import { WelcomePageRoutingModule } from './welcome-routing.module';
 
 import { WelcomePage } from './welcome.page';
 import { LanguageSelectorComponent } from '../shared/language-selector/language-selector.component';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { createTranslateLoader } from '../i18n-config';
-import { HttpClient } from '@angular/common/http';
 import { LogoComponent } from '../shared/logo/logo.component';
 import { LanguageFlagComponent } from '../shared/language-flag/language-flag.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -20,13 +18,7 @@ import { LanguageFlagComponent } from '../shared/language-flag/language-flag.com
     FormsModule,
     IonicModule,
     WelcomePageRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    })
+    TranslateModule.forChild()
   ],
   declarations: [
     WelcomePage,
