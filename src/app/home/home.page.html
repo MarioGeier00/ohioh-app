@@ -58,6 +58,10 @@
           <ion-icon name="warning" class="ion-padding"></ion-icon>
           {{ 'home.simulationInfectionWarning' | translate }}
         </ion-button>
+        <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(false)" color="primary">
+          <ion-icon name="remove" class="ion-padding"></ion-icon>
+          Entferne Infektionswarnung
+        </ion-button>
       </div>
 
     </ion-list>

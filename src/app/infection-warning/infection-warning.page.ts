@@ -31,7 +31,6 @@ export class InfectionWarningPage implements OnInit {
   }
 
   onNextClick() {
-    this.userService.setInfectionStatus(false);
     this.menuCtrl.enable(true);
     this.router.navigate(['/home']);
   }
