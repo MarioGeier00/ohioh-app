@@ -15,8 +15,12 @@
       <ion-item [class.warning]="userService.isInfected()">
         <ion-icon name="warning" slot="start"></ion-icon>
         <ion-label>
-          <h2>{{ 'home.stateOverview.infection.noWarning.title' | translate }}</h2>
-          <p>{{ 'home.stateOverview.infection.noWarning.description' | translate }}</p>
+          <h2>{{ (userService.isInfected() ? 'home.stateOverview.infection.warning.title' : 'home.stateOverview.infection.noWarning.title') | translate }}</h2>
+          <p>{{ (userService.isInfected() ? 'home.stateOverview.infection.warning.description' : 'home.stateOverview.infection.noWarning.description') | translate }}</p>
+          <ion-button fill="clear" *ngIf="userService.isInfected()" (click)="userService.openInfectionWarning()">
+            {{ 'home.stateOverview.infection.warning.showWarning' | translate }}
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
         </ion-label>
       </ion-item>
 
@@ -24,7 +28,7 @@
         <ion-icon name="cloud-done" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.sync.inSync.title' | translate }}</h2>
-          <p>{{ 'home.stateOverview.sync.inSync.lastUpload' | translate }}</p>
+          <p>{{ 'home.stateOverview.sync.inSync.lastUpload' | translate | replace: '{val}': 'gerade' }}</p>
           <p>{{ 'home.stateOverview.sync.inSync.connected' | translate }}</p>
         </ion-label>
       </ion-item>

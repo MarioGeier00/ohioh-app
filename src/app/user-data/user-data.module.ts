@@ -11,9 +11,11 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../i18n-config';
 import { HttpClient } from '@angular/common/http';
 import { ReplacePipe } from '../shared/replace.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     IonicModule,
@@ -27,6 +29,6 @@ import { ReplacePipe } from '../shared/replace.pipe';
       }
     })
   ],
-  declarations: [UserDataPage, ReplacePipe]
+  declarations: [UserDataPage]
 })
 export class UserDataPageModule {}

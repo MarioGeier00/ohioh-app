@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { ReplacePipe } from './shared/replace.pipe';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [

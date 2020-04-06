@@ -6,13 +6,18 @@
             "infection": {
                 "noWarning": {
                     "title": "Keine Infektionswarnung",
-                    "description": "Es liegen aktell keine Warnungen vor"
+                    "description": "Es liegen aktell keine Warnungen für Sie vor."
+                },
+                "warning": {
+                    "title": "Infektionswarnung",
+                    "description": "Wir haben errechnet, dass Sie möglicherweise infiziert sind.",
+                    "showWarning": "Warnung anzeigen"
                 }
             },
             "sync": {
                 "inSync": {
                     "title": "Daten synchronisiert",
-                    "lastUpload": "Ihre Daten wurde vor fünf Minuten hochgeladen.",
+                    "lastUpload": "Ihre Daten wurden {val} hochgeladen.",
                     "connected": "Es besteht Internetverbindung."
                 }
             },
