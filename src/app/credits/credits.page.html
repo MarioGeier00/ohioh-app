@@ -41,7 +41,7 @@
   <h5>{{ 'credits.team.thankYou' | translate }}</h5>
 
   <h3>{{ 'credits.attribution.title' | translate }}</h3>
-  <div [innerHTML]="'credits.attribution.description' | translate"></div>
+  <div>Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a></div>
 
   <h3>{{ 'credits.copyright.title' | translate }}</h3>
   <address>
@@ -49,8 +49,8 @@
     Ludewig-Meyn Strasse 15,<br>
     Kai-Uwe von Hassel Residence<br>
     24118 Kiel<br>
-    Telefon: 0152 241 22 031<br>
-    E-Mail: <a href="mailto:kontakt@ohioh.de">kontakt@ohioh.de</a>
+    {{ 'credits.copyright.phone' | translate }}: 0152 241 22 031<br>
+    Mail: <a href="mailto:kontakt@ohioh.de">kontakt@ohioh.de</a>
   </address>
   <small>
 

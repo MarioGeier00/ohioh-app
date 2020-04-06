@@ -20,7 +20,7 @@ ion-item h2 {
     font-size : 26px;
 }
 
-ion-item ion-icon {
+ion-item > ion-icon {
     font-size: 32px;
 }
 
@@ -30,7 +30,7 @@ $breakpoint-smartphone: 576px;
         margin-top: 8px;
         font-size : 20px;
     }
-    ion-item ion-icon {
+    ion-item > ion-icon {
         font-size: 24px;
         margin-right: 20px;
     }
