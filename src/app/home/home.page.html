@@ -12,7 +12,7 @@
 
     <ion-list>
 
-      <ion-item>
+      <ion-item [class.warning]="userService.isInfected()">
         <ion-icon name="warning" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.infection.noWarning.title' | translate }}</h2>
@@ -54,7 +54,7 @@
       </ion-item>
 
       <div class="ion-text-center">
-        <ion-button *ngIf="userService.DeveloperMode" (click)="openInfectionWarning()" color="warning">
+        <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(true)" color="warning">
           <ion-icon name="warning" class="ion-padding"></ion-icon>
           {{ 'home.simulationInfectionWarning' | translate }}
         </ion-button>
