@@ -7,7 +7,8 @@
         "settings": "Einstellungen",
         "addLocations": "Aufenthalt nachtragen",
         "welcome": "Einführungstutorial",
-        "credits": "Impressum"
+        "credits": "Impressum",
+        "deleteAll": "Alle Daten endgültig löschen"
     },
     "home": {
         "title": "OHIOH Home",
