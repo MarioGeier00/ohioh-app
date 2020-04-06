@@ -11,7 +11,17 @@ ion-item.warning {
 
 ion-item h2 {
     margin-top: 8px;
+    font-size : 26px;
 }
+
+$breakpoint-smartphone: 576px;
+@media (max-width: $breakpoint-smartphone) {
+    ion-item h2 {
+        margin-top: 8px;
+        font-size : 20px;
+    }
+}
+
 
 ion-item ion-button {
     float     : right;

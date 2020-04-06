@@ -25,11 +25,11 @@
             },
             "personalData": {
                 "active": {
-                    "title": "Persönliche Daten hinterlegt",
+                    "title": "Kontaktdaten hinterlegt",
                     "description": "Sie haben alle nötigen Kontaktdaten hinterlegt."
                 },
                 "inactive": {
-                    "title": "Keine Persönlichen Daten hinterlegt",
+                    "title": "Keine Daten hinterlegt",
                     "description": "Sie haben noch keine Kontaktdaten eingetragen."
                 },
                 "addData": "Daten eintragen"
