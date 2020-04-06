@@ -21,6 +21,11 @@ export class LanguageTranslatorService {
   createTranslateLoader() {
     return new TranslateHttpLoader(this.http, './assets/i18n/', '.json');
   }
+
+  public getSelectedLanguage(): string {
+    return this.selectedLanguage;
+  }
+
   changeSelectedLanguage(language: string) {
     this.selectedLanguage = language;
     this.translator.use(this.selectedLanguage).toPromise();
