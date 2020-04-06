@@ -43,6 +43,21 @@
       <ion-label position="floating">{{ 'userData.phone' | translate }}</ion-label>
       <ion-input formControlName="phone" inputmode="tel"></ion-input>
     </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.phone.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.phoneMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.phone.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.phone.errors?.pattern">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.phoneInvalidMessage' | translate
+            | replace : '{val}' : userDataForm.controls.phone.errors.pattern.requiredPattern}}
+      </p>
+    </ion-item>
+
 
     <ion-item>
       <ion-label position="floating">{{ 'userData.age' | translate }}</ion-label>
