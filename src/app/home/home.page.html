@@ -9,10 +9,12 @@
 
 <ion-content class="ion-padding">
   <div class="content">
-    <ion-button *ngIf="!userService.DeveloperMode" (click)="openInfectionWarning()" color="warning">
-      <ion-icon name="warning" class="ion-padding"></ion-icon>
-      {{ 'home.simulationInfectionWarning' | translate }}
-    </ion-button>
+    <div class="ion-text-center">
+      <ion-button *ngIf="userService.DeveloperMode" (click)="openInfectionWarning()" color="warning">
+        <ion-icon name="warning" class="ion-padding"></ion-icon>
+        {{ 'home.simulationInfectionWarning' | translate }}
+      </ion-button>
+    </div>
 
     <ion-list>
       <ion-list-header>
