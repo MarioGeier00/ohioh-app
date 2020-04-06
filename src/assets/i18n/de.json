@@ -1,4 +1,14 @@
 {
+    "menu": {
+        "title": "Menu",
+        "home": "OHIOH Home",
+        "userData": "Daten zur Person ändern",
+        "dataProtection": "Privatsphäreneinstellungen",
+        "settings": "Einstellungen",
+        "addLocations": "Aufenthalt nachtragen",
+        "welcome": "Einführungstutorial",
+        "credits": "Impressum"
+    },
     "home": {
         "title": "OHIOH Home",
         "simulationInfectionWarning": "Simuliere Infektionswarnung",
@@ -112,7 +122,7 @@
             "thankYou": "Danke für die gute Zusammenarbeit!"
         },
         "attribution": {
-            "title": "Attribution",
+            "title": "Attribution"
         },
         "copyright": {
             "title": "Impressum",

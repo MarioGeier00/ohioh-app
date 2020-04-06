@@ -15,39 +15,39 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'OHIOH Home',
+      title: 'home',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'Einführungstutorial',
-      url: '/welcome',
-      icon: 'information-circle'
-    },
-    {
-      title: 'Daten zur Person ändern',
+      title: 'userData',
       url: '/user-data',
       icon: 'person-circle'
     },
     {
-      title: 'Privatsphäreneinstellungen',
+      title: 'dataProtection',
       url: '/data-protection',
       icon: 'shield-checkmark'
     },
     {
-      title: 'Einstellungen',
+      title: 'settings',
       url: '/settings',
       icon: 'settings'
     },
     {
-      title: 'Aufenthalt nachtragen',
+      title: 'addLocations',
       url: '/location/add',
       icon: 'add-circle'
     },
     {
-      title: 'Über die Entwickler',
+      title: 'welcome',
+      url: '/welcome',
+      icon: 'help-circle'
+    },
+    {
+      title: 'credits',
       url: '/credits',
-      icon: 'code'
+      icon: 'information-circle'
     },
   ];
 
