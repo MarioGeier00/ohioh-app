@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
+import { UserService } from '../shared/data-services/user-service/user.service';
 
 @Component({
   selector: 'app-infection-warning',
@@ -11,9 +12,11 @@ import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 })
 export class InfectionWarningPage implements OnInit {
 
-  constructor(private menuCtrl: MenuController,
+  constructor(
+    private menuCtrl: MenuController,
     private router: Router,
-    private _translate: TranslateService) {
+    private _translate: TranslateService,
+    private userService: UserService) {
     this.menuCtrl.enable(false);
   }
 
@@ -28,6 +31,7 @@ export class InfectionWarningPage implements OnInit {
   }
 
   onNextClick() {
+    this.userService.setInfectionStatus(false);
     this.menuCtrl.enable(true);
     this.router.navigate(['/home']);
   }
