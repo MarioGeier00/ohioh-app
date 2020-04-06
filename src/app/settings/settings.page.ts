@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 import { Router } from '@angular/router';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,20 +13,14 @@ export class SettingsPage implements OnInit {
   public otherDataStorageDuration = 90;
   public trackingInterval = 5;
 
-  constructor(private _translate: TranslateService,
-    private router: Router) { }
+  constructor(
+    private router: Router,
+    private translation: LanguageTranslatorService
+  ) { }
 
   ngOnInit() {
+    this.translation.initLanguageTranslator().then();
   }
-
-  ionViewDidEnter() {
-    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
-    if (selectedLanguage != null) {
-      this._translate.use(selectedLanguage);
-    }
-  }
-
-
 
   settingsChanged() {
     // TODO send data to backend
@@ -50,7 +43,7 @@ export class SettingsPage implements OnInit {
   cancel() {
     this.navigateHome();
   }
-  
+
   numberOnlyValidation(event: any) {
     const inputChar = String.fromCharCode(event.charCode);
     const value = parseInt(inputChar);

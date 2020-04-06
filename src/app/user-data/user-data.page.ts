@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
-import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../shared/data-services/user-service/user.service';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-user-data',
@@ -15,15 +14,19 @@ export class UserDataPage implements OnInit {
 
   public userDataForm: FormGroup;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
-    private _translate: TranslateService,
-    private userData: UserService) {
+    private userData: UserService,
+    private translation: LanguageTranslatorService
+  ) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
+    this.translation.initLanguageTranslator().then();
+
     this.userDataForm = this.formBuilder.group({
       firstName: new FormControl('', Validators.maxLength(100)),
       lastName: new FormControl('', Validators.maxLength(100)),
@@ -39,10 +42,7 @@ export class UserDataPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
-    if (selectedLanguage != null) {
-      this._translate.use(selectedLanguage);
-    }
+
   }
 
   private navigateHome(): void {

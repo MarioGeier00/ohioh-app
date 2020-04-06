@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
-import { selectedLanguage, DEFAULT_LANGUAGE } from '../i18n-config';
 import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
@@ -12,22 +10,21 @@ import { LanguageTranslatorService } from '../shared/data-services/language-tran
 })
 export class WelcomePage implements OnInit {
 
-  slideOpts;
+  public slideOpts;
 
   constructor(
     private router: Router,
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
+    private translation: LanguageTranslatorService
   ) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
+    this.translation.initLanguageTranslator().then();
     this.slideOpts = {
       initialSlide: 0
     };
-  }
-
-  ionViewDidEnter() {
   }
 
   onNextClick() {
