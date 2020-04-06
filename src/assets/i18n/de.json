@@ -35,7 +35,7 @@
             "gps": {
                 "active": {
                     "title": "Standorterfassung aktiv",
-                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst"
+                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst."
                 }
             },
             "personalData": {
@@ -103,7 +103,8 @@
     },
     "settings": {
         "title": "Einstellungen",
-        "description": "Hier können Sie die Speicherdauer Ihrer Daten einstellen.",
+        "saveDuration": "Speicherdauer",
+        "language": "Sprache",
         "gpsDataStorageDuration": "Speicherdauer GPS-Daten (Tage)",
         "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
         "trackingInterval": "Speicherintervall (Minuten)"
@@ -155,6 +156,13 @@
         "accept": "Warnung akzeptieren"
     },
     "languageSelection": {
-        "description": "Bitte wählen Sie Ihre Sprache aus:"
+        "description": "Bitte wählen Sie Ihre Sprache aus:",
+        "de": "Deutsch",
+        "en": "Englisch",
+        "tr": "Türkisch",
+        "ru": "Russisch",
+        "pl": "Polnisch",
+        "sa": "Arabisch",
+        "ku": "Kurdisch"
     }
 }

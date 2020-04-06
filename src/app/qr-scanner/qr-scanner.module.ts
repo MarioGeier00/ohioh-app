@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { QrScannerPageRoutingModule } from './qr-scanner-routing.module';
 
 import { QrScannerPage } from './qr-scanner.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QrScannerPageRoutingModule
+    QrScannerPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [QrScannerPage]
 })
-export class QrScannerPageModule {}
+export class QrScannerPageModule { }

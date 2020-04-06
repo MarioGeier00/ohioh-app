@@ -8,9 +8,9 @@
     (ionChange)="languageSelected(langSelector.value)">
 
     <ion-item *ngFor="let lang of languages">
-      <app-language-flag [language]="lang.id"></app-language-flag>
-      <ion-label>{{lang.name}}</ion-label>
-      <ion-radio slot="end" [value]="lang.id"></ion-radio>
+      <app-language-flag [language]="lang"></app-language-flag>
+      <ion-label>{{ ('languageSelection.' + lang) | translate }}</ion-label>
+      <ion-radio slot="end" [value]="lang"></ion-radio>
     </ion-item>
 
   </ion-radio-group>

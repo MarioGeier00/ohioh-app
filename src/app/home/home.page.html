@@ -15,8 +15,12 @@
       <ion-item [class.warning]="userService.isInfected()">
         <ion-icon name="warning" slot="start"></ion-icon>
         <ion-label>
-          <h2>{{ (userService.isInfected() ? 'home.stateOverview.infection.warning.title' : 'home.stateOverview.infection.noWarning.title') | translate }}</h2>
-          <p>{{ (userService.isInfected() ? 'home.stateOverview.infection.warning.description' : 'home.stateOverview.infection.noWarning.description') | translate }}</p>
+          <h2>
+            {{ (userService.isInfected() ? 'home.stateOverview.infection.warning.title' : 'home.stateOverview.infection.noWarning.title') | translate }}
+          </h2>
+          <p>
+            {{ (userService.isInfected() ? 'home.stateOverview.infection.warning.description' : 'home.stateOverview.infection.noWarning.description') | translate }}
+          </p>
           <ion-button fill="clear" *ngIf="userService.isInfected()" (click)="userService.openInfectionWarning()">
             {{ 'home.stateOverview.infection.warning.showWarning' | translate }}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
@@ -60,7 +64,7 @@
       <div class="ion-text-center">
         <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(true)" color="warning">
           <ion-icon name="warning" class="ion-padding"></ion-icon>
-          {{ 'home.simulationInfectionWarning' | translate }}
+          Simuliere Infektionswarnung
         </ion-button>
         <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(false)" color="primary">
           <ion-icon name="remove" class="ion-padding"></ion-icon>
