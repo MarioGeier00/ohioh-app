@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 })
 export class UserService {
 
-  public DeveloperMode: boolean;
+  public DeveloperMode: boolean = true;
 
   private static readonly USER_STORE_KEY = 'user';
 
