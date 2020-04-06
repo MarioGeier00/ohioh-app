@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
+import { UserService } from '../shared/data-services/user-service/user.service';
 
 @Component({
   selector: 'app-credits',
@@ -9,7 +10,9 @@ import { DEFAULT_LANGUAGE, selectedLanguage } from '../i18n-config';
 })
 export class CreditsPage implements OnInit {
 
-  constructor(private _translate: TranslateService) { }
+
+  constructor(private _translate: TranslateService,
+    public userService: UserService) { }
 
   ngOnInit() {
   }
@@ -20,4 +23,5 @@ export class CreditsPage implements OnInit {
       this._translate.use(selectedLanguage);
     }
   }
+
 }
