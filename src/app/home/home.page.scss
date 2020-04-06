@@ -9,9 +9,19 @@ ion-item.warning {
     --ion-background-color: #ffedb4;
 }
 
+
+ion-item p {
+    white-space: pre-line; 
+}
+
+
 ion-item h2 {
     margin-top: 8px;
     font-size : 26px;
+}
+
+ion-item ion-icon {
+    font-size: 32px;
 }
 
 $breakpoint-smartphone: 576px;
@@ -19,6 +29,10 @@ $breakpoint-smartphone: 576px;
     ion-item h2 {
         margin-top: 8px;
         font-size : 20px;
+    }
+    ion-item ion-icon {
+        font-size: 24px;
+        margin-right: 20px;
     }
 }
 

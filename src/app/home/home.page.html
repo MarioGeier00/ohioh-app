@@ -11,12 +11,9 @@
   <div class="content">
 
     <ion-list>
-      <ion-list-header>
-        {{ 'home.stateOverview.title' | translate }}
-      </ion-list-header>
 
       <ion-item>
-        <ion-icon size="large" name="warning" slot="start"></ion-icon>
+        <ion-icon name="warning" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.infection.noWarning.title' | translate }}</h2>
           <p>{{ 'home.stateOverview.infection.noWarning.description' | translate }}</p>
@@ -24,7 +21,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-icon size="large" name="cloud-done" slot="start"></ion-icon>
+        <ion-icon name="cloud-done" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.sync.inSync.title' | translate }}</h2>
           <p>{{ 'home.stateOverview.sync.inSync.lastUpload' | translate }}</p>
@@ -33,7 +30,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-icon size="large" name="locate" slot="start"></ion-icon>
+        <ion-icon name="locate" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.gps.active.title' | translate }}</h2>
           <p>{{ 'home.stateOverview.gps.active.lastUpdate' | translate }}</p>
@@ -41,7 +38,7 @@
       </ion-item>
 
       <ion-item [class.warning]="!userDataAvailable">
-        <ion-icon size="large" name="call" slot="start"></ion-icon>
+        <ion-icon name="call" slot="start"></ion-icon>
         <ion-label>
           <h2>
             {{ (userDataAvailable ? 'home.stateOverview.personalData.active.title' : 'home.stateOverview.personalData.inactive.title') | translate }}

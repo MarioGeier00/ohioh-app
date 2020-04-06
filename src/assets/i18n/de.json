@@ -3,7 +3,6 @@
         "title": "OHIOH Home",
         "simulationInfectionWarning": "Simuliere Infektionswarnung",
         "stateOverview": {
-            "title": "OHIOH Statusanzeige",
             "infection": {
                 "noWarning": {
                     "title": "Keine Infektionswarnung",
