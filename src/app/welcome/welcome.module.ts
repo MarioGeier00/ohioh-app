@@ -7,10 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { WelcomePageRoutingModule } from './welcome-routing.module';
 
 import { WelcomePage } from './welcome.page';
-import { LanguageSelectorComponent } from '../shared/language-selector/language-selector.component';
 import { LogoComponent } from '../shared/logo/logo.component';
-import { LanguageFlagComponent } from '../shared/language-flag/language-flag.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSelectorComponent } from '../shared/language-selector/language-selector.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,12 +18,11 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     WelcomePageRoutingModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    SharedModule
   ],
   declarations: [
     WelcomePage,
-    LanguageFlagComponent,
-    LanguageSelectorComponent,
     LogoComponent
   ]
 })

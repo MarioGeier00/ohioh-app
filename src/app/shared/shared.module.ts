@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReplacePipe } from './replace.pipe';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageFlagComponent } from './language-flag/language-flag.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
 @NgModule({
   declarations: [
-    ReplacePipe
+    ReplacePipe,
+    LanguageSelectorComponent,
+    LanguageFlagComponent
   ],
   exports: [
-    ReplacePipe
+    ReplacePipe,
+    LanguageSelectorComponent,
+    LanguageFlagComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule,
+    TranslateModule.forChild()
   ]
 })
 export class SharedModule { }
