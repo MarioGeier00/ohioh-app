@@ -9,28 +9,51 @@
 
 <ion-content class="ion-padding">
 
-  <p>{{ 'settings.description' | translate }}</p>
+  <ion-segment #segment>
+    <ion-segment-button value="store">
+      <ion-icon name="save-outline"></ion-icon>
+      <ion-label>Speicherdauer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="lang">
+      <ion-icon name="globe-outline"></ion-icon>
+      <ion-label>Sprache</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">{{ 'settings.gpsDataStorageDuration' | translate }}</ion-label>
-      <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="gpsDataStorageDuration" (ionChange)="settingsChanged()"></ion-input>
-    </ion-item>
+  <div *ngIf="segment.value==='store'">
 
-    <ion-item>
-      <ion-label position="floating">{{ 'settings.otherDataStorageDuration' | translate }}</ion-label>
-      <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="otherDataStorageDuration" (ionChange)="settingsChanged()"></ion-input>
-    </ion-item>
+    <ion-list>
 
-    <ion-item>
-      <ion-label position="floating">{{ 'settings.trackingInterval' | translate }}</ion-label>
-      <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="trackingInterval" (ionChange)="settingsChanged()"></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label position="floating">{{ 'settings.gpsDataStorageDuration' | translate }}</ion-label>
+        <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="gpsDataStorageDuration"
+          (ionChange)="settingsChanged()"></ion-input>
+      </ion-item>
 
-  <div style="margin-top: 10px;">
-    <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">{{ 'userData.submit' | translate }}</ion-button>
-    <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}</ion-button>
+      <ion-item>
+        <ion-label position="floating">{{ 'settings.otherDataStorageDuration' | translate }}</ion-label>
+        <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="otherDataStorageDuration"
+          (ionChange)="settingsChanged()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'settings.trackingInterval' | translate }}</ion-label>
+        <ion-input type="number" (keypress)="numberOnlyValidation($event)" [(ngModel)]="trackingInterval"
+          (ionChange)="settingsChanged()"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">
+        {{ 'userData.submit' | translate }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}
+      </ion-button>
+    </div>
+
+  </div>
+
+  <div *ngIf="segment.value==='lang'">
+    <app-language-selector></app-language-selector>
   </div>
 
 </ion-content>
