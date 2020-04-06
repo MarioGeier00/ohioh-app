@@ -4,7 +4,7 @@
     <h6>{{ 'languageSelection.description' | translate }}</h6>
   </ion-list-header>
 
-  <ion-radio-group value="de" (ionChange)="languageSelected($event)">
+  <ion-radio-group value="de" #langSelector (ionChange)="languageSelected(langSelector.value)">
 
     <ion-item *ngFor="let lang of languages">
       <app-language-flag [language]="lang.id"></app-language-flag>

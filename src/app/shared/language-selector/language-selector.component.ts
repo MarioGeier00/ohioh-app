@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { changeSelectedLanguage, DEFAULT_LANGUAGE, selectedLanguage } from 'src/app/i18n-config';
-import { TranslateService } from '@ngx-translate/core';
+import { LanguageTranslatorService } from '../data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -10,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageSelectorComponent implements OnInit {
 
 
-  public languages: {name: string, id: string}[] = [
+  public languages: { name: string, id: string }[] = [
     { name: 'Deutsch', id: 'de' },
     { name: 'Englisch', id: 'en' },
     { name: 'Türkisch', id: 'tr' },
@@ -20,18 +19,16 @@ export class LanguageSelectorComponent implements OnInit {
     { name: 'Kurdisch', id: 'ku' }
   ];
 
-  constructor(private _translate: TranslateService) { }
+  constructor(
+    private translator: LanguageTranslatorService,
+  ) { }
 
   ngOnInit() {
-    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
-    if (selectedLanguage != null) {
-      this._translate.use(selectedLanguage);
-    }
+
   }
 
-  languageSelected(event: { detail: { value: any; }; }) {
-    changeSelectedLanguage(event.detail.value);
-    this._translate.use(event.detail.value)
+  languageSelected(value: string) {
+    this.translator.changeSelectedLanguage(value);
   }
 
 }

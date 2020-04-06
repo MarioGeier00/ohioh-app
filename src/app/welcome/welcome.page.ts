@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { selectedLanguage, DEFAULT_LANGUAGE } from '../i18n-config';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-welcome',
@@ -13,9 +14,10 @@ export class WelcomePage implements OnInit {
 
   slideOpts;
 
-  constructor(private router: Router,
-    private menuCtrl: MenuController,
-    private _translate: TranslateService) {
+  constructor(
+    private router: Router,
+    private menuCtrl: MenuController
+  ) {
     this.menuCtrl.enable(false);
   }
 
@@ -26,10 +28,6 @@ export class WelcomePage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this._translate.setDefaultLang(DEFAULT_LANGUAGE);
-    if (selectedLanguage != null) {
-      this._translate.use(selectedLanguage);
-    }
   }
 
   onNextClick() {
