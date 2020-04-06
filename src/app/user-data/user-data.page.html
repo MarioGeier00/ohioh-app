@@ -31,11 +31,20 @@
       <ion-label position="floating">{{ 'userData.age' | translate }}</ion-label>
       <ion-input formControlName="age" type="number" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
-    <div class="input-sub-text danger ion-padding" *ngIf="userDataForm.controls.age.invalid">
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.age.errors?.min">
       <ion-icon name="alert-circle"></ion-icon>
-      <span>{{ 'userData.ageValidationMessage' | translate }}</span>
-    </div>
-
+      <p>
+        {{ 'userData.minAgeValidationMessage' | translate
+            | replace : '{val}' : userDataForm.controls.age.errors.min.min}}
+      </p>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.age.errors?.max">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.maxAgeValidationMessage' | translate
+            | replace : '{val}' : userDataForm.controls.age.errors.max.max}}
+      </p>
+    </ion-item>
 
 
     <ion-item>
@@ -44,8 +53,10 @@
     </ion-item>
 
     <div style="margin-top: 10px;">
-      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">{{ 'userData.submit' | translate }}</ion-button>
-      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}</ion-button>
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">
+        {{ 'userData.submit' | translate }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}
+      </ion-button>
     </div>
   </form>
 

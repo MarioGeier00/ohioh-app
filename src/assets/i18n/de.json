@@ -74,7 +74,8 @@
         "lastName": "Nachname",
         "phone": "Telenonnummer",
         "age": "Alter",
-        "ageValidationMessage": "Ihr Alter muss zwischen einem und 200 Jahren liegen.",
+        "minAgeValidationMessage": "Ihr Alter muss größer als {val} Jahr sein.",
+        "maxAgeValidationMessage": "Ihr Alter muss kleiner als {val} Jahre sein.",
         "city": "Wohnort",
         "submit": "Übernehmen",
         "cancel": "Abbrechen"
