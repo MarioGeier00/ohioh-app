@@ -36,16 +36,24 @@
                 "active": {
                     "title": "Standorterfassung aktiv",
                     "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst."
+                },
+                "inaccurate": {
+                    "title": "Standorterfassung inaktiv",
+                    "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage Deinen Standort manuell nach."
+                },
+                "deactivated": {
+                    "title": "Standorterfassung aus",
+                    "lastUpdate": "Sie haben die Standorterfassung in den Einstellungen deaktiviert."
                 }
             },
             "personalData": {
                 "active": {
-                    "title": "Kontaktdaten hinterlegt",
-                    "description": "Sie haben alle nötigen Kontaktdaten hinterlegt."
+                    "title": "Benutzerdaten hinterlegt",
+                    "description": "Sie haben Benutzerdaten hinterlegt."
                 },
                 "inactive": {
                     "title": "Keine Daten hinterlegt",
-                    "description": "Sie haben noch keine Kontaktdaten eingetragen."
+                    "description": "Sie haben noch keine Benutzerdaten eingetragen."
                 },
                 "addData": "Daten eintragen"
             }
@@ -64,22 +72,16 @@
                 "advice": "Die Sprache kann später in den Einstellungen geändert werden."
             },
             "what": {
-                "title": "Was heißt OHIOH?",
-                "description": "OHIOH steht für <b>Our Health In Our Hands</b>. Es ist ein Projekt, dass der Ausbreitung des Coronavirus entgegenwirken soll."
+                "title": "Was ist OHIOH?",
+                "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, QR-Code, Bluetooth)</b>, um Dich über ein mögliches Infektionsrisiko durch Deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
             },
-            "why": {
-                "title": "Warum sollte ich OHIOH verwenden?",
-                "description": "Das Ziel der OHIOH-App ist die <b>Ausbreitung von Viren zu bremsen.</b> Es liegt der Fokus auf dem Filtern von Infektionsketten in der Bevölkerungunter dem Schutz der persönlichen Entscheidung bei User*in über die Art und Umfang der Daten. Diese Vorgehen ermöglicht ein frühzeitiges Informieren der Nutzer und damit den Kontakt zu Ärzten*in. Mit den bereitgestellten Information können Ärzte*in, dieRegierung, Unternehmer*in und die Nutzer*in im Einklang Infektionsketten unterbrechen."
+            "warning": {
+                "title": "Wie funktioniert die Frühwarnung?",
+                "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch Deine Daten sind dafür hilfreich. Du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
             },
-            "how": {
-                "title": "Wie funktioniert die App?",
-                "description": "Schauen Sie sich folgendes Erklärvideo an:",
-                "videoLink": "OHIOH Erklärvideo"
-            },
-            "nextSteps": {
-                "title": "Wie geht es weiter?",
-                "description": "Im nächsten Schritt können <b>freiwillig</b> Daten eingetragen werden. Sie entscheiden welche Daten Sie zur Verfügung stellen.",
-                "continue": "Weiter"
+            "security": {
+                "title": "Wie sicher sind meine Daten?",
+                "description": "Wir achten darauf, dass weder Deine persönlichen Daten, noch Deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden Deine Daten automatisch vollständig gelöscht. Natürlich kannst Du auch manuell sämtliche Daten löschen."
             }
         }
     },

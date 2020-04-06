@@ -54,8 +54,8 @@
 
     <ion-slide>
       <app-logo></app-logo>
-      <h2>{{ 'welcome.slides.why.title' | translate }}</h2>
-      <p [innerHTML]="'welcome.slides.why.description' | translate"></p>
+      <h2>{{ 'welcome.slides.warning.title' | translate }}</h2>
+      <p [innerHTML]="'welcome.slides.warning.description' | translate"></p>
       <ion-fab-button color="primary" (click)="slider.slideNext()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
@@ -63,12 +63,21 @@
 
     <ion-slide>
       <app-logo></app-logo>
-      <h2>{{ 'welcome.slides.how.title' | translate }}</h2>
-      <p>{{ 'welcome.slides.how.description' | translate }}</p>
+      <h2>{{ 'welcome.slides.security.title' | translate }}</h2>
+      <p [innerHTML]="'welcome.slides.security.description' | translate"></p>
+      <ion-fab-button color="primary" (click)="slider.slideNext()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-slide>
+
+    <ion-slide>
+      <app-logo></app-logo>
+      <h2>{{ 'welcome.slides.video.title' | translate }}</h2>
+      <p>{{ 'welcome.slides.video.description' | translate }}</p>
       <a></a>
       <ion-button fill="clear" href="https://youtu.be/jjoirFw4vKg">
         <ion-icon name="logo-youtube" size="large" slot="start"></ion-icon>
-        {{ 'welcome.slides.how.videoLink' | translate }}
+        {{ 'welcome.slides.video.videoLink' | translate }}
         <ion-icon slot="end" style="font-size: 16px;" name="open-outline"></ion-icon>
       </ion-button>
       <ion-fab-button color="primary" (click)="slider.slideNext()">
