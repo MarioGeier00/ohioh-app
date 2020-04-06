@@ -86,7 +86,7 @@
         "minAgeValidationMessage": "Ihr Alter muss größer als {val} Jahr sein.",
         "maxAgeValidationMessage": "Ihr Alter muss kleiner als {val} Jahre sein.",
         "city": "Wohnort",
-        "cityMaxLengthMessage": "Die Telefonnummer darf nicht länger als {val} Zeichen lang sein.",
+        "cityMaxLengthMessage": "Der Wohnort darf {val} Zeichen nicht überschreiten.",
         "submit": "Übernehmen",
         "cancel": "Abbrechen"
     },

@@ -56,7 +56,7 @@ export class UserService {
 
   public isUserDataEmpty(): Promise<boolean> {
     return this.getUser().then<boolean>(user => {
-      return this.isEmpty(user.firstName) && this.isEmpty(user.name) && this.isEmpty(user.phone) && this.isEmpty(user.residence);
+      return this.isEmpty(user.firstName) && this.isEmpty(user.name) && this.isEmpty(user.phone) && this.isEmpty(user.city);
     });
   }
 

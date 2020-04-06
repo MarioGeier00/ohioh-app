@@ -29,7 +29,7 @@ export class UserDataPage implements OnInit {
       lastName: new FormControl('', Validators.maxLength(100)),
       phone: new FormControl('', Validators.compose([Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'), Validators.maxLength(15)])),
       age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200)])),
-      residence: new FormControl('', Validators.maxLength(30)),
+      city: new FormControl('', Validators.maxLength(30)),
     });
     this.userData.getUser().then((user) => {
       if (user) {

@@ -81,8 +81,16 @@
 
     <ion-item>
       <ion-label position="floating">{{ 'userData.city' | translate }}</ion-label>
-      <ion-input formControlName="residence"></ion-input>
+      <ion-input formControlName="city"></ion-input>
     </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.city.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.cityMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.city.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+
 
     <div style="margin-top: 10px;">
       <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">
