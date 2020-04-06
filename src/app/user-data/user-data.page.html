@@ -12,15 +12,32 @@
   <p>{{ 'userData.description' | translate }}</p>
   <form [formGroup]="userDataForm" (ngSubmit)="applyData()">
 
+
     <ion-item>
       <ion-label position="floating">{{ 'userData.firstName' | translate }}</ion-label>
-      <ion-input formControlName="prename" autocapitalize="'words'" autofocus=true></ion-input>
+      <ion-input formControlName="firstName" autocapitalize="'words'" autofocus=true></ion-input>
     </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.firstName.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.firstNameMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.firstName.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+
 
     <ion-item>
       <ion-label position="floating">{{ 'userData.lastName' | translate }}</ion-label>
-      <ion-input formControlName="name"></ion-input>
+      <ion-input formControlName="lastName"></ion-input>
     </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.lastName.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.lastNameMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.lastName.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+
 
     <ion-item>
       <ion-label position="floating">{{ 'userData.phone' | translate }}</ion-label>

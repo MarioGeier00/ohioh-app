@@ -25,15 +25,12 @@ export class UserDataPage implements OnInit {
 
   ngOnInit() {
     this.userDataForm = this.formBuilder.group({
-      prename: new FormControl('', Validators.maxLength(100)),
-      name: new FormControl('', Validators.maxLength(100)),
+      firstName: new FormControl('', Validators.maxLength(100)),
+      lastName: new FormControl('', Validators.maxLength(100)),
       phone: new FormControl('', Validators.maxLength(25)),
       age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200)])),
       residence: new FormControl('', Validators.maxLength(30)),
     });
-
-    console.log(this.userDataForm);
-
     this.userData.getUser().then((user) => {
       if (user) {
         this.userDataForm.setValue(user);
@@ -72,9 +69,6 @@ export class UserDataPage implements OnInit {
       // invalid character, prevent input
       event.preventDefault();
     }
-
-    console.log(this.userDataForm);
-
   }
 
 
