@@ -80,20 +80,20 @@
         {{ 'welcome.slides.video.videoLink' | translate }}
         <ion-icon slot="end" style="font-size: 16px;" name="open-outline"></ion-icon>
       </ion-button>
-      <ion-fab-button color="primary" (click)="slider.slideNext()">
+      <ion-fab-button color="primary" (click)="onNextClick()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>
 
-    <ion-slide>
+    <!-- TODO: Use a new user-data component here to input data -->
+    <!-- <ion-slide>
       <app-logo></app-logo>
       <h2>{{ 'welcome.slides.nextSteps.title' | translate }}</h2>
       <p [innerHTML]="'welcome.slides.nextSteps.description' | translate"></p>
       <ion-button fill="clear" (click)="onNextClick()">{{ 'welcome.slides.nextSteps.continue' | translate }}<ion-icon
           slot="end" name="arrow-forward"></ion-icon>
       </ion-button>
-
-    </ion-slide>
+    </ion-slide> -->
 
   </ion-slides>
 
