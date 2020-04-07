@@ -23,16 +23,11 @@
       <li>
         {{ 'infectionWarning.nextSteps.informAboutOhioh' | translate}}
       </li>
-      <li>
-        {{ 'infectionWarning.nextSteps.findSolution' | translate}}
-      </li>
-      <li>
-        {{ 'infectionWarning.nextSteps.goodLuck' | translate}}
-      </li>
     </ul>
-    <p style="font-style: italic;">
+    <!-- TODO: Verlinkung auf Doctorseiten zu Terminfindung, die z. B. auch im Rahmen des Hackathons erstellt wurden -->
+    <!-- <p style="font-style: italic;">
       {{ 'infectionWarning.nextSteps.linksToDoctors' | translate}}
-    </p>
+    </p> -->
     <ion-button fill="clear" class="ion-float-right" color="primary" (click)="onNextClick()">{{ 'infectionWarning.continue' | translate}}<ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     <ion-button fill="clear" class="ion-float-right" color="warning" (click)="onNextClick()">{{ 'infectionWarning.accept' | translate}}<ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
   </div>
