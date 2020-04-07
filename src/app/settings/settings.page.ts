@@ -44,6 +44,13 @@ export class SettingsPage implements OnInit {
     this.navigateHome();
   }
 
+  reset() {
+    this.gpsDataStorageDuration = 14;
+    this.otherDataStorageDuration = 90;
+    this.trackingInterval = 5;
+  }
+
+
   numberOnlyValidation(event: any) {
     const inputChar = String.fromCharCode(event.charCode);
     const value = parseInt(inputChar);

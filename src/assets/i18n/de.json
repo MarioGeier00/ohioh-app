@@ -106,7 +106,8 @@
         "city": "Wohnort",
         "cityMaxLengthMessage": "Der Wohnort darf {val} Zeichen nicht überschreiten.",
         "submit": "Übernehmen",
-        "cancel": "Abbrechen"
+        "cancel": "Abbrechen",
+        "reset": "Zurücksetzen"
     },
     "settings": {
         "title": "Einstellungen",
