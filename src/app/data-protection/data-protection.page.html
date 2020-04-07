@@ -18,6 +18,10 @@
       <ion-toggle [(ngModel)]="useGpsData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>
     <ion-item>
+      <ion-label>{{ 'dataProtection.useBluetooth' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="useBluetoothData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
       <ion-label>{{ 'dataProtection.sendData' | translate }}</ion-label>
       <ion-toggle [(ngModel)]="sendData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>

@@ -10,6 +10,7 @@ export class DataProtectionPage implements OnInit {
 
   public usePersonalData = false;
   public useGpsData = false;
+  public useBluetoothData = false;
   public sendData = false;
 
   constructor(
