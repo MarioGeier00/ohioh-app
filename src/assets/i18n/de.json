@@ -82,6 +82,11 @@
             "security": {
                 "title": "Wie sicher sind meine Daten?",
                 "description": "Wir achten darauf, dass weder Deine persönlichen Daten, noch Deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden Deine Daten automatisch vollständig gelöscht. Natürlich kannst Du auch manuell sämtliche Daten löschen."
+            },
+            "video": {
+                "title": "Wie funktioniert die App?",
+                "description": "In folgenden Video kannst Du Dich über die App informieren:",
+                "videoLink": "OHIOH Erklärvideo"
             }
         }
     },
