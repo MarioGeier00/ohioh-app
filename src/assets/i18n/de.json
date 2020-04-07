@@ -145,6 +145,7 @@
         "title": "Privatsphäreeinstellungen",
         "usePersonalData": "Privatdaten nutzen",
         "useGps": "GPS-Daten nutzen",
+        "useBluetooth": "Bluetooth nutzen",
         "sendData": "Daten übermitteln"
     },
     "infectionWarning": {
@@ -152,11 +153,9 @@
         "title": "Infektionswarnung",
         "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
         "nextSteps": {
-            "maybeNotInfected": "Möglicher Weise bist du gar nicht infiziert. Safty First",
-            "goToDoctor": "Bitte suche dennoch zeitnah einen Arzt auf und bespreche weiteres vorgehen.",
-            "informAboutOhioh": "Sag dem Arzt bitte,dass du die OHIOH-APP nutzt",
-            "findSolution": "Es hilft euch schnell eine Lösung zu finden",
-            "goodLuck": "Wir drücken dir die Daumen",
+            "maybeNotInfected": "Diese Warnung bedeutet nicht, dass du infiziert bist, sondern lediglich, dass ein erhötes Risiko einer Infektion ermittelt wurde",
+            "goToDoctor": "Bitte suche zeitnah einen Arzt auf und bespreche das weitere Vorgehen",
+            "informAboutOhioh": "Bitte teile deinem Arzt mit, dass Du die OHIOH-APP nutzt",
             "linksToDoctors": "Arzt Verlinkung in der Nähe"
         },
         "continue": "Weitere Schritte",

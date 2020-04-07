@@ -1,0 +1,173 @@
+{
+    "menu": {
+        "title": "Menü",
+        "home": "OHİOH Ev",
+        "userData": "Veri değiştirin",
+        "dataProtection": "Gizlilik Ayarları",
+        "settings": "Ayarları",
+        "addLocations": "Geceyi uzatmak",
+        "welcome": "Giriş eğitimi",
+        "credits": "Künye",
+        "deleteAll": "Tüm verileri kalıcı olarak silmek "
+    },
+    "home": {
+        "title": "OHİOH Ev",
+        "simulationInfectionWarning": "Simüle Enfeksiyon Uyarı",
+        "stateOverview": {
+            "infection": {
+                "noWarning": {
+                    "title": "Enfeksiyon Uyarı",
+                    "description": "Şu anda Senin için hiçbir uyarı vardır."
+                },
+                "warning": {
+                    "title": "Enfeksiyon uyarı",
+                    "description": "Muhtemelen enfekte olduğu hesaplanmıştır.",
+                    "showWarning": "Uyarı"
+                }
+            },
+            "sync": {
+                "inSync": {
+                    "title": "Veri senkronize",
+                    "lastUpload": "Verilerinizi {val} tarih olmuştur.",
+                    "connected": "İnternete bağlı."
+                }
+            },
+            "gps": {
+                "active": {
+                    "title": "Konum izleme etkin ",
+                    "lastUpdate": "Konumunuzu bir Dakika önce kaydedilen son kişi oldu."
+                },
+                "inaccurate": {
+                    "title": "Konum izleme etkin değil",
+                    "lastUpdate": "GPS şu anda çok kesin. Kullanım OHİOH QR-Kodları lütfen, ya da el ile konumunuzu ekleyin."
+                },
+                "deactivated": {
+                    "title": "Konum izleme",
+                    "lastUpdate": "Ayarlarında Konum izleme devre dışı bırakmış."
+                }
+            },
+            "personalData": {
+                "active": {
+                    "title": "Kullanıcı verileri saklanır ",
+                    "description": "Kullanıcı veri depolanır."
+                },
+                "inactive": {
+                    "title": "Veri depolanan",
+                    "description": "Herhangi bir kullanıcı verileri girdiniz henüz değil."
+                },
+                "addData": "Veri girin"
+            }
+        },
+        "qrCodeScanner": "QR Kod Tarayıcı"
+    },
+    "welcome": {
+        "slides": {
+            "welcome": {
+                "title": "Hoş geldiniz OHİOH için ",
+                "description": "-App adım-bir sonraki adımda size rehberlik edecektir.",
+                "advice": "Tokatlamak sonraki adım için sol!"
+            },
+            "language": {
+                "title": "Hoşgeldiniz",
+                "advice": "Dili daha sonra tercihlerinde değiştirilebilir."
+            },
+            "what": {
+                "title": "Ne OHİOH mi?",
+                "description": "OHİOH elimizde sağlığımız için. OHİOH uygulamanın amacı, virüsün yayılmasını durdurmak için. <B>OHİOH erken uyarı sistemi<\/b> (GPS, QR Kod, Bluetooth)<\/b>, oturma yerinizi enfeksiyon tehlikesi hakkında bilgi vermek amacıyla. <b>Üç veri kaynakları kullanır App enfeksiyon belirtileri gösterir önce b>uyarı <sana<\/sağlar.b>"
+            },
+            "warning": {
+                "title": "Erken uyarı kadar?",
+                "description": "Enfeksiyon zincirleri bizden herkes için önemli. İletişim bilgilerini hükmü bu Durumda çok önemlidir. Cep telefonu veri kaynaklarının kullanımını Enfeksiyon zincirini Takip etmenizi sağlar. Veri yararlıdır. Uzun veri aktarılacak olan ve saklı olacak."
+            },
+            "security": {
+                "title": "Bilgilerim ne kadar güvenli?",
+                "description": "Ne Kişisel Verileri, Konum verileri ve şifreleme ve yüksek güvenlik standartlarına riayet ederek yetkisiz erişimi önlemek için saklanacak<yapıyoruz.p>salgını sonrasında silinir, verilerinizi otomatik olarak tamamlandı. Tabii ki, aynı zamanda el ile tüm verileri silebilirsiniz."
+            },
+            "video": {
+                "title": "Uygulaması nasıl çalışıyor? ",
+                "description": "Aşağıdaki videoda Uygulama hakkında daha fazla bilgi alabilirsiniz:",
+                "videoLink": "OHİOH açıklayıcı video"
+            }
+        }
+    },
+    "userData": {
+        "title": "Kullanıcı veri",
+        "description": "Burada verilerinizi girebilirsiniz. Hayır alanların doldurulması gerekiyor.",
+        "firstName": "İlk adı",
+        "firstNameMaxLengthMessage": "İlk adı {val} karakteri aşamaz.",
+        "lastName": "Soyadı",
+        "lastNameMaxLengthMessage": "Soyadı {val} karakteri aşamaz.",
+        "phone": "Tele onnummer",
+        "phoneMaxLengthMessage": "Telefon numarası uzunluğu {val} karakterden daha uzun olabilir.",
+        "phoneInvalidMessage": "Telefon numarası geçersiz.",
+        "age": "Yaş",
+        "minAgeValidationMessage": "Yaşınız {val} yıl daha büyük olmalıdır.",
+        "maxAgeValidationMessage": "Yaşınız {val} yıldan az olmalıdır.",
+        "city": "İkamet yeri ",
+        "cityMaxLengthMessage": "Residence {val} karakteri geçmemelidir.",
+        "submit": "Al",
+        "cancel": "İptal"
+    },
+    "settings": {
+        "title": "Ayarları",
+        "saveDuration": "Depolama süresi",
+        "language": "Dil",
+        "gpsDataStorageDuration": "GPS veri depolama süresi (gün)",
+        "otherDataStorageDuration": "Diğer veri depolama süresi (gün)",
+        "trackingInterval": "Depolama Aralığı (Dakika)"
+    },
+    "credits": {
+        "title": "Hakkında geliştirici",
+        "motivation": {
+            "title": "Oluşumu ve Motivasyon",
+            "description": "Bu Hackathon de, Federal hükümet başladı. Çerçeve ile, diğer şeyler arasında, OHİOH Takım hızlı Takım bulabilirler kendilerini. O zamandan beri, bir kavram, bir web sitesi ve Uygulama OHİOH olma fikri vardır."
+        },
+        "team": {
+            "title": "Takım",
+            "description": "Proje OHİOH Olası birçok kişi yardımı olmadan mümkün olmazdı. Bu hepimiz için en İyi ... hiçbir ödül olmadan insanların nasıl inanılmaz. Hepinize bu nedenle, küçük bir teşekkür:",
+            "coordination": "Koordinasyon",
+            "frontendDevelopment": "Önyüz Geliştirme ",
+            "university": "**Uygulamalı Bilimler Üniversitesi s Profesör Kiel",
+            "thankYou": "İyi bir işbirliği için teşekkür ederiz."
+        },
+        "attribution": {
+            "title": "Attribution"
+        },
+        "copyright": {
+            "title": "Künye",
+            "phone": "Telefon"
+        },
+        "gtc": {
+            "title": "Şartlar ve koşullar"
+        }
+    },
+    "dataProtection": {
+        "title": "Gizlilik Ayarları",
+        "usePersonalData": "Özel veri",
+        "useGps": "GPS verileri kullanabilirsiniz",
+        "sendData": "Veri iletimi"
+    },
+    "infectionWarning": {
+        "pageTitle": "Uyarı",
+        "title": "Enfeksiyon uyarı",
+        "description": "Enfeksiyon riski belirledik.",
+        "nextSteps": {
+            "maybeNotInfected": "Bu uyarı enfekte olduğunuzu, ama sadece enfeksiyon erhötes bir risk belirlendi anlamına gelmez ",
+            "goToDoctor": "Lütfen arama derhal bir doktor görmek ve daha fazla prosedürü tartışmak ",
+            "informAboutOhioh": "OHİOH UYGULAMASI kullanıyorsanız, lütfen doktorunuza başvurunuz ",
+            "linksToDoctors": "Doktor çevresinde bağlama "
+        },
+        "continue": "Daha İleri Adımlar",
+        "accept": "Uyarı kabul"
+    },
+    "languageSelection": {
+        "description": "Lütfen dilinizi seçin:",
+        "de": "İngilizce",
+        "en": "İngilizce",
+        "tr": "Türk",
+        "ru": "Rus",
+        "pl": "Polonya",
+        "sa": "Arapça",
+        "ku": "Kürt"
+    }
+}
