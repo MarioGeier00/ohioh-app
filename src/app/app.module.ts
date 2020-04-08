@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+// import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation/ngx';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation/ngx'
     StatusBar,
     SplashScreen,
     QRScanner,
-    Geolocation,
+    // Geolocation,
     BackgroundGeolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
