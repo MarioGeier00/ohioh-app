@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from '@ionic/angular';
 
@@ -48,7 +48,7 @@ export class GeolocationTestPage implements OnInit {
 
   constructor(
     public toastController: ToastController,
-    private backgroundGeolocation: BackgroundGeolocation,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -80,6 +80,7 @@ export class GeolocationTestPage implements OnInit {
       }).then(() => toast.present());
 
       this.backroundLocations = [location, ...this.backroundLocations];
+      this.cdr.detectChanges();
       // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
       // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
       // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.

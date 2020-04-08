@@ -8,7 +8,7 @@
 
   <ion-button (click)="startBackgroudGeo()">Backround Geo Scan</ion-button>
   <ion-button (click)="stopBackgroudGeo()" color="danger">Backround Geo stop</ion-button>
-  <ion-item>
+  <!-- <ion-item>
     <ion-range #b min="0" max="200" color="secondary" (ionChange)="changeValB(b.value)">
       <ion-label slot="start">0m</ion-label>
       <ion-label slot="end">200m</ion-label>
@@ -25,12 +25,14 @@
       <ion-label slot="start">0m</ion-label>
       <ion-label slot="end">200m</ion-label>
     </ion-range>
-  </ion-item>
+  </ion-item> -->
 
   <p>{{backroundLocations.length}}</p>
   <ion-list>
     <ion-item *ngFor="let location of backroundLocations">
-      <b>{{location.time | date: 'HH:mm:ss'}}</b>  {{getVal(location)}}
+      <small>{{location.time | date: 'HH:mm:ss'}}</small>
+      <p>{{location.latitude}}</p>
+      <p>{{location.longitude}}</p>
     </ion-item>
   </ion-list>
 
