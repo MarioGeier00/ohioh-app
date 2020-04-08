@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents } from '@ionic-native/background-geolocation/ngx';
-import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -14,7 +13,6 @@ export class GeolocationTestPage implements OnInit {
   public backroundLocations: BackgroundGeolocationResponse[] = new Array();
 
   constructor(
-    private qrScanner: QRScanner,
     public toastController: ToastController,
     private backgroundGeolocation: BackgroundGeolocation,
   ) { }
