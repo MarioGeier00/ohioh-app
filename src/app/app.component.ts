@@ -20,6 +20,11 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
+      title: 'geo',
+      url: '/geo',
+      icon: 'home'
+    },
+    {
       title: 'userData',
       url: '/user-data',
       icon: 'person-circle'

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationAccuracy, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
+import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -15,7 +15,7 @@ export class GeolocationTestPage implements OnInit {
 
   newConfig =
     {
-      desiredAccuracy: BackgroundGeolocationAccuracy.HIGH,
+      desiredAccuracy: 0, //BackgroundGeolocationAccuracy.HIGH,
       stationaryRadius: 5,
       distanceFilter: 5,
       notificationTitle: 'OHIOH GPS',
@@ -70,22 +70,71 @@ export class GeolocationTestPage implements OnInit {
     console.log(this.newConfig);
     this.backgroundGeolocation.configure(this.newConfig)
       .then(() => {
-
-        this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
-          console.log(location);
-          const toast = this.toastController.create({
-            message: JSON.stringify(location),
-            duration: 2000
-          }).then(() => toast.present());
-
-          this.backroundLocations = [location, ...this.backroundLocations];
-          // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
-          // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
-          // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
-          this.backgroundGeolocation.finish(); // FOR IOS ONLY
-        });
-
       });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
+      console.log(location);
+      const toast = this.toastController.create({
+        message: JSON.stringify(location),
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backroundLocations = [location, ...this.backroundLocations];
+      // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
+      // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
+      // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.error).subscribe(err => {
+      console.log('[ERROR] BackgroundGeolocation error:', err);
+      const toast = this.toastController.create({
+        message: JSON.stringify(err),
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.start).subscribe(err => {
+      console.log('[INFO] BackgroundGeolocation service has been started');
+      const toast = this.toastController.create({
+        message: 'start',
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.stop).subscribe(err => {
+      console.log('[INFO] BackgroundGeolocation service has been stoped');
+      const toast = this.toastController.create({
+        message: 'stop',
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.background).subscribe(err => {
+      console.log('[INFO] App is in background');
+      const toast = this.toastController.create({
+        message: 'background',
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
+
+    this.backgroundGeolocation.on(BackgroundGeolocationEvents.foreground).subscribe(err => {
+      console.log('[INFO] App is in foreground');
+      const toast = this.toastController.create({
+        message: 'foreground',
+        duration: 2000
+      }).then(() => toast.present());
+
+      this.backgroundGeolocation.finish(); // FOR IOS ONLY
+    });
 
     // start recording location
     this.backgroundGeolocation.start();
