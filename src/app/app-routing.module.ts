@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'infection-warning',
     loadChildren: () => import('./infection-warning/infection-warning.module').then( m => m.InfectionWarningPageModule)
+  },  {
+    path: 'qr-generator',
+    loadChildren: () => import('./qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
   }
+
 
 ];
 

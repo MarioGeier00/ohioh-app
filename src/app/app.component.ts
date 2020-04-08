@@ -40,6 +40,11 @@ export class AppComponent implements OnInit {
       icon: 'add-circle'
     },
     {
+      title: 'qrGenerator',
+      url: '/qr-generator',
+      icon: 'qr-code'
+    },
+    {
       title: 'welcome',
       url: '/welcome',
       icon: 'help-circle'
