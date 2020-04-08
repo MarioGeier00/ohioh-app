@@ -15,7 +15,7 @@ export class QrGeneratorPage implements OnInit {
   ngOnInit() {
   }
 
-  change() {
+  generateQRCode() {
 
   }
 

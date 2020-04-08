@@ -7,13 +7,21 @@
 
 <ion-content class="ion-padding">
   <ion-list>
+
     <ion-item>
-      <ion-label>Name</ion-label>
-      <ion-toggle [(ngModel)]="name" (ionChange)="change()" slot="end"></ion-toggle>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="name" autofocus=true></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label>Ort</ion-label>
-      <ion-toggle [(ngModel)]="residence" (ionChange)="change()" slot="end"></ion-toggle>
+      <ion-label position="floating">Ort</ion-label>
+      <ion-input [(ngModel)]="name" autofocus=true></ion-input>
     </ion-item>
+
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="generateQRCode()">
+        Generieren</ion-button>
+    </div>
+
   </ion-list>
 </ion-content>
