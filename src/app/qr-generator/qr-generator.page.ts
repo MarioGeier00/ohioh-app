@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import QRCode from 'qrcode';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-qr-generator',
@@ -9,22 +10,29 @@ import QRCode from 'qrcode';
 })
 export class QrGeneratorPage implements OnInit {
 
-  public name: string;
-  public residence: string;
+  public userDataForm: FormGroup;
 
   generated = '';
   public displayQRCode: boolean;
 
-  constructor() { }
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
+
+    this.userDataForm = this.formBuilder.group({
+      name: new FormControl('', Validators.compose([Validators.max(40)])),
+      street: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(40)])),
+      zipCode: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(20)])),
+    });
+
   }
 
   generateQRCode() {
-    const qrcode = QRCode;
-    const self = this;
-    qrcode.toDataURL(self.name, { errorCorrectionLevel: 'H' }, function (err, url) {
-      self.generated = url;
+    QRCode.toDataURL(JSON.stringify(this.userDataForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
+      this.generated = url;
     });
     
     this.displayQRCode = true;
