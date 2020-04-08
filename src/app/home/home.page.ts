@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/data-services/user-service/user.service';
+import { UserService } from '../shared/data-services/user/user.service';
 import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
