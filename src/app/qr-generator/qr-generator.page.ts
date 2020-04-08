@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 import QRCode from 'qrcode';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -23,7 +23,7 @@ export class QrGeneratorPage implements OnInit {
   ngOnInit() {
 
     this.qrGeneratorForm = this.formBuilder.group({
-      name: new FormControl('', Validators.compose([Validators.max(40)])),
+      name: new FormControl('', Validators.compose([Validators.required, Validators.max(40)])),
       street: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(40)])),
       zipCode: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(20)])),
     });
@@ -31,10 +31,15 @@ export class QrGeneratorPage implements OnInit {
   }
 
   generateQRCode() {
+    if (!this.qrGeneratorForm.valid) {
+      return;
+    }
+
+    const self = this;
     QRCode.toDataURL(JSON.stringify(this.qrGeneratorForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
-      this.generated = url;
+      self.generated = url;
     });
-    
+
     this.displayQRCode = true;
   }
 
