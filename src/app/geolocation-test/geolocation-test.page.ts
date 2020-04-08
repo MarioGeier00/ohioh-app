@@ -48,6 +48,7 @@ export class GeolocationTestPage implements OnInit {
 
   constructor(
     public toastController: ToastController,
+    private backgroundGeolocation: BackgroundGeolocation,
     private cdr: ChangeDetectorRef
   ) { }
 
