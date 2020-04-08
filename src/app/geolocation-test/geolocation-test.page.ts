@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents } from '@ionic-native/background-geolocation/ngx';
+import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationAccuracy, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -8,6 +8,40 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./geolocation-test.page.scss'],
 })
 export class GeolocationTestPage implements OnInit {
+
+  // locationInterval = 60000 * 5; // Time (in milliseconds) between location information polls.  E.g. 60000*5 = 5 minutes
+  // DEBUG: Reduce Time intervall for faster debugging
+  locationInterval = 5000;
+
+  newConfig =
+    {
+      desiredAccuracy: BackgroundGeolocationAccuracy.HIGH,
+      stationaryRadius: 5,
+      distanceFilter: 5,
+      notificationTitle: 'OHIOH GPS',
+      notificationText: 'Deine Daten werden erfasst',
+      debug: true, // when true, it beeps every time a loc is read
+      startOnBoot: true,
+      stopOnTerminate: false,
+      locationProvider: BackgroundGeolocationLocationProvider.DISTANCE_FILTER_PROVIDER,
+
+      interval: this.locationInterval,
+      fastestInterval: this.locationInterval,
+      activitiesInterval: this.locationInterval,
+
+      activityType: 'AutomotiveNavigation',
+      pauseLocationUpdates: false,
+      saveBatteryOnBackground: true,
+      stopOnStillActivity: false,
+    };
+
+  config: BackgroundGeolocationConfig = {
+    desiredAccuracy: 100,
+    stationaryRadius: 1,
+    distanceFilter: 1,
+    debug: true, //  enable this hear sounds for background-geolocation life-cycle.
+    stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+  };
 
 
   public backroundLocations: BackgroundGeolocationResponse[] = new Array();
@@ -19,14 +53,6 @@ export class GeolocationTestPage implements OnInit {
 
   ngOnInit() {
   }
-
-  config: BackgroundGeolocationConfig = {
-    desiredAccuracy: 100,
-    stationaryRadius: 1,
-    distanceFilter: 1,
-    debug: true, //  enable this hear sounds for background-geolocation life-cycle.
-    stopOnTerminate: false, // enable this to clear background location settings when the app terminates
-  };
 
   changeValB(value: number) {
     this.config.stationaryRadius = value;
@@ -41,8 +67,8 @@ export class GeolocationTestPage implements OnInit {
   }
 
   startBackgroudGeo() {
-    console.log(this.config);
-    this.backgroundGeolocation.configure(this.config)
+    console.log(this.newConfig);
+    this.backgroundGeolocation.configure(this.newConfig)
       .then(() => {
 
         this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
