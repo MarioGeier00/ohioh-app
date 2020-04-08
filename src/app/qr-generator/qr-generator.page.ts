@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class QrGeneratorPage implements OnInit {
 
-  public userDataForm: FormGroup;
+  public qrGeneratorForm: FormGroup;
 
   generated = '';
   public displayQRCode: boolean;
@@ -22,7 +22,7 @@ export class QrGeneratorPage implements OnInit {
 
   ngOnInit() {
 
-    this.userDataForm = this.formBuilder.group({
+    this.qrGeneratorForm = this.formBuilder.group({
       name: new FormControl('', Validators.compose([Validators.max(40)])),
       street: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(40)])),
       zipCode: new FormControl('', Validators.compose([Validators.required, Validators.min(1), Validators.max(20)])),
@@ -31,7 +31,7 @@ export class QrGeneratorPage implements OnInit {
   }
 
   generateQRCode() {
-    QRCode.toDataURL(JSON.stringify(this.userDataForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
+    QRCode.toDataURL(JSON.stringify(this.qrGeneratorForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
       this.generated = url;
     });
     
