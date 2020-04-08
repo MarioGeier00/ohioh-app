@@ -1,0 +1,175 @@
+{
+    "menu": {
+        "title": "Menu",
+        "home": "OHIOH Home",
+        "userData": "Daten zur Person ändern",
+        "dataProtection": "Privatsphäreneinstellungen",
+        "settings": "Einstellungen",
+        "addLocations": "Aufenthalt nachtragen",
+        "welcome": "Einführungstutorial",
+        "credits": "Impressum",
+        "deleteAll": "Alle Daten endgültig löschen"
+    },
+    "home": {
+        "title": "OHIOH Home",
+        "simulationInfectionWarning": "Simuliere Infektionswarnung",
+        "stateOverview": {
+            "infection": {
+                "noWarning": {
+                    "title": "Keine Infektionswarnung",
+                    "description": "Aktuell liegen keine Warnungen für Dich vor."
+                },
+                "warning": {
+                    "title": "Infektionswarnung",
+                    "description": "Wir haben errechnet, dass Du möglicherweise infiziert bist.",
+                    "showWarning": "Warnung anzeigen"
+                }
+            },
+            "sync": {
+                "inSync": {
+                    "title": "Daten synchronisiert",
+                    "lastUpload": "Ihre Daten wurden {val} hochgeladen.",
+                    "connected": "Es besteht Internetverbindung."
+                }
+            },
+            "gps": {
+                "active": {
+                    "title": "Standorterfassung aktiv",
+                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst."
+                },
+                "inaccurate": {
+                    "title": "Standorterfassung inaktiv",
+                    "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage Deinen Standort manuell nach."
+                },
+                "deactivated": {
+                    "title": "Standorterfassung aus",
+                    "lastUpdate": "Du hast die Standorterfassung in den Einstellungen deaktiviert."
+                }
+            },
+            "personalData": {
+                "active": {
+                    "title": "Benutzerdaten hinterlegt",
+                    "description": "Du hast Benutzerdaten hinterlegt."
+                },
+                "inactive": {
+                    "title": "Keine Daten hinterlegt",
+                    "description": "Du hast noch keine Benutzerdaten eingetragen."
+                },
+                "addData": "Daten eintragen"
+            }
+        },
+        "qrCodeScanner": "QR-Code Scanner"
+    },
+    "welcome": {
+        "slides": {
+            "welcome": {
+                "title": "Willkommen zu OHIOH",
+                "description": "Du wirst im Folgenden Schritt für Schritt an die App herangeführt.",
+                "advice": "Wische nach links für den nächsten Schritt!"
+            },
+            "language": {
+                "title": "Willkommen",
+                "advice": "Die Sprache kann später in den Einstellungen geändert werden."
+            },
+            "what": {
+                "title": "Was ist OHIOH?",
+                "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, QR-Code, Bluetooth)</b>, um Dich über ein mögliches Infektionsrisiko durch Deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
+            },
+            "warning": {
+                "title": "Wie funktioniert die Frühwarnung?",
+                "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch Deine Daten sind dafür hilfreich. Du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
+            },
+            "security": {
+                "title": "Wie sicher sind meine Daten?",
+                "description": "Wir achten darauf, dass weder Deine persönlichen Daten, noch Deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden Deine Daten automatisch vollständig gelöscht. Natürlich kannst Du auch manuell sämtliche Daten löschen."
+            },
+            "video": {
+                "title": "Wie funktioniert die App?",
+                "description": "In folgenden Video kannst Du Dich über die App informieren:",
+                "videoLink": "OHIOH Erklärvideo"
+            }
+        }
+    },
+    "userData": {
+        "title": "Benutzerdaten",
+        "description": "Hier kannst Du Deine Daten eingeben. Keine Felder müssen ausgefüllt sein.",
+        "firstName": "Vorname",
+        "firstNameMaxLengthMessage": "Der Vorname darf {val} Zeichen nicht überschreiten.",
+        "lastName": "Nachname",
+        "lastNameMaxLengthMessage": "Der Nachname darf {val} Zeichen nicht überschreiten.",
+        "phone": "Telenonnummer",
+        "phoneMaxLengthMessage": "Die Telefonnummer darf nicht länger als {val} Zeichen lang sein.",
+        "phoneInvalidMessage": "Die Telefonnummer ist ungültig.",
+        "age": "Alter",
+        "minAgeValidationMessage": "Ihr Alter muss größer als {val} Jahr sein.",
+        "maxAgeValidationMessage": "Ihr Alter muss kleiner als {val} Jahre sein.",
+        "city": "Wohnort",
+        "cityMaxLengthMessage": "Der Wohnort darf {val} Zeichen nicht überschreiten.",
+        "submit": "Übernehmen",
+        "cancel": "Abbrechen",
+        "reset": "Zurücksetzen"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "saveDuration": "Speicherdauer",
+        "language": "Sprache",
+        "gpsDataStorageDuration": "Speicherdauer GPS-Daten (Tage)",
+        "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
+        "trackingInterval": "Speicherintervall (Minuten)"
+    },
+    "credits": {
+        "title": "Über die Entwickler",
+        "motivation": {
+            "title": "Entstehung und Motivation",
+            "description": "Beim Hackathon der Bundesregierung begann alles. Durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+        },
+        "team": {
+            "title": "Team",
+            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
+            "coordination": "Koordination",
+            "frontendDevelopment": "Entwicklung Frontend",
+            "university": "Die Professor*en*in der Fachhochschule Kiel",
+            "thankYou": "Danke für die gute Zusammenarbeit!"
+        },
+        "attribution": {
+            "title": "Attribution"
+        },
+        "copyright": {
+            "title": "Impressum",
+            "phone": "Telefon"
+        },
+        "gtc": {
+            "title": "AGBs"
+        }
+    },
+    "dataProtection": {
+        "title": "Privatsphäreeinstellungen",
+        "usePersonalData": "Privatdaten nutzen",
+        "useGps": "GPS-Daten nutzen",
+        "useBluetooth": "Bluetooth nutzen",
+        "sendData": "Daten übermitteln"
+    },
+    "infectionWarning": {
+        "pageTitle": "Warnmeldung",
+        "title": "Infektionswarnung",
+        "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
+        "nextSteps": {
+            "maybeNotInfected": "Diese Warnung bedeutet nicht, dass du infiziert bist, sondern lediglich, dass ein erhötes Risiko einer Infektion ermittelt wurde",
+            "goToDoctor": "Bitte suche zeitnah einen Arzt auf und bespreche das weitere Vorgehen",
+            "informAboutOhioh": "Bitte teile deinem Arzt mit, dass Du die OHIOH-APP nutzt",
+            "linksToDoctors": "Arzt Verlinkung in der Nähe"
+        },
+        "continue": "Weitere Schritte",
+        "accept": "Warnung akzeptieren"
+    },
+    "languageSelection": {
+        "description": "Bitte wähle Deine Sprache aus:",
+        "de": "Deutsch",
+        "en": "Englisch",
+        "tr": "Türkisch",
+        "ru": "Russisch",
+        "pl": "Polnisch",
+        "sa": "Arabisch",
+        "ku": "Kurdisch"
+    }
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-welcome',
@@ -8,11 +10,18 @@ import { Router } from '@angular/router';
 })
 export class WelcomePage implements OnInit {
 
-  slideOpts;
+  public slideOpts;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private menuCtrl: MenuController,
+    private translation: LanguageTranslatorService
+  ) {
+    this.menuCtrl.enable(false);
+  }
 
   ngOnInit() {
+    this.translation.initLanguageTranslator().then();
     this.slideOpts = {
       initialSlide: 0
     };

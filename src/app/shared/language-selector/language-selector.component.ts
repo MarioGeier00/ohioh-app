@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageTranslatorService } from '../data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -7,8 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {}
+  public languages: string[] = [
+    'de',
+    'en',
+    'tr',
+    'ru',
+    'pl',
+    'sa',
+    'ku'
+  ];
+
+  constructor(
+    public translator: LanguageTranslatorService,
+  ) { }
+
+  ngOnInit() {
+  }
+
+  languageSelected(value: string) {
+    this.translator.changeSelectedLanguage(value);
+  }
 
 }

@@ -1,0 +1,33 @@
+@import "../../global.scss";
+
+ion-content {
+    font-size: 1em;
+}
+
+.content {
+    @extend .margin-right-left-auto;
+    max-width: 450px;
+}
+
+.icon-text h1 {
+    font-size: 1.8em;
+}
+
+.icon-text ion-icon {
+    display       : inline-block;
+    font-size     : 100px;
+    color         : #ffC977;
+    vertical-align: middle;
+}
+
+.icon-text span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-text.warn {
+    color: var(--ion-color-warning);
+}
+.icon-text.warn ion-icon {
+    color: var(--ion-color-warning);
+}

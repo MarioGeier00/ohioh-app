@@ -7,9 +7,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod": "ng build --prod --output-hashing none --base-href /ohioh/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "android": "ionic capacitor run android -l --host=0.0.0.0"
   },
   "private": true,
   "dependencies": {
@@ -18,7 +20,9 @@
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/pwa": "^0.901.0",
     "@angular/router": "~8.2.14",
+    "@angular/service-worker": "~8.2.14",
     "@capacitor/android": "^1.5.2",
     "@capacitor/core": "1.5.2",
     "@ionic-native/background-geolocation": "^5.23.0",
@@ -29,6 +33,9 @@
     "@ionic/angular": "^5.0.0",
     "@mauron85/cordova-plugin-background-geolocation": "^3.1.0",
     "cordova-plugin-geolocation": "^4.0.2",
+    "@ionic/storage": "^2.2.0",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "cordova-plugin-qrscanner": "^3.0.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",

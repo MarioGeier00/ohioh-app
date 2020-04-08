@@ -1,26 +1,16 @@
-
 <ion-list>
-  
+
   <ion-list-header>
-    <h6>Bitte wählen Sie Ihre Sprache aus:</h6>
+    <h6>{{ 'languageSelection.description' | translate }}</h6>
   </ion-list-header>
 
-  <ion-radio-group value="de">
+  <ion-radio-group #langSelector [value]="translator.getSelectedLanguage()"
+    (ionChange)="languageSelected(langSelector.value)">
 
-    <ion-item>
-      <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Deutsch</ion-label>
-      <ion-radio slot="end" value="de"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Englisch</ion-label>
-      <ion-radio slot="end" value="en"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="flag" slot="start"></ion-icon>
-      <ion-label>Französisch</ion-label>
-      <ion-radio slot="end" value="fr"></ion-radio>
+    <ion-item *ngFor="let lang of languages">
+      <app-language-flag [language]="lang"></app-language-flag>
+      <ion-label>{{ ('languageSelection.' + lang) | translate }}</ion-label>
+      <ion-radio slot="end" [value]="lang"></ion-radio>
     </ion-item>
 
   </ion-radio-group>

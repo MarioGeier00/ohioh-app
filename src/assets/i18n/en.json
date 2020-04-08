@@ -1,0 +1,173 @@
+{
+    "menu": {
+        "title": "Menu",
+        "home": "OHIOH Home",
+        "userData": "Data change",
+        "dataProtection": "Privacy settings",
+        "settings": "Settings",
+        "addLocations": "Stay the night extend",
+        "welcome": "Introduction tutorial",
+        "credits": "Imprint",
+        "deleteAll": "Delete all data"
+    },
+    "home": {
+        "title": "OHIOH Home",
+        "simulationInfectionWarning": "Simulate Infection Warning",
+        "stateOverview": {
+            "infection": {
+                "noWarning": {
+                    "title": "No Infection Warning",
+                    "description": "There are currently no warnings for You."
+                },
+                "warning": {
+                    "title": "Infection warning",
+                    "description": "We have calculated that You are possibly infected.",
+                    "showWarning": "Warning"
+                }
+            },
+            "sync": {
+                "inSync": {
+                    "title": "Data synchronized",
+                    "lastUpload": "Your data has been uploaded to {val}.",
+                    "connected": "You are connected to the Internet."
+                }
+            },
+            "gps": {
+                "active": {
+                    "title": "Location tracking is active",
+                    "lastUpdate": "Your location was last recorded a Minute ago."
+                },
+                "inaccurate": {
+                    "title": "Location tracking inactive",
+                    "lastUpdate": "GPS is currently too imprecise. Please use OHIOH QR-Codes, or add Your location manually."
+                },
+                "deactivated": {
+                    "title": "Location tracking from",
+                    "lastUpdate": "You have disabled the Location tracking in the settings."
+                }
+            },
+            "personalData": {
+                "active": {
+                    "title": "User data is stored",
+                    "description": "You have stored user data."
+                },
+                "inactive": {
+                    "title": "No data stored",
+                    "description": "You have not yet entered any user data."
+                },
+                "addData": "Data enter"
+            }
+        },
+        "qrCodeScanner": "QR-Code Scanner"
+    },
+    "welcome": {
+        "slides": {
+            "welcome": {
+                "title": "Welcome to OHIOH",
+                "description": "You will be guided in the Following step-by-step to the App.",
+                "advice": "Swipe left for the next step!"
+            },
+            "language": {
+                "title": "Welcome",
+                "advice": "The language can later be changed in the preferences."
+            },
+            "what": {
+                "title": "What is OHIOH?",
+                "description": "OHIOH is for Our Health In Our Hands. The aim of the OHIOH App is to curb the spread of viruses. The <b>OHIOH early warning system<\/b> uses <b>three data sources (GPS, QR-Code, Bluetooth)<\/b>, in order to inform You about a possible risk of infection by Your residence location. The App allows you to <b>a warning before symptoms of infection show.<\/b>"
+            },
+            "warning": {
+                "title": "How does the early warning?",
+                "description": "The chains of Infection are of concern to everyone of us. The provision of contact details is in this Situation, it is essential. The use of data sources of the mobile phone allows you to Track the chain of Infection. Your data are useful. You decide which data will be transmitted and how long is it stored."
+            },
+            "security": {
+                "title": "How safe is my data?",
+                "description": "We make sure that neither Your personal data, Your location data will be stored and to prevent unauthorised access by encryption and the observance of high safety standards.<p>In the aftermath of the pandemic will be deleted, Your data is automatically complete. Of course You can also manually delete all of the data."
+            },
+            "video": {
+                "title": "How the App works?",
+                "description": "In the following Video You can learn more about the App:",
+                "videoLink": "OHIOH explanatory video"
+            }
+        }
+    },
+    "userData": {
+        "title": "User data",
+        "description": "Here You can enter Your data. No fields need to be filled.",
+        "firstName": "First name",
+        "firstNameMaxLengthMessage": "The first name may not exceed {val} characters.",
+        "lastName": "Surname",
+        "lastNameMaxLengthMessage": "The last name may not exceed {val} characters.",
+        "phone": "Tele onnummer",
+        "phoneMaxLengthMessage": "The phone number may not be longer than {val} characters in length.",
+        "phoneInvalidMessage": "The phone number is invalid.",
+        "age": "Age",
+        "minAgeValidationMessage": "Your age must be greater than {val} year.",
+        "maxAgeValidationMessage": "Your age must be less than {val} years.",
+        "city": "Place of residence",
+        "cityMaxLengthMessage": "The residence must not exceed {val} characters.",
+        "submit": "Take",
+        "cancel": "Cancel"
+    },
+    "settings": {
+        "title": "Settings",
+        "saveDuration": "Storage duration",
+        "language": "Language",
+        "gpsDataStorageDuration": "Storage duration of GPS data (days)",
+        "otherDataStorageDuration": "Storage period other data (days)",
+        "trackingInterval": "Storage Interval (Minutes)"
+    },
+    "credits": {
+        "title": "About the developer",
+        "motivation": {
+            "title": "Formation and Motivation",
+            "description": "At the Hackathon, the Federal government started it all. Through the framework, among other things, the OHIOH Team could quickly find themselves together in Teams. Since then, a concept, a website and App are from the idea of OHIOH become."
+        },
+        "team": {
+            "title": "Team",
+            "description": "The project OHIOH would not have been possible without the help of many individuals possible. It is unbelievable how these people without a reward for you ... no for all of us ... your the Best. Therefore, a small thanks to all of you:",
+            "coordination": "Coordination",
+            "frontendDevelopment": "Development Of Frontend",
+            "university": "The Professor*s*in the University of applied Sciences Kiel",
+            "thankYou": "Thank you for the good cooperation!"
+        },
+        "attribution": {
+            "title": "Attribution"
+        },
+        "copyright": {
+            "title": "Imprint",
+            "phone": "Phone"
+        },
+        "gtc": {
+            "title": "Terms and conditions"
+        }
+    },
+    "dataProtection": {
+        "title": "Privacy settings",
+        "usePersonalData": "Private data",
+        "useGps": "GPS data use",
+        "sendData": "Data transmit"
+    },
+    "infectionWarning": {
+        "pageTitle": "Warning",
+        "title": "Infection warning",
+        "description": "We have identified an increased risk of infection.",
+        "nextSteps": {
+            "maybeNotInfected": "This warning does not mean that you're infected, but merely that a erhötes risk of infection was determined ",
+            "goToDoctor": "Please search promptly see a doctor and discuss the further procedure",
+            "informAboutOhioh": "Please contact your doctor that You are using the OHIOH APP ",
+            "linksToDoctors": "Doctor linking in the vicinity"
+        },
+        "continue": "Further Steps",
+        "accept": "Warning accept"
+    },
+    "languageSelection": {
+        "description": "Please select Your language:",
+        "de": "German",
+        "en": "English",
+        "tr": "Turkish",
+        "ru": "Russian",
+        "pl": "Polish",
+        "sa": "Arabic",
+        "ku": "Kurdish"
+    }
+}

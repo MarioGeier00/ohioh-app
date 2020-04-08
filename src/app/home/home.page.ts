@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { ToastController } from '@ionic/angular';
-// import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
-import { Observable, Subscription, config } from 'rxjs';
-import { BackgroundGeolocation, BackgroundGeolocationConfig, 
-  BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { UserService } from '../shared/data-services/user-service/user.service';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +11,38 @@ import { BackgroundGeolocation, BackgroundGeolocationConfig,
 })
 export class HomePage implements OnInit {
 
+  public userDataAvailable: boolean;
 
-  constructor() { }
+  constructor(
+    private menuCtrl: MenuController,
+    private router: Router,
+    private translator: LanguageTranslatorService,
+    public userService: UserService) {
+    this.menuCtrl.enable(true);
+    this.userService.isUserStored().then((isUserStored) => {
+      if (!isUserStored) {
+        this.router.navigate(['/welcome']);
+      }
+    });
+    this.userService.isUserDataEmpty().then(isEmpty => {
+      console.log(isEmpty);
+      this.userDataAvailable = !isEmpty;
+    });
+  }
 
   ngOnInit() {
   }
 
+  ionViewDidEnter() {
+    this.translator.initLanguageTranslator().then();
+  }
+
+  openQRScan() {
+    this.router.navigate(['/qr-scanner']);
+  }
+
+  navigateToUserData() {
+    this.router.navigate(['/user-data']);
+  }
 
 }

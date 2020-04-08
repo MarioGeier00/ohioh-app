@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'dataProtection.title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>{{ 'dataProtection.usePersonalData' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="usePersonalData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'dataProtection.useGps' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="useGpsData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'dataProtection.useBluetooth' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="useBluetoothData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'dataProtection.sendData' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="sendData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { UserService } from './shared/data-services/user-service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,36 +15,48 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'OHIO Home',
+      title: 'home',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'Einführungstutorial',
-      url: '/welcome',
-      icon: 'information-circle'
+      title: 'userData',
+      url: '/user-data',
+      icon: 'person-circle'
     },
     {
-      title: 'Privatsphäreneinstellungen',
-      url: '/user-data',
+      title: 'dataProtection',
+      url: '/data-protection',
       icon: 'shield-checkmark'
     },
     {
-      title: 'Daten verwalten',
-      url: '/user-data',
+      title: 'settings',
+      url: '/settings',
+      icon: 'settings'
+    },
+    {
+      title: 'addLocations',
+      url: '/location/add',
       icon: 'add-circle'
     },
     {
-      title: 'Aufenthalt nachtragen',
-      url: '/location/add',
-      icon: 'settings'
-    }
+      title: 'welcome',
+      url: '/welcome',
+      icon: 'help-circle'
+    },
+    {
+      title: 'credits',
+      url: '/credits',
+      icon: 'information-circle'
+    },
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private userService: UserService,
+    public router: Router
   ) {
     this.initializeApp();
   }
@@ -62,6 +76,7 @@ export class AppComponent implements OnInit {
   }
 
   deleteAll() {
-    throw new Error();
+    this.userService.deleteUser();
   }
+
 }

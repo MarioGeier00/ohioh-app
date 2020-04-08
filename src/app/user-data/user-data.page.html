@@ -1,41 +1,103 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Benutzerdaten</ion-title>
+    <ion-title>
+      <ion-icon name="person" style="margin-right: 10px"></ion-icon>
+      {{ 'userData.title' | translate }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <p>Hier können Sie Ihre Daten eingeben. Keine Felder müssen ausgefüllt sein.</p>
+  <p>{{ 'userData.description' | translate }}</p>
+  <form [formGroup]="userDataForm" (ngSubmit)="applyData()">
 
-  <ion-item>
-    <ion-label position="floating">Vorname</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Nachname</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{ 'userData.firstName' | translate }}</ion-label>
+      <ion-input formControlName="firstName" autocapitalize="'words'" autofocus=true></ion-input>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.firstName.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.firstNameMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.firstName.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Alter</ion-label>
-    <ion-input type="num"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Telefonnummer</ion-label>
-    <ion-input type="tel"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{ 'userData.lastName' | translate }}</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.lastName.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.lastNameMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.lastName.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">{{ 'userData.phone' | translate }}</ion-label>
+      <ion-input formControlName="phone" inputmode="tel"></ion-input>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.phone.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.phoneMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.phone.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.phone.errors?.pattern">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.phoneInvalidMessage' | translate
+            | replace : '{val}' : userDataForm.controls.phone.errors.pattern.requiredPattern}}
+      </p>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">{{ 'userData.age' | translate }}</ion-label>
+      <ion-input formControlName="age" type="number" (keypress)="numberOnlyValidation($event)"></ion-input>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.age.errors?.min">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.minAgeValidationMessage' | translate
+            | replace : '{val}' : userDataForm.controls.age.errors.min.min}}
+      </p>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.age.errors?.max">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.maxAgeValidationMessage' | translate
+            | replace : '{val}' : userDataForm.controls.age.errors.max.max}}
+      </p>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">{{ 'userData.city' | translate }}</ion-label>
+      <ion-input formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item class="input-sub-text danger" lines="none" *ngIf="userDataForm.controls.city.errors?.maxlength">
+      <ion-icon name="alert-circle"></ion-icon>
+      <p>
+        {{ 'userData.cityMaxLengthMessage' | translate
+            | replace : '{val}' : userDataForm.controls.city.errors.maxlength.requiredLength}}
+      </p>
+    </ion-item>
+
+
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">
+        {{ 'userData.submit' | translate }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'userData.cancel' | translate }}
+      </ion-button>
+    </div>
+  </form>
 
 </ion-content>
-
-<ion-footer>
-  <ion-grid>
-    <ion-row class="ion-justify-content-end">
-      <ion-col size="auto">
-        <ion-button (click)="applyData()">Übernehmen</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
