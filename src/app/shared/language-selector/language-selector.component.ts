@@ -16,7 +16,6 @@ export class LanguageSelectorComponent implements OnInit {
     'ru',
     'pl',
     'sa',
-    'ku'
   ];
 
   constructor(
