@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LanguageFlagComponent } from './language-flag/language-flag.component';
 import { IonicModule } from '@ionic/angular';
 import { PrototypeInfoComponent } from './prototype-info/prototype-info.component';
+import { Globalization } from '@ionic-native/globalization/ngx';
 
 
 @NgModule({
@@ -25,6 +26,9 @@ import { PrototypeInfoComponent } from './prototype-info/prototype-info.componen
     CommonModule,
     IonicModule,
     TranslateModule.forChild()
+  ],
+  providers: [
+    Globalization
   ],
   entryComponents: [PrototypeInfoComponent]
 })
