@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './shared/data-services/user-service/user.service';
 import { Router } from '@angular/router';
 import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
+import { PrototypeInfoList } from './shared/prototype-info/prototype-info.component';
 
 @Component({
   selector: 'app-root',
@@ -58,24 +59,50 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private userService: UserService,
     public router: Router,
-    private translation: LanguageTranslatorService
+    private translation: LanguageTranslatorService,
+    public alertController: AlertController
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.translation.initLanguageTranslator().then();
+    this.userService.loadDeveloperMode().then(
+      () => {
+        this.translation.initLanguageTranslator().then(() => {
+          if (!this.userService.DeveloperMode) {
+            this.presentInfoAlert();
+          }
+        });
+
+        this.userService.isUserStored().then((isUserStored) => {
+          if (!isUserStored && !this.userService.DeveloperMode) {
+            this.router.navigate(['/welcome']);
+          }
+        });
+
+      }
+    );
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+
   }
 
+  async presentInfoAlert() {
+    const alert = await this.alertController.create({
+      header: 'Prototype App',
+      message: this.translation.getPrototypeInfoText(),
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
   }
 
   deleteAll() {

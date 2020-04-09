@@ -97,7 +97,7 @@
 
   <ion-item *ngIf="showDev">
     <ion-label>Entwicklermodus</ion-label>
-    <ion-toggle [(ngModel)]="userService.DeveloperMode"></ion-toggle>
+    <ion-toggle #toggle [checked]="this.userService.DeveloperMode" (ionChange)="changeDev(toggle.checked)"></ion-toggle>
   </ion-item>
 
   <div style="height: 100px; width: 100%;" (click)="devEnable()">

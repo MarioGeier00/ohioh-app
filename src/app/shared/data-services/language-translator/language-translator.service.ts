@@ -9,6 +9,47 @@ import { Storage } from '@ionic/storage';
 })
 export class LanguageTranslatorService {
 
+  private readonly PrototypeInfoList_DE = `
+  <ul>
+    <li>
+      Diese App befindet sich im Entwicklungszustand
+    </li>
+    <li>
+      Diese App besitzt keine Backend-/Datenanbindung
+    </li>
+    <li>
+      Es werden keine perönlichen Daten gesendet
+    </li>
+    <li>
+      Die Erfassung und lokale Speicherung der GPS Daten funktioniert
+    </li>
+    <li>
+      Es können QR-Codes erstellt und auf dem Mobilgerät eingelesen werden
+    </li>
+  </ul>
+  `;
+
+  private readonly PrototypeInfoList_EN = `
+  <ul>
+    <li>
+      This app is in developement
+    </li>
+    <li>
+      This app is not connected to any Backend
+    </li>
+    <li>
+      No personal data is beeing sent
+    </li>
+    <li>
+      The capture and the storage on the phone of GPS data is working
+    </li>
+    <li>
+      QR-Codes can be created and scanned on a mobile device
+    </li>
+  </ul>
+  `;
+
+
   constructor(
     private translator: TranslateService,
     private http: HttpClient,
@@ -53,6 +94,16 @@ export class LanguageTranslatorService {
     if (this.selectedLanguage) {
       await this.translator.use(this.selectedLanguage).toPromise();
     }
+  }
+
+
+
+
+  public getPrototypeInfoText(): string {
+    if (this.selectedLanguage === 'de') {
+      return this.PrototypeInfoList_DE;
+    }
+    return this.PrototypeInfoList_EN;
   }
 
 }

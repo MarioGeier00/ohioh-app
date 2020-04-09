@@ -13,18 +13,24 @@ export class CreditsPage implements OnInit {
 
   constructor(
     public userService: UserService,
-  ) { }
+  ) { 
+    this.showDev = this.userService.DeveloperMode;
+  }
 
   ngOnInit() {
   }
-
-
 
   devEnable() {
     this.counter++;
     if (this.counter > 5) {
       this.showDev = true;
     }
+  }
+
+  changeDev(val: boolean) {
+    console.log(val);
+    this.userService.DeveloperMode = val;
+    this.userService.saveDeveloperMode();
   }
 
 }

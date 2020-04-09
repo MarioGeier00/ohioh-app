@@ -17,13 +17,10 @@ export class HomePage implements OnInit {
     private menuCtrl: MenuController,
     private router: Router,
     public userService: UserService,
-    public popoverController: PopoverController) {
+    public popoverController: PopoverController
+  ) {
     this.menuCtrl.enable(true);
-    this.userService.isUserStored().then((isUserStored) => {
-      if (!isUserStored) {
-        this.router.navigate(['/welcome']);
-      }
-    });
+
     this.userService.isUserDataEmpty().then(isEmpty => {
       console.log(isEmpty);
       this.userDataAvailable = !isEmpty;

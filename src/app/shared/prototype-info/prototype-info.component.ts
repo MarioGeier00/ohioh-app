@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageTranslatorService } from '../data-services/language-translator/language-translator.service';
+
 
 @Component({
   selector: 'app-prototype-info',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrototypeInfoComponent implements OnInit {
 
-  constructor() { }
+  public content: string;
 
-  ngOnInit() {}
+  constructor(
+    private languageService: LanguageTranslatorService
+  ) {
+    this.content = this.languageService.getPrototypeInfoText();
+   }
+
+  ngOnInit() {
+  }
 
 }
