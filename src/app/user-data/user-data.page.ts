@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../shared/data-services/user-service/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-user-data',
@@ -24,6 +23,7 @@ export class UserDataPage implements OnInit {
   }
 
   ngOnInit() {
+    const textPattern = Validators.pattern('/^[A-Za-z]+$/');
     this.userDataForm = this.formBuilder.group({
       firstName: new FormControl('', Validators.maxLength(100)),
       lastName: new FormControl('', Validators.maxLength(100)),
