@@ -8,7 +8,8 @@
         "addLocations": "Aufenthalt nachtragen",
         "welcome": "Einführungstutorial",
         "credits": "Impressum",
-        "deleteAll": "Alle Daten endgültig löschen"
+        "deleteAll": "Alle Daten endgültig löschen",
+        "deleteAllToast": "Alle Daten wurden gelöscht"
     },
     "home": {
         "title": "OHIOH Home",
@@ -128,8 +129,8 @@
             "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
             "coordination": "Koordination",
             "frontendDevelopment": "Entwicklung Frontend",
-            "university": "Die Professor*en*in der Fachhochschule Kiel",
-            "thankYou": "Danke für die gute Zusammenarbeit!"
+            "university": "Professoren/innen der Fachhochschule Kiel",
+            "thankYou": "Vielen Dank für die gute Zusammenarbeit!"
         },
         "attribution": {
             "title": "Attribution"
@@ -170,6 +171,7 @@
         "ru": "Russisch",
         "pl": "Polnisch",
         "sa": "Arabisch",
-        "ku": "Kurdisch"
+        "ku": "Kurdisch",
+        "maschineTranslation": "Maschinelle Übersetzung"
     }
 }

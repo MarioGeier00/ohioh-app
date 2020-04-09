@@ -15,13 +15,11 @@ export class WelcomePage implements OnInit {
   constructor(
     private router: Router,
     private menuCtrl: MenuController,
-    private translation: LanguageTranslatorService
   ) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
-    this.translation.initLanguageTranslator().then();
     this.slideOpts = {
       initialSlide: 0
     };

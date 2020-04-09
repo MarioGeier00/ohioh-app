@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../shared/data-services/user-service/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-user-data',
@@ -19,14 +18,12 @@ export class UserDataPage implements OnInit {
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
     private userData: UserService,
-    private translation: LanguageTranslatorService
   ) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
-    this.translation.initLanguageTranslator().then();
-
+    const textPattern = Validators.pattern('/^[A-Za-z]+$/');
     this.userDataForm = this.formBuilder.group({
       firstName: new FormControl('', Validators.maxLength(100)),
       lastName: new FormControl('', Validators.maxLength(100)),
@@ -39,10 +36,6 @@ export class UserDataPage implements OnInit {
         this.userDataForm.setValue(user);
       }
     });
-  }
-
-  ionViewDidEnter() {
-
   }
 
   private navigateHome(): void {

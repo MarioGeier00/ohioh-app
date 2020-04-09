@@ -20,6 +20,9 @@ import { SharedModule } from '../shared/shared.module';
     HomePageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage
+  ],
+  // entryComponents: [PrototypeComponent]
 })
 export class HomePageModule {}
