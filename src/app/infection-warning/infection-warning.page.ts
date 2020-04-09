@@ -15,13 +15,11 @@ export class InfectionWarningPage implements OnInit {
     private menuCtrl: MenuController,
     private router: Router,
     private userService: UserService,
-    private translation: LanguageTranslatorService
   ) {
     this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
-    this.translation.initLanguageTranslator().then();
   }
 
   onNextClick() {

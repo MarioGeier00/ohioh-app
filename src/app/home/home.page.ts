@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
 import { UserService } from '../shared/data-services/user/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-home',
@@ -16,14 +16,11 @@ export class HomePage implements OnInit {
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
-    private translator: LanguageTranslatorService,
-    public userService: UserService) {
+    public userService: UserService,
+    public popoverController: PopoverController
+  ) {
     this.menuCtrl.enable(true);
-    this.userService.isUserStored().then((isUserStored) => {
-      if (!isUserStored) {
-        this.router.navigate(['/welcome']);
-      }
-    });
+
     this.userService.isUserDataEmpty().then(isEmpty => {
       console.log(isEmpty);
       this.userDataAvailable = !isEmpty;
@@ -33,16 +30,21 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
-  ionViewDidEnter() {
-    this.translator.initLanguageTranslator().then();
-  }
-
   openQRScan() {
     this.router.navigate(['/qr-scanner']);
   }
 
   navigateToUserData() {
     this.router.navigate(['/user-data']);
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PrototypeInfoComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
 }

@@ -14,11 +14,9 @@ export class DataProtectionPage implements OnInit {
   public sendData = false;
 
   constructor(
-    private translation: LanguageTranslatorService
   ) { }
 
   ngOnInit() {
-    this.translation.initLanguageTranslator().then();
   }
 
   settingsChanged() {
