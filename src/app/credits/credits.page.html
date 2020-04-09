@@ -41,7 +41,8 @@
   <h5>{{ 'credits.team.thankYou' | translate }}</h5>
 
   <h3>{{ 'credits.attribution.title' | translate }}</h3>
-  <div>Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a></div>
+  <div>Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a
+      href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a></div>
 
   <h3>{{ 'credits.copyright.title' | translate }}</h3>
   <address>
@@ -93,10 +94,14 @@
       <a>https://www.e-recht24.de/impressum-generator.html</a>
     </p>
   </small>
-  <small>
-    <ion-item>
-      <ion-label>Entwicklermodus</ion-label>
-      <ion-toggle [(ngModel)]="userService.DeveloperMode"></ion-toggle>
-    </ion-item>
-  </small>
+
+  <ion-item *ngIf="showDev">
+    <ion-label>Entwicklermodus</ion-label>
+    <ion-toggle [(ngModel)]="userService.DeveloperMode"></ion-toggle>
+  </ion-item>
+
+  <div style="height: 100px; width: 100%;" (click)="devEnable()">
+
+  </div>
+
 </ion-content>
