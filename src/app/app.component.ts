@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './shared/data-services/user-service/user.service';
 import { Router } from '@angular/router';
+import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-root',
@@ -56,12 +57,14 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private userService: UserService,
-    public router: Router
+    public router: Router,
+    private translation: LanguageTranslatorService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    this.translation.initLanguageTranslator().then();
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

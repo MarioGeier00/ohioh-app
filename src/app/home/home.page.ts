@@ -16,7 +16,6 @@ export class HomePage implements OnInit {
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
-    private translator: LanguageTranslatorService,
     public userService: UserService) {
     this.menuCtrl.enable(true);
     this.userService.isUserStored().then((isUserStored) => {
@@ -31,10 +30,6 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  ionViewDidEnter() {
-    this.translator.initLanguageTranslator().then();
   }
 
   openQRScan() {
