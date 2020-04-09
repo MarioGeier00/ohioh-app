@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
+import { Globalization } from '@ionic-native/globalization/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -50,14 +51,20 @@ export class LanguageTranslatorService {
   `;
 
 
-  static readonly DEFAULT_LANGUAGE = 'de';
+  static DEFAULT_LANGUAGE = 'de';
   private selectedLanguage: string = null;
 
   constructor(
     private translator: TranslateService,
+    private globalization: Globalization,
     private http: HttpClient,
     private storage: Storage
-  ) { }
+  ) {
+    this.globalization.getPreferredLanguage()
+      .then(res => console.log(res))
+      .catch(e => console.log(e));
+      LanguageTranslatorService.DEFAULT_LANGUAGE = 'de';
+  }
 
   createTranslateLoader() {
     return new TranslateHttpLoader(this.http, './assets/i18n/', '.json');
