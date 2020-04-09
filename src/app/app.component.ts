@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './shared/data-services/user-service/user.service';
 import { Router } from '@angular/router';
 import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
-import { PrototypeInfoList } from './shared/prototype-info/prototype-info.component';
 
 @Component({
   selector: 'app-root',

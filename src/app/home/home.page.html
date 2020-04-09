@@ -62,11 +62,11 @@
       </ion-item>
 
       <div class="ion-text-center">
-        <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(true)" color="warning">
+        <ion-button (click)="userService.setInfectionStatus(true)" color="warning">
           <ion-icon name="warning" class="ion-padding"></ion-icon>
           Simuliere Infektionswarnung
         </ion-button>
-        <ion-button *ngIf="userService.DeveloperMode" (click)="userService.setInfectionStatus(false)" color="primary">
+        <ion-button (click)="userService.setInfectionStatus(false)" color="primary">
           <ion-icon name="remove" class="ion-padding"></ion-icon>
           Entferne Infektionswarnung
         </ion-button>
