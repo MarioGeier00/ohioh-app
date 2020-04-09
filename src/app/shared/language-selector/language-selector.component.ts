@@ -8,13 +8,13 @@ import { LanguageTranslatorService } from '../data-services/language-translator/
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  public languages: string[] = [
-    'de',
-    'en',
-    'tr',
-    'ru',
-    'pl',
-    'sa',
+  public languages: { id: string, prototype: boolean }[] = [
+    { id: 'de', prototype: false},
+    { id: 'en', prototype: false},
+    { id: 'tr', prototype: true},
+    { id: 'ru', prototype: true},
+    { id: 'pl', prototype: true},
+    { id: 'sa', prototype: true},
   ];
 
   constructor(
