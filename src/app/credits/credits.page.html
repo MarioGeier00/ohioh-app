@@ -9,10 +9,10 @@
 
 <ion-content class="ion-padding">
 
-  <h3>{{ 'credits.motivation.title' | translate }}</h3>
+  <h4>{{ 'credits.motivation.title' | translate }}</h4>
   <p>{{ 'credits.motivation.description' | translate }}</p>
 
-  <h3>{{ 'credits.team.title' | translate }}</h3>
+  <h4>{{ 'credits.team.title' | translate }}</h4>
   <p>{{ 'credits.team.description' | translate }}</p>
   <ul>
     <h5>{{ 'credits.team.coordination' | translate }}</h5>
@@ -38,13 +38,13 @@
     <li>Daniel</li>
 
   </ul>
-  <h5>{{ 'credits.team.thankYou' | translate }}</h5>
+  <p>{{ 'credits.team.thankYou' | translate }}</p>
 
-  <h3>{{ 'credits.attribution.title' | translate }}</h3>
-  <div>Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a
-      href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a></div>
+  <h4>{{ 'credits.attribution.title' | translate }}</h4>
+  <p>Icons made by <a href='https://www.flaticon.com/authors/roundicons' title='Roundicons'>Roundicons</a> from <a
+      href='https://www.flaticon.com/' title='Flaticon'>www.flaticon.com</a></p>
 
-  <h3>{{ 'credits.copyright.title' | translate }}</h3>
+  <h4>{{ 'credits.copyright.title' | translate }}</h4>
   <address>
     Tjark Ziehm<br>
     Ludewig-Meyn Strasse 15,<br>
@@ -54,7 +54,6 @@
     Mail: <a href="mailto:kontakt@ohioh.de">kontakt@ohioh.de</a>
   </address>
   <small>
-
     <p>
       Haftung für Inhalte
       Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
@@ -75,8 +74,10 @@
       Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
       umgehend entfernen.
     </p>
+  </small>
 
-    <h5>Urheberrecht</h5>
+  <h4>Urheberrecht</h4>
+  <small>
     <p>
       Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
       Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
@@ -97,7 +98,8 @@
 
   <ion-item *ngIf="showDev">
     <ion-label>Entwicklermodus</ion-label>
-    <ion-toggle #toggle [checked]="this.userService.DeveloperMode" (ionChange)="changeDev(toggle.checked)"></ion-toggle>
+    <ion-toggle #toggle [checked]="this.userService.DeveloperMode" (ionChange)="changeDev(toggle.checked)">
+    </ion-toggle>
   </ion-item>
 
   <div style="height: 100px; width: 100%;" (click)="devEnable()">
