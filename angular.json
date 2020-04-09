@@ -31,7 +31,7 @@
                 "output": "./svg"
               },
               "src/manifest.webmanifest",
-              "web.config"
+              "src/web.config"
             ],
             "styles": [
               {
