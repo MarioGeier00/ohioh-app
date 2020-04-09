@@ -8,6 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "prod": "ng build --prod --output-hashing none --base-href /ohioh/",
+    "azure": "ng build --prod --output-hashing none",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
