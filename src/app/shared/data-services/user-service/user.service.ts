@@ -83,7 +83,7 @@ export class UserService {
     this.infectionStatus = value;
     this.storage.set(UserService.INFECTION_STATUS_KEY, this.infectionStatus);
 
-    if (this.infectionStatus) {
+    if (this.infectionStatus && !this.DeveloperMode) {
       this.openInfectionWarning();
     }
   }
