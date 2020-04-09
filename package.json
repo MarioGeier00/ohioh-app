@@ -37,8 +37,8 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-qrscanner": "^3.0.1",
-    "qrcode": "^0.9.0",
     "core-js": "^2.5.4",
+    "qrcode": "^0.9.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

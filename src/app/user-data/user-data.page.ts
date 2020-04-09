@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../shared/data-services/user-service/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import { UserService } from '../shared/data-services/user/user.service';
 
 @Component({
   selector: 'app-user-data',
