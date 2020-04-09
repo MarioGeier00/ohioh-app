@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-import { HomePage } from './home.page';
+import { HomePage, PrototypeComponent } from './home.page';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
@@ -20,6 +20,9 @@ import { SharedModule } from '../shared/shared.module';
     HomePageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    PrototypeComponent
+  ]
 })
 export class HomePageModule {}
