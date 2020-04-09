@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/data-services/user-service/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
 
 @Component({
   selector: 'app-home',
@@ -43,19 +43,11 @@ export class HomePage implements OnInit {
 
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
-      component: PrototypeComponent,
+      component: PrototypeInfoComponent,
       event: ev,
       translucent: true
     });
     return await popover.present();
   }
-
-}
-
-@Component({
-  selector: 'app-prototype',
-  template: `<a>Test</a>`,
-})
-export class PrototypeComponent {
 
 }
