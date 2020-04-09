@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './shared/data-services/user-service/user.service';
@@ -59,7 +59,8 @@ export class AppComponent implements OnInit {
     private userService: UserService,
     public router: Router,
     private translation: LanguageTranslatorService,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public toastController: ToastController
   ) {
     this.initializeApp();
   }
@@ -104,7 +105,16 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
+
   deleteAll() {
+    this.presentToast(this.translation.get('menu.deleteAllToast'));
     this.userService.deleteUser();
   }
 

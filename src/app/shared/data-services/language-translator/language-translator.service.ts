@@ -50,17 +50,21 @@ export class LanguageTranslatorService {
   `;
 
 
+  static readonly DEFAULT_LANGUAGE = 'de';
+  private selectedLanguage: string = null;
+
   constructor(
     private translator: TranslateService,
     private http: HttpClient,
     private storage: Storage
   ) { }
 
-  static readonly DEFAULT_LANGUAGE = 'de';
-  private selectedLanguage: string = null;
-
   createTranslateLoader() {
     return new TranslateHttpLoader(this.http, './assets/i18n/', '.json');
+  }
+
+  public get(key: string): string {
+    return this.translator.instant(key);
   }
 
   public getSelectedLanguage(): string {

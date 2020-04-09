@@ -8,7 +8,8 @@
         "addLocations": "Aufenthalt nachtragen",
         "welcome": "Einführungstutorial",
         "credits": "Impressum",
-        "deleteAll": "Alle Daten endgültig löschen"
+        "deleteAll": "Alle Daten endgültig löschen",
+        "deleteAllToast": "Alle Daten wurden gelöscht"
     },
     "home": {
         "title": "OHIOH Home",

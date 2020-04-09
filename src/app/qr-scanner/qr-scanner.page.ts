@@ -13,10 +13,12 @@ export class QrScannerPage implements OnInit {
 
   scanSub: Subscription;
 
-  constructor(private qrScanner: QRScanner,
+  constructor(
+    private qrScanner: QRScanner,
     public toastController: ToastController,
     private menuCtrl: MenuController,
-    private router: Router) {
+    private router: Router
+  ) {
     this.menuCtrl.enable(false);
   }
 
