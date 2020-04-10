@@ -65,8 +65,10 @@ export class LanguageTranslatorService {
   ) {
     this.globalization.getLocaleName()
       .then(res => {
-        LanguageTranslatorService.DEFAULT_LANGUAGE = res.value;
-        this.presentInfoAlert();
+        if (res && res.value?.length >= 2) {
+          LanguageTranslatorService.DEFAULT_LANGUAGE = res.value.substring(0, 2);
+          this.translator.setDefaultLang(LanguageTranslatorService.DEFAULT_LANGUAGE);
+        }
       })
       .catch(e => console.log(e));
   }
