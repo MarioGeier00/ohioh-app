@@ -63,14 +63,6 @@ export class HomePage implements OnInit {
     this.geoData.useGPS(true);
   }
 
-
-  public getGPSWarningStatus(): boolean {
-    if (!this.gpsStatus) {
-      return true;
-    }
-    return !this.gpsStatus;
-  }
-
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PrototypeInfoComponent,
