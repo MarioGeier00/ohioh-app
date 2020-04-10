@@ -4,6 +4,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 import { Globalization } from '@ionic-native/globalization/ngx';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -58,12 +59,26 @@ export class LanguageTranslatorService {
     private translator: TranslateService,
     private globalization: Globalization,
     private http: HttpClient,
-    private storage: Storage
+    private storage: Storage,
+    public alertController: AlertController,
+
   ) {
     this.globalization.getPreferredLanguage()
-      .then(res => console.log(res))
+      .then(res => {
+        LanguageTranslatorService.DEFAULT_LANGUAGE = res.value;
+        this.presentInfoAlert();
+      })
       .catch(e => console.log(e));
-      LanguageTranslatorService.DEFAULT_LANGUAGE = 'de';
+  }
+
+  async presentInfoAlert() {
+    const alert = await this.alertController.create({
+      header: 'Prototype App',
+      message: LanguageTranslatorService.DEFAULT_LANGUAGE,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   createTranslateLoader() {
@@ -76,6 +91,14 @@ export class LanguageTranslatorService {
 
   public getSelectedLanguage(): string {
     return this.selectedLanguage;
+  }
+
+  public getSelectedLanguageOrDefault(): string {
+    if (this.selectedLanguage) {
+      return this.selectedLanguage;
+    } else {
+      return LanguageTranslatorService.DEFAULT_LANGUAGE;
+    }
   }
 
   changeSelectedLanguage(language: string) {
