@@ -37,7 +37,8 @@
             "gps": {
                 "active": {
                     "title": "Standorterfassung aktiv",
-                    "lastUpdate": "Ihr Standort wurde zuletzt um {val} erfasst."
+                    "lastUpdate": "Ihr Standort wurde zuletzt um {val} erfasst.",
+                    "noData": "Es wurden noch keine Daten erfasst."
                 },
                 "inaccurate": {
                     "title": "Standorterfassung inaktiv",

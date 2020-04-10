@@ -63,7 +63,7 @@ export class LanguageTranslatorService {
     public alertController: AlertController,
 
   ) {
-    this.globalization.getPreferredLanguage()
+    this.globalization.getLocaleName()
       .then(res => {
         LanguageTranslatorService.DEFAULT_LANGUAGE = res.value;
         this.presentInfoAlert();

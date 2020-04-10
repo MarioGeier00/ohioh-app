@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
 
   public gpsStatus: boolean;
   public gpsError: GPSError;
-
+  public lastGPSData: number;
 
   constructor(
     private menuCtrl: MenuController,
@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
     this.$gpsStatus = this.geoData.isActive();
     this.$gpsError = this.geoData.hasError();
 
+    this.$lastesLocationUpdate.subscribe((val) => this.lastGPSData = val.time);
     this.$gpsStatus.subscribe((val) => this.gpsStatus = val);
     this.$gpsError.subscribe((val) => this.gpsError = val);
 
