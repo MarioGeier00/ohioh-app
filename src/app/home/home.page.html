@@ -3,7 +3,11 @@
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ 'home.title' | translate }}<ion-badge style="float: right;" color="warning" (click)="presentPopover($event)"><ion-icon style="margin-right: 10px;" name="alert"></ion-icon>PROTOTYP</ion-badge></ion-title>
+    <ion-title>{{ 'home.title' | translate }}<ion-badge style="float: right;" color="warning"
+        (click)="presentPopover($event)">
+        <ion-icon style="margin-right: 10px;" name="alert"></ion-icon>PROTOTYP
+      </ion-badge>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -40,14 +44,18 @@
       <ion-item [class.warning]="getGPSWarningStatus()" [class.danger]="gpsError?.hasError">
         <ion-icon name="location" slot="start"></ion-icon>
         <ion-label>
-          <div *ngIf="$gpsStatus | async as status; else notActive"> 
+          <div *ngIf="$gpsStatus | async as status; else notActive">
             <h2>{{ 'home.stateOverview.gps.active.title' | translate }}</h2>
             <p>{{ 'home.stateOverview.gps.active.lastUpdate' | translate }}</p>
           </div>
 
           <ng-template #notActive>
-            <h2>{{ (gpsError?.hasError ? 'home.stateOverview.gps.error.title' : 'home.stateOverview.gps.deactivated.title') | translate }}</h2>
-            <p>{{ (gpsError?.hasError ? 'home.stateOverview.gps.error.description' : 'home.stateOverview.gps.deactivated.description') | translate }}</p>
+            <h2>
+              {{ (gpsError?.hasError ? 'home.stateOverview.gps.error.title' : 'home.stateOverview.gps.deactivated.title') | translate }}
+            </h2>
+            <p>
+              {{ (gpsError?.hasError ? 'home.stateOverview.gps.error.description' : 'home.stateOverview.gps.deactivated.description') | translate }}
+            </p>
             <ion-button fill="clear" *ngIf="!gpsError?.hasError" (click)="activateGPS()">
               {{ 'home.stateOverview.gps.deactivated.activate' | translate }}
               <ion-icon slot="end" name="arrow-forward"></ion-icon>
