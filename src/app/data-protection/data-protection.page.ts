@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import { GeoDataService } from '../shared/data-services/geo-data/geo-data.service';
 
 @Component({
   selector: 'app-data-protection',
@@ -14,7 +14,10 @@ export class DataProtectionPage implements OnInit {
   public sendData = false;
 
   constructor(
-  ) { }
+    public geoData: GeoDataService,
+  ) {
+    this.useGpsData = this.geoData.isGPSUseAllowed();
+  }
 
   ngOnInit() {
   }
@@ -22,5 +25,6 @@ export class DataProtectionPage implements OnInit {
   settingsChanged() {
     // TODO send data to backend
     console.log(`usePersonalData: ${this.usePersonalData}, useGpsData: ${this.useGpsData}, sendData: ${this.sendData}`);
+    this.geoData.useGPS(this.useGpsData);
   }
 }
