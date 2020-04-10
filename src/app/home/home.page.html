@@ -46,7 +46,7 @@
         <ion-label>
           <div *ngIf="$gpsStatus | async as status; else notActive">
             <h2>{{ 'home.stateOverview.gps.active.title' | translate }}</h2>
-            <p>{{ 'home.stateOverview.gps.active.lastUpdate' | translate }}</p>
+            <p>{{ 'home.stateOverview.gps.active.lastUpdate' | translate | replace: '{val}': (($lastesLocationUpdate | async).time | date: 'HH:mm:ss') }}</p>
           </div>
 
           <ng-template #notActive>

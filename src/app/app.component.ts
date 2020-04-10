@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     {
       title: 'geo',
       url: '/geo',
-      icon: 'home'
+      icon: 'location'
     },
     {
       title: 'userData',

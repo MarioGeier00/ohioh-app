@@ -2,6 +2,7 @@
     "menu": {
         "title": "Menu",
         "home": "OHIOH Home",
+        "geo": "GPS Daten einsehen",
         "userData": "Daten zur Person ändern",
         "dataProtection": "Privatsphäreneinstellungen",
         "settings": "Einstellungen",
@@ -36,7 +37,7 @@
             "gps": {
                 "active": {
                     "title": "Standorterfassung aktiv",
-                    "lastUpdate": "Ihr Standort wurde zuletzt vor einer Minute erfasst."
+                    "lastUpdate": "Ihr Standort wurde zuletzt um {val} erfasst."
                 },
                 "inaccurate": {
                     "title": "Standorterfassung inaktiv",
