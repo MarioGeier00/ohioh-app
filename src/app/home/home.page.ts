@@ -70,7 +70,7 @@ export class HomePage implements OnInit {
     if (!this.gpsStatus) {
       return true;
     }
-    return !this.gpsStatus.active;
+    return !this.gpsStatus;
   }
 
   async presentPopover(ev: any) {
