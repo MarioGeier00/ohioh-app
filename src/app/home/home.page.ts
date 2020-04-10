@@ -20,11 +20,8 @@ export class HomePage implements OnInit {
     public popoverController: PopoverController
   ) {
     this.menuCtrl.enable(true);
-
-    this.userService.isUserDataEmpty().then(isEmpty => {
-      console.log(isEmpty);
-      this.userDataAvailable = !isEmpty;
-    });
+    this.userService.isUserDataEmpty()
+      .subscribe((isEmpty) => this.userDataAvailable = !isEmpty);
   }
 
   ngOnInit() {

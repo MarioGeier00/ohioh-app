@@ -74,11 +74,9 @@ export class AppComponent implements OnInit {
           }
         });
 
-        this.userService.isUserStored().then((isUserStored) => {
-          if (!isUserStored && !this.userService.DeveloperMode) {
-            this.router.navigate(['/welcome']);
-          }
-        });
+        if (!this.userService.isUserStored() && !this.userService.DeveloperMode) {
+          this.router.navigate(['/welcome']);
+        }
 
       }
     );

@@ -65,10 +65,11 @@ export class LanguageTranslatorService {
   ) {
     this.globalization.getPreferredLanguage()
       .then(res => {
-        if (res && res.value?.length >= 2) {
-          LanguageTranslatorService.DEFAULT_LANGUAGE = res.value.substring(0, 2);
-          this.translator.setDefaultLang(LanguageTranslatorService.DEFAULT_LANGUAGE);
-        }
+        // if (res && res.value && res.value.length >= 2) {
+        //   LanguageTranslatorService.DEFAULT_LANGUAGE = res.value.substring(0, 2);
+        //   this.translator.setDefaultLang(LanguageTranslatorService.DEFAULT_LANGUAGE);
+        //   this.presentInfoAlert();
+        // }
       })
       .catch(e => console.log(e));
   }
