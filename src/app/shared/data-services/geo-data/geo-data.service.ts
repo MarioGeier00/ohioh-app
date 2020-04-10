@@ -3,6 +3,11 @@ import { Storage } from '@ionic/storage';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { Observable, ReplaySubject } from 'rxjs';
 
+export interface GPSError {
+  hasError: boolean;
+  message: any;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +16,8 @@ export class GeoDataService {
   private static readonly GPS_STORE_KEY = 'gps';
 
   private $lastestLocation = new ReplaySubject<BackgroundGeolocationResponse>(1);
-  private $isActivated = new ReplaySubject<{ active: boolean }>(1);
+  private $isActivated = new ReplaySubject<boolean>(1);
+  private $gpsError = new ReplaySubject<GPSError>(1);
 
   // locationInterval = 60000 * 5; // Time (in milliseconds) between location information polls.  E.g. 60000*5 = 5 minutes
   // DEBUG: Reduce Time intervall for faster debugging
@@ -69,16 +75,20 @@ export class GeoDataService {
     });
     this.backgroundGeolocation.checkStatus().then((val) => {
       console.log(val);
-      this.$isActivated.next( { active: val.isRunning } );
+      this.$isActivated.next(val.isRunning);
     }, (err) => {
       console.log(err);
-      this.$isActivated.next({ active: false });
+      this.$isActivated.next(false);
     });
   }
 
-  public isActive(): Observable<{ active: boolean }> {
+  public isActive(): Observable<boolean> {
     return this.$isActivated;
     // return this.backgroundGeolocation.checkStatus().then<boolean>((val) => val.isRunning);
+  }
+
+  public hasError(): Observable<GPSError> {
+    return this.$gpsError;
   }
 
   public loadLocations(): Promise<any> {
@@ -111,6 +121,7 @@ export class GeoDataService {
   }
 
   startBackgroudGeo() {
+    this.$gpsError.next({ hasError: false, message: '' });
     console.log(this.newConfig);
     this.backgroundGeolocation.configure(this.newConfig)
       .then(() => {
@@ -128,9 +139,9 @@ export class GeoDataService {
       this.status = 'New location';
 
       // this.cdr.detectChanges();
-      this.newConfig.notificationTitle = 'New location';
+      // this.newConfig.notificationTitle = 'New location';
       // this.newConfig.notificationText = location.accuracy; // + 'm -> ' + location.latitude.toString() + location.longitude.toString();
-      this.backgroundGeolocation.configure(this.newConfig);
+      // this.backgroundGeolocation.configure(this.newConfig);
 
       // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
       // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
@@ -146,12 +157,14 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'error';
+      this.$gpsError.next({ hasError: true, message: err });
 
-      this.newConfig.notificationTitle = 'Error';
-      if (err) {
-        this.newConfig.notificationText = JSON.stringify(err);
-      }
-      this.backgroundGeolocation.configure(this.newConfig);
+
+      // this.newConfig.notificationTitle = 'Error';
+      // if (err) {
+      //   this.newConfig.notificationText = JSON.stringify(err);
+      // }
+      // this.backgroundGeolocation.configure(this.newConfig);
 
       this.backgroundGeolocation.finish(); // FOR IOS ONLY
     });
@@ -164,7 +177,7 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'start';
-      this.$isActivated.next({ active: true });
+      this.$isActivated.next(true);
 
       // this.newConfig.notificationTitle = 'Started';
       // this.newConfig.notificationText = JSON.stringify(err);
@@ -181,13 +194,13 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'Stoped';
-      this.$isActivated.next({ active: false });
+      this.$isActivated.next(false);
 
-      this.newConfig.notificationTitle = 'Stoped';
-      if (err) {
-        this.newConfig.notificationText = JSON.stringify(err);
-      }
-      this.backgroundGeolocation.configure(this.newConfig);
+      // this.newConfig.notificationTitle = 'Stoped';
+      // if (err) {
+      //   this.newConfig.notificationText = JSON.stringify(err);
+      // }
+      // this.backgroundGeolocation.configure(this.newConfig);
 
       this.backgroundGeolocation.finish(); // FOR IOS ONLY
     });
@@ -201,9 +214,9 @@ export class GeoDataService {
 
       this.status = 'Backround';
 
-      this.newConfig.notificationTitle = 'Backround';
-      this.newConfig.notificationText = JSON.stringify(err);
-      this.backgroundGeolocation.configure(this.newConfig);
+      // this.newConfig.notificationTitle = 'Backround';
+      // this.newConfig.notificationText = JSON.stringify(err);
+      // this.backgroundGeolocation.configure(this.newConfig);
 
       this.backgroundGeolocation.finish(); // FOR IOS ONLY
     });
@@ -224,7 +237,10 @@ export class GeoDataService {
     });
 
     // start recording location
-    this.backgroundGeolocation.start();
+    this.backgroundGeolocation.start().then(() => { },
+      (err) => {
+        this.$gpsError.next({ hasError: true, message: err });
+      });
   }
 
   getVal(val: BackgroundGeolocationResponse) {

@@ -5,7 +5,7 @@ import { UserService } from '../shared/data-services/user-service/user.service';
 import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
 import { Observable } from 'rxjs';
 import { BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
-import { GeoDataService } from '../shared/data-services/geo-data/geo-data.service';
+import { GeoDataService, GPSError } from '../shared/data-services/geo-data/geo-data.service';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +17,12 @@ export class HomePage implements OnInit {
   public userDataAvailable: boolean;
 
   public $lastesLocationUpdate: Observable<BackgroundGeolocationResponse>;
-  public $isGPSActive: Observable<{ active: boolean }>;
-  public gpsStatus: {active: boolean};
+  public $gpsStatus: Observable<boolean>;
+  public $gpsError: Observable<GPSError>;
+
+  public gpsStatus: boolean;
+  public gpsError: GPSError;
+
 
   constructor(
     private menuCtrl: MenuController,
@@ -28,9 +32,11 @@ export class HomePage implements OnInit {
     public popoverController: PopoverController
   ) {
     this.$lastesLocationUpdate = this.geoData.getLatestLocation();
-    this.$isGPSActive = this.geoData.isActive();
+    this.$gpsStatus = this.geoData.isActive();
+    this.$gpsError = this.geoData.hasError();
 
-    this.$isGPSActive.subscribe((val) => this.gpsStatus = val);
+    this.$gpsStatus.subscribe((val) => this.gpsStatus = val);
+    this.$gpsError.subscribe((val) => this.gpsError = val);
 
     this.menuCtrl.enable(true);
 

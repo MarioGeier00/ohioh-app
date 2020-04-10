@@ -8,7 +8,9 @@
 ion-item.warning {
     --ion-background-color: #ffedb4;
 }
-
+ion-item.danger {
+    --ion-background-color: #ff777767;
+}
 
 ion-item p {
     white-space: pre-line; 

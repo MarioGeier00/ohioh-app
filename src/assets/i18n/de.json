@@ -47,6 +47,11 @@
                     "description": "Du hast die Standorterfassung in den Einstellungen deaktiviert.",
                     "activate": "GPS aktivieren",
                     "settings": "Einstellungen öffnen"
+                },
+                "error": {
+                    "title": "Standorterfassung aus",
+                    "description": "Die Standorterfassung konnte nicht aktiviert werden. Es ist kein GPS vorhanden.",
+                    "settings": "Einstellungen öffnen"
                 }
             },
             "personalData": {
