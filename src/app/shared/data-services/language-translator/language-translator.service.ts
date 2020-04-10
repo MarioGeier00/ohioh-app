@@ -65,8 +65,9 @@ export class LanguageTranslatorService {
   ) {
     this.globalization.getPreferredLanguage()
       .then(res => {
-        LanguageTranslatorService.DEFAULT_LANGUAGE = res.value;
-        this.presentInfoAlert();
+        if (res && res.value?.length >= 2) {
+          LanguageTranslatorService.DEFAULT_LANGUAGE = res.value.substring(0, 2);
+        }
       })
       .catch(e => console.log(e));
   }
