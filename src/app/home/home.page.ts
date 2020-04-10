@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MenuController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/data-services/user-service/user.service';
@@ -29,15 +29,25 @@ export class HomePage implements OnInit {
     private router: Router,
     public userService: UserService,
     public geoData: GeoDataService,
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
+    private changeDetector: ChangeDetectorRef
   ) {
     this.$lastesLocationUpdate = this.geoData.getLatestLocation();
     this.$gpsStatus = this.geoData.isActive();
     this.$gpsError = this.geoData.hasError();
 
-    this.$lastesLocationUpdate.subscribe((val) => this.lastGPSData = val.time);
-    this.$gpsStatus.subscribe((val) => this.gpsStatus = val);
-    this.$gpsError.subscribe((val) => this.gpsError = val);
+    this.$lastesLocationUpdate.subscribe((val) => {
+      this.lastGPSData = val.time;
+      this.changeDetector.detectChanges();
+    });
+    this.$gpsStatus.subscribe((val) => {
+      this.gpsStatus = val;
+      this.changeDetector.detectChanges();
+    });
+    this.$gpsError.subscribe((val) => {
+      this.gpsError = val;
+      this.changeDetector.detectChanges();
+    });
 
     this.menuCtrl.enable(true);
     this.userService.isUserDataEmpty()
