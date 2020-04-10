@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../shared/data-services/user-service/user.service';
 
@@ -18,6 +18,7 @@ export class UserDataPage implements OnInit {
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
     private userData: UserService,
+    public toastController: ToastController,
   ) {
     this.menuCtrl.enable(false);
   }
@@ -31,11 +32,17 @@ export class UserDataPage implements OnInit {
       age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200)])),
       city: new FormControl('', Validators.maxLength(30)),
     });
-    this.userData.getUser().then((user) => {
-      if (user) {
-        this.userDataForm.setValue(user);
-      }
+    if (this.userData.isUserStored()) {
+      this.userDataForm.setValue(this.userData.getUser());
+    }
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
     });
+    toast.present();
   }
 
   private navigateHome(): void {
@@ -47,7 +54,11 @@ export class UserDataPage implements OnInit {
     if (this.userDataForm.invalid) {
       return;
     }
-    this.userData.updateUserData(this.userDataForm.value).then(() => this.navigateHome());
+    this.userData.setUser(this.userDataForm.value)
+      .then(
+        () => this.navigateHome(),
+        (err) => this.presentToast('Eingabe ist ungültig oder es ist ein Fehler aufgetreten: ' + err).then()
+      );
   }
 
   cancel() {
