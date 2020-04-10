@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { Observable, ReplaySubject } from 'rxjs';
+import { Plugins } from '@capacitor/core';
+
+const { Device } = Plugins;
 
 export interface GPSError {
   hasError: boolean;
@@ -23,7 +26,7 @@ export class GeoDataService {
   // DEBUG: Reduce Time intervall for faster debugging
   locationInterval = 5000;
 
-  newConfig =
+  newConfig: BackgroundGeolocationConfig =
     {
       desiredAccuracy: 0, //BackgroundGeolocationAccuracy.HIGH,
       stationaryRadius: 5,
@@ -33,7 +36,7 @@ export class GeoDataService {
       debug: true, // when true, it beeps every time a loc is read
       startOnBoot: true,
       stopOnTerminate: false,
-      locationProvider: BackgroundGeolocationLocationProvider.DISTANCE_FILTER_PROVIDER,
+      locationProvider: BackgroundGeolocationLocationProvider.RAW_PROVIDER,
 
       interval: this.locationInterval,
       fastestInterval: this.locationInterval,
@@ -41,7 +44,7 @@ export class GeoDataService {
 
       activityType: 'AutomotiveNavigation',
       pauseLocationUpdates: false,
-      saveBatteryOnBackground: true,
+      saveBatteryOnBackground: false,
       stopOnStillActivity: false,
     };
 
@@ -81,6 +84,12 @@ export class GeoDataService {
       this.$isActivated.next(false);
     });
   }
+
+
+  isAndroid(): Promise<boolean> {
+    return Device.getInfo().then<boolean>((info) => info.platform === 'android');
+  }
+
 
   public isActive(): Observable<boolean> {
     return this.$isActivated;
@@ -126,6 +135,17 @@ export class GeoDataService {
     this.backgroundGeolocation.configure(this.newConfig)
       .then(() => {
       });
+
+    if (this.isAndroid()) {
+      // This feature only is present on Android.
+      this.backgroundGeolocation.headlessTask(async event => {
+        // Application was shutdown, but the headless mechanism allows us
+        // to capture events in the background.  (On Android, at least)
+        if (event.name === 'location' || event.name === 'stationary') {
+          this.addLocation(event);
+        }
+      });
+    }
 
     this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
       console.log(location);
