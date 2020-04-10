@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeoloca
 export class GeoDataService {
 
   private static readonly GPS_STORE_KEY = 'gps';
+
+  private $lastestLocation = new ReplaySubject<BackgroundGeolocationResponse>(1);
+  private $isActivated = new ReplaySubject<{ active: boolean }>(1);
 
   // locationInterval = 60000 * 5; // Time (in milliseconds) between location information polls.  E.g. 60000*5 = 5 minutes
   // DEBUG: Reduce Time intervall for faster debugging
@@ -52,22 +56,59 @@ export class GeoDataService {
     private storage: Storage
   ) {
     this.loadLocations().then<any>(val => {
-      if(val) {
+      if (val) {
         this.backroundLocations = JSON.parse(val);
+        if (this.backroundLocations) {
+          if (this.backroundLocations.length > 0) {
+            this.$lastestLocation.next(location[0]);
+          }
+        } else {
+          this.backroundLocations = new Array();
+        }
       }
     });
+    this.backgroundGeolocation.checkStatus().then((val) => {
+      console.log(val);
+      this.$isActivated.next( { active: val.isRunning } );
+    }, (err) => {
+      console.log(err);
+      this.$isActivated.next({ active: false });
+    });
+  }
+
+  public isActive(): Observable<{ active: boolean }> {
+    return this.$isActivated;
+    // return this.backgroundGeolocation.checkStatus().then<boolean>((val) => val.isRunning);
   }
 
   public loadLocations(): Promise<any> {
     return this.storage.get(GeoDataService.GPS_STORE_KEY);
   }
 
+  private gpsAllowed = false;
+  public useGPS(val: boolean) {
+    this.gpsAllowed = val;
+    if (this.gpsAllowed) {
+      this.startBackgroudGeo();
+    } else {
+      this.stopBackgroudGeo();
+    }
+  }
+
+  public isGPSUseAllowed(): boolean {
+    return this.gpsAllowed;
+  }
+
   private addLocation(location: BackgroundGeolocationResponse): Promise<any> {
     this.backroundLocations = [location, ...this.backroundLocations];
+    this.$lastestLocation.next(location);
     return this.storage.set(GeoDataService.GPS_STORE_KEY, JSON.stringify(this.backroundLocations)).then();
   }
 
 
+  public getLatestLocation(): Observable<BackgroundGeolocationResponse> {
+    return this.$lastestLocation;
+  }
 
   startBackgroudGeo() {
     console.log(this.newConfig);
@@ -123,6 +164,7 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'start';
+      this.$isActivated.next({ active: true });
 
       // this.newConfig.notificationTitle = 'Started';
       // this.newConfig.notificationText = JSON.stringify(err);
@@ -139,6 +181,7 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'Stoped';
+      this.$isActivated.next({ active: false });
 
       this.newConfig.notificationTitle = 'Stoped';
       if (err) {
@@ -233,5 +276,5 @@ export class GeoDataService {
   //   });
   //   toast.present();
   // }
-  
+
 }

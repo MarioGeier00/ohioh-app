@@ -44,7 +44,9 @@
                 },
                 "deactivated": {
                     "title": "Standorterfassung aus",
-                    "lastUpdate": "Du hast die Standorterfassung in den Einstellungen deaktiviert."
+                    "description": "Du hast die Standorterfassung in den Einstellungen deaktiviert.",
+                    "activate": "GPS aktivieren",
+                    "settings": "Einstellungen öffnen"
                 }
             },
             "personalData": {

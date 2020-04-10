@@ -3,6 +3,9 @@ import { MenuController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/data-services/user-service/user.service';
 import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
+import { Observable } from 'rxjs';
+import { BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
+import { GeoDataService } from '../shared/data-services/geo-data/geo-data.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +16,22 @@ export class HomePage implements OnInit {
 
   public userDataAvailable: boolean;
 
+  public $lastesLocationUpdate: Observable<BackgroundGeolocationResponse>;
+  public $isGPSActive: Observable<{ active: boolean }>;
+  public gpsStatus: {active: boolean};
+
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
     public userService: UserService,
+    public geoData: GeoDataService,
     public popoverController: PopoverController
   ) {
+    this.$lastesLocationUpdate = this.geoData.getLatestLocation();
+    this.$isGPSActive = this.geoData.isActive();
+
+    this.$isGPSActive.subscribe((val) => this.gpsStatus = val);
+
     this.menuCtrl.enable(true);
 
     this.userService.isUserDataEmpty().then(isEmpty => {
@@ -38,6 +51,22 @@ export class HomePage implements OnInit {
     this.router.navigate(['/user-data']);
   }
 
+  navigateToPrivacySettings() {
+    this.router.navigate(['/data-protection']);
+  }
+
+  activateGPS() {
+    this.geoData.useGPS(true);
+  }
+
+
+  public getGPSWarningStatus(): boolean {
+    if (!this.gpsStatus) {
+      return true;
+    }
+    return !this.gpsStatus.active;
+  }
+
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PrototypeInfoComponent,
@@ -46,5 +75,7 @@ export class HomePage implements OnInit {
     });
     return await popover.present();
   }
+
+
 
 }
