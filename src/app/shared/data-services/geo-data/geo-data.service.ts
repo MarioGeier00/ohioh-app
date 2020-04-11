@@ -36,7 +36,7 @@ export class GeoDataService {
       debug: true, // when true, it beeps every time a loc is read
       startOnBoot: true,
       stopOnTerminate: false,
-      locationProvider: BackgroundGeolocationLocationProvider.RAW_PROVIDER,
+      locationProvider: BackgroundGeolocationLocationProvider.DISTANCE_FILTER_PROVIDER,
 
       interval: this.locationInterval,
       fastestInterval: this.locationInterval,
