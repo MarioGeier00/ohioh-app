@@ -66,7 +66,7 @@ export class QrScannerPage implements OnInit {
 
   ngOnInit() {
     this.error = false;
-    this.noAccessGranted = true;
+    this.noAccessGranted = false;
     this.openSettingsNeeded = false;
 
     this.requestCameraAccess();
@@ -78,18 +78,20 @@ export class QrScannerPage implements OnInit {
 
   requestCameraAccess() {
     this.qrScanner.prepare().then(
-      status => {
-        this.noAccessGranted = !status.authorized;
-        this.openSettingsNeeded = status.denied;
-        console.log(this.noAccessGranted);
-        console.log(this.openSettingsNeeded);
-        if (status.authorized) {
-          // camera permission was granted
-          this.startQRCodeScan();
-        }
-      },
+      status => this.onStatusReceived(status),
       err => this.errorReceived(err)
     );
+  }
+
+  onStatusReceived(status: QRScannerStatus) {
+    this.noAccessGranted = !status.authorized;
+    this.openSettingsNeeded = status.denied;
+    console.log(this.noAccessGranted);
+    console.log(this.openSettingsNeeded);
+    if (status.authorized) {
+      // camera permission was granted
+      this.startQRCodeScan();
+    }
   }
 
   close() {
@@ -119,9 +121,21 @@ export class QrScannerPage implements OnInit {
     this.qrScanner.hide();
     this.qrScanner.pausePreview();
 
+    // workaround for the case that qrScanner.prepare throws an exception
+    // instead of excuting the status function
+    try {
+      if (err.name === 'CAMERA_ACCESS_DENIED') {
+        this.noAccessGranted = true;
+        this.openSettingsNeeded = true;
+      }
+    } catch {
+
+    }
+
     console.log(err);
     this.isApp = this.platform.is('mobile') && !this.platform.is('mobileweb');
     this.error = true;
+    this.qrScanner.destroy().then((status) => this.onStatusReceived(status));
   }
 
   openSettings() {

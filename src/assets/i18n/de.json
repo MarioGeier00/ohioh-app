@@ -169,6 +169,7 @@
         "allowAccessTitle": "Zugriff erlauben",
         "yes": "Ja",
         "cancel": "Abbrechen",
+        "openSettings": "Einstellungen öffnen",
         "noCameraAccess": "Kein Kamerazugriff",
         "error": "Es ist ein unbekannter Fehler aufgetreten",
         "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf Dein Gerät."
