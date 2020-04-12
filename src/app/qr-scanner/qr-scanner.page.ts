@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { ToastController, MenuController } from '@ionic/angular';
+import { ToastController, MenuController, AlertController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -11,13 +12,22 @@ import { Subscription } from 'rxjs';
 })
 export class QrScannerPage implements OnInit {
 
-  scanSub: Subscription;
+  public error: boolean;
+  public isApp: boolean;
+
+  public noAccessGranted: boolean;
+  public openSettingsNeeded: boolean;
+
+  private scanSubscription: Subscription;
 
   constructor(
     private qrScanner: QRScanner,
+    public alertController: AlertController,
     public toastController: ToastController,
     private menuCtrl: MenuController,
-    private router: Router
+    private router: Router,
+    private translation: LanguageTranslatorService,
+    private platform: Platform
   ) {
     this.menuCtrl.enable(false);
   }
@@ -30,59 +40,77 @@ export class QrScannerPage implements OnInit {
     toast.present();
   }
 
+  async presentAllowAccessMessage() {
+    const alert = await this.alertController.create({
+      header: this.translation.get('qrScanner.allowAccessTitle'),
+      message: this.translation.get('qrScanner.allowAccessMsg'),
+      buttons: [
+        {
+          text: this.translation.get('qrScanner.cancel'),
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.noAccessGranted = true;
+          }
+        }, {
+          text: this.translation.get('qrScanner.yes'),
+          handler: () => {
+            this.qrScanner.openSettings();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  ngOnInit() {
+    this.requestCameraAccess();
+  }
+
+
+  requestCameraAccess() {
+    this.qrScanner.prepare().then(
+      status => {
+        this.noAccessGranted = !status.authorized;
+        this.openSettingsNeeded = status.denied;
+        if (status.authorized) {
+          // camera permission was granted
+          this.startQRCodeScan();
+        }
+      },
+      err => this.errorReceived(err)
+    );
+  }
+
   close() {
-    if (this.scanSub) {
-      this.scanSub.unsubscribe();
+    if (this.scanSubscription) {
+      this.scanSubscription.unsubscribe();
     }
     this.qrScanner.hide();
     this.qrScanner.pausePreview();
-    // this.qrScanner.destroy();
 
     this.menuCtrl.enable(true);
     this.router.navigate(['/home']);
   }
 
-  ngOnInit() {
-    this.scannQRCode();
+  startQRCodeScan() {
+    this.qrScanner.show();
+    // start scanning
+    this.scanSubscription = this.qrScanner.scan().subscribe(text => this.textScanned(text), err => this.errorReceived(err));
   }
 
-  scannQRCode() {
-    // Optionally request the permission early
-    this.qrScanner.prepare()
-      .then((status: QRScannerStatus) => {
-        // this.qrScanner.openSettings();
-        if (status.authorized) {
-          // camera permission was granted
-          this.presentToast('QR Code Scanner gestartet');
-          this.qrScanner.show();
-          // start scanning
-          this.scanSub = this.qrScanner.scan().subscribe((text: string) => {
-            
-            // TODO: check for XSS
-            console.log('Scanned something', text);
-            this.presentToast(text);
+  textScanned(value: string) {
+    // TODO: check for XSS
+    console.log('Scanned: ', value);
+    this.presentToast(value);
+  }
 
-            // this.qrScanner.pausePreview();
+  errorReceived(err: any) {
+    this.isApp = this.platform.is('mobile') && !this.platform.is('mobileweb');
 
-            // this.qrScanner.hide(); // hide camera preview
-            // this.qrScanner.destroy();
-            // scanSub.unsubscribe(); // stop scanning
-          });
-
-        } else if (status.denied) {
-          this.presentToast('Der Kamerazugriff wurde verweigert');
-          // camera permission was permanently denied
-          // you must use QRScanner.openSettings() method to guide the user to the settings page
-          // then they can grant the permission from there
-        } else {
-          // permission was denied, but not permanently. You can ask for permission again at a later time.
-          this.presentToast('Bitte geben Sie den Kamerazugriff unter den App-Einstellungen frei');
-        }
-      })
-      .catch((e: any) => {
-        console.log('Error is', e);
-        this.presentToast('Es ist ein Fehler aufgetreten oder es ist keine Kamera vorhanden');
-      });
+    console.log(err);
+    this.error = true;
   }
 
 }

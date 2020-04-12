@@ -4,7 +4,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-footer class="ion-padding full-height">
+<ion-footer class="ion-padding full-height ion-text-center">
+  <ion-grid>
+    <ion-row *ngIf="error; else noError">
+      <ion-col>
+        <!-- TODO: Add link to apk download -->
+        {{ isApp ? 'qrScanner.error' : 'qrScanner.noCameraInBrowserAvailable' | translate }}
+      </ion-col>
+    </ion-row>
+    <ng-template #noError *ngIf="noAccessGranted">
+      <ion-row>
+        <ion-col>
+          {{ 'qrScanner.noCameraAccess' | translate }}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!openSettingsNeeded">
+        <ion-col>
+          <ion-button fill="clear" *ngIf="!userDataAvailable" (click)="requestCameraAccess()">
+            {{ 'qrScanner.allowAccessTitle' | translate }}
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="openSettingsNeeded">
+        <ion-col>
+          <ion-button fill="clear" *ngIf="!userDataAvailable" (click)="openSettings()">
+            {{ 'qrScanner.openSettings' | translate }}
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </ion-grid>
+
   <ion-fab-button color="danger" class="bottom-center" (click)="close()">
     <ion-icon name="close"></ion-icon>
   </ion-fab-button>
