@@ -31,9 +31,10 @@
       <ion-item>
         <ion-icon name="cloud-done" slot="start"></ion-icon>
         <ion-label>
-          <h2>{{ 'home.stateOverview.sync.inSync.title' | translate }}</h2>
-          <p>{{ 'home.stateOverview.sync.inSync.lastUpload' | translate | replace: '{val}': 'gerade' }}</p>
-          <p>{{ 'home.stateOverview.sync.inSync.connected' | translate }}</p>
+          <h2>{{ 'home.stateOverview.sync.noSync.title' | translate }}</h2>
+          <p>{{ 'home.stateOverview.sync.noSync.lastUpload' | translate | replace: '{val}': 'gerade' }}</p>
+          <!-- TODO: Add internet connection check -->
+          <p>{{ 'home.stateOverview.sync.connected' | translate }}</p>
         </ion-label>
       </ion-item>
 

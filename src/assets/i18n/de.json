@@ -30,9 +30,15 @@
             "sync": {
                 "inSync": {
                     "title": "Daten synchronisiert",
-                    "lastUpload": "Ihre Daten wurden {val} hochgeladen.",
-                    "connected": "Es besteht Internetverbindung."
-                }
+                    "lastUpload": "Ihre Daten wurden {var} hochgeladen."
+                },
+                "noSync": {
+                    "title": "Keine Daten synchronisiert",
+                    "lastUpload": "Ihre Daten wurden nicht hochgeladen."
+                },
+                "connected": "Es besteht Internetverbindung.",
+                "checkConnection": "Internetverbindung wird überprüft...",
+                "disconnected": "Du bist nicht verbunden. Bitte überprüfe Deine Internetverbindung, damit Deine Daten synchronisiert werden können."
             },
             "gps": {
                 "active": {
