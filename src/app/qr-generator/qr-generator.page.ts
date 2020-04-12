@@ -35,6 +35,7 @@ export class QrGeneratorPage implements OnInit {
       return;
     }
 
+    // TODO: Check for XSS input
     const self = this;
     QRCode.toDataURL(JSON.stringify(this.qrGeneratorForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
       self.generated = url;
