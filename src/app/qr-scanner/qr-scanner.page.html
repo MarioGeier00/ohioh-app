@@ -4,40 +4,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-footer class="ion-padding full-height ion-text-center">
-  <ion-grid>
-    <ion-row *ngIf="error; else noError">
+<ion-content class="ion-padding ion-text-center" *ngIf="showInfo(); else showCameraStream">
+  <ion-grid *ngIf="noAccessGranted && isApp; else accessGranted">
+    <ion-row>
       <ion-col>
-        <!-- TODO: Add link to apk download -->
-        {{ isApp ? 'qrScanner.error' : 'qrScanner.noCameraInBrowserAvailable' | translate }}
+        {{ 'qrScanner.noCameraAccess' | translate }}
       </ion-col>
     </ion-row>
-    <ng-template #noError *ngIf="noAccessGranted">
+    <ion-row *ngIf="!openSettingsNeeded">
+      <ion-col>
+        <ion-button fill="clear" (click)="requestCameraAccess()">
+          {{ 'qrScanner.allowAccessTitle' | translate }}
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="openSettingsNeeded">
+      <ion-col>
+        <ion-button fill="clear" (click)="openSettings()">
+          {{ 'qrScanner.openSettings' | translate }}
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ng-template #accessGranted>
+    <ion-grid *ngIf="error">
       <ion-row>
         <ion-col>
-          {{ 'qrScanner.noCameraAccess' | translate }}
+          <!-- TODO: Add link to apk download -->
+          {{ (isApp ? 'qrScanner.error' : 'qrScanner.noCameraInBrowserAvailable') | translate }}
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="!openSettingsNeeded">
-        <ion-col>
-          <ion-button fill="clear" *ngIf="!userDataAvailable" (click)="requestCameraAccess()">
-            {{ 'qrScanner.allowAccessTitle' | translate }}
-            <ion-icon name="arrow-forward"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="openSettingsNeeded">
-        <ion-col>
-          <ion-button fill="clear" *ngIf="!userDataAvailable" (click)="openSettings()">
-            {{ 'qrScanner.openSettings' | translate }}
-            <ion-icon name="arrow-forward"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ng-template>
-  </ion-grid>
+    </ion-grid>
+  </ng-template>
 
   <ion-fab-button color="danger" class="bottom-center" (click)="close()">
     <ion-icon name="close"></ion-icon>
   </ion-fab-button>
-</ion-footer>
+</ion-content>
+
+<ng-template #showCameraStream>
+  <ion-footer class="ion-padding full-height">
+    <ion-fab-button color="danger" class="bottom-center" (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-footer>
+</ng-template>

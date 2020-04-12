@@ -65,15 +65,24 @@ export class QrScannerPage implements OnInit {
   }
 
   ngOnInit() {
+    this.error = false;
+    this.noAccessGranted = true;
+    this.openSettingsNeeded = false;
+
     this.requestCameraAccess();
   }
 
+  showInfo(): boolean {
+    return this.error || this.noAccessGranted;
+  }
 
   requestCameraAccess() {
     this.qrScanner.prepare().then(
       status => {
         this.noAccessGranted = !status.authorized;
         this.openSettingsNeeded = status.denied;
+        console.log(this.noAccessGranted);
+        console.log(this.openSettingsNeeded);
         if (status.authorized) {
           // camera permission was granted
           this.startQRCodeScan();
@@ -107,10 +116,16 @@ export class QrScannerPage implements OnInit {
   }
 
   errorReceived(err: any) {
-    this.isApp = this.platform.is('mobile') && !this.platform.is('mobileweb');
+    this.qrScanner.hide();
+    this.qrScanner.pausePreview();
 
     console.log(err);
+    this.isApp = this.platform.is('mobile') && !this.platform.is('mobileweb');
     this.error = true;
+  }
+
+  openSettings() {
+    this.qrScanner.openSettings();
   }
 
 }
