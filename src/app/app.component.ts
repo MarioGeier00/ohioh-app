@@ -21,11 +21,6 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
-      title: 'geo',
-      url: '/geo',
-      icon: 'location'
-    },
-    {
       title: 'userData',
       url: '/user-data',
       icon: 'person-circle'
@@ -83,6 +78,14 @@ export class AppComponent implements OnInit {
             this.presentInfoAlert();
           }
         });
+
+        if (this.userService.DeveloperMode) {
+          this.appPages.push({
+            title: 'geo',
+            url: '/geo',
+            icon: 'location'
+          });
+        }
 
         if (!this.userService.isUserStored() && !this.userService.DeveloperMode) {
           this.router.navigate(['/welcome']);
