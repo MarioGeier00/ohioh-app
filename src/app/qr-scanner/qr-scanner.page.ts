@@ -57,6 +57,8 @@ export class QrScannerPage implements OnInit {
           this.qrScanner.show();
           // start scanning
           this.scanSub = this.qrScanner.scan().subscribe((text: string) => {
+            
+            // TODO: check for XSS
             console.log('Scanned something', text);
             this.presentToast(text);
 
