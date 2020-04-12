@@ -16,6 +16,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from './i18n-config';
+import { Network } from '@ionic-native/network/ngx';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { createTranslateLoader } from './i18n-config';
     StatusBar,
     SplashScreen,
     QRScanner,
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
