@@ -29,8 +29,17 @@
     <div style="margin-top: 10px;">
       <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
         Generieren</ion-button>
+      <ion-button [disabled]="!displayQRCode" class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="share()">
+        QR-Code teilen<ion-icon name="share-outline"></ion-icon>
+      </ion-button>
     </div>
 
-    <img *ngIf="displayQRCode" [src]="generated" />
+    <!-- <ion-grid>
+      <ion-row> -->
+        <!-- <ion-col class="ion-align-self-center"> -->
+          <img style="width: 90vw;" *ngIf="displayQRCode" [src]="generatedQRCode" />
+        <!-- </ion-col>
+      </ion-row>
+    </ion-grid> -->
   </form>
 </ion-content>

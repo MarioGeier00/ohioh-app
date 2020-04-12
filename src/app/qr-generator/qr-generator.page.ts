@@ -1,7 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import QRCode from 'qrcode';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'app-qr-generator',
@@ -12,12 +13,12 @@ export class QrGeneratorPage implements OnInit {
 
   public qrGeneratorForm: FormGroup;
 
-  generated = '';
+  public generatedQRCode = '';
   public displayQRCode: boolean;
 
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -38,10 +39,14 @@ export class QrGeneratorPage implements OnInit {
     // TODO: Check for XSS input
     const self = this;
     QRCode.toDataURL(JSON.stringify(this.qrGeneratorForm.value), { errorCorrectionLevel: 'H' }, function (err, url) {
-      self.generated = url;
+      self.generatedQRCode = url;
     });
 
     this.displayQRCode = true;
+  }
+
+  share() {
+    SocialSharing.share('OHIOH QR-Code', 'OHIOH QR-Code', this.generatedQRCode);
   }
 
 }
