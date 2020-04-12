@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform, AlertController, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { UserService } from './shared/data-services/user-service/user.service';
+import { UserService } from './shared/data-services/user/user.service';
 import { Router } from '@angular/router';
 import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
 
@@ -44,6 +44,11 @@ export class AppComponent implements OnInit {
       title: 'addLocations',
       url: '/location/add',
       icon: 'add-circle'
+    },
+    {
+      title: 'qrGenerator',
+      url: '/qr-generator',
+      icon: 'qr-code'
     },
     {
       title: 'welcome',

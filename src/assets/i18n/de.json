@@ -7,6 +7,7 @@
         "dataProtection": "Privatsphäreneinstellungen",
         "settings": "Einstellungen",
         "addLocations": "Aufenthalt nachtragen",
+        "qrGenerator": "QR-Code erstellen",
         "welcome": "Einführungstutorial",
         "credits": "Impressum",
         "deleteAll": "Alle Daten endgültig löschen",
@@ -30,9 +31,15 @@
             "sync": {
                 "inSync": {
                     "title": "Daten synchronisiert",
-                    "lastUpload": "Ihre Daten wurden {val} hochgeladen.",
-                    "connected": "Es besteht Internetverbindung."
-                }
+                    "lastUpload": "Ihre Daten wurden {var} hochgeladen."
+                },
+                "noSync": {
+                    "title": "Keine Daten synchronisiert",
+                    "lastUpload": "Ihre Daten wurden nicht hochgeladen."
+                },
+                "connected": "Es besteht Internetverbindung.",
+                "checkConnection": "Internetverbindung wird überprüft...",
+                "disconnected": "Du bist nicht verbunden. Bitte überprüfe Deine Internetverbindung, damit Deine Daten synchronisiert werden können."
             },
             "gps": {
                 "active": {
@@ -171,6 +178,16 @@
         },
         "continue": "Weitere Schritte",
         "accept": "Warnung akzeptieren"
+    },
+    "qrScanner": {
+        "allowAccessMsg": "Die App benötigt Kamerazugriff, damit Du QR-Codes einscannen kannst. Möchtest Du den Zugriff erlauben?",
+        "allowAccessTitle": "Zugriff erlauben",
+        "yes": "Ja",
+        "cancel": "Abbrechen",
+        "openSettings": "Einstellungen öffnen",
+        "noCameraAccess": "Kein Kamerazugriff",
+        "error": "Es ist ein unbekannter Fehler aufgetreten",
+        "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf Dein Gerät."
     },
     "languageSelection": {
         "description": "Bitte wähle Deine Sprache aus:",
