@@ -31,7 +31,8 @@
                 "output": "./svg"
               },
               "src/manifest.webmanifest",
-              "src/web.config"
+              "src/web.config",
+              "src/ohiohApp.apk"
             ],
             "styles": [
               {

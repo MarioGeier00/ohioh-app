@@ -11,7 +11,8 @@
         "welcome": "Einführungstutorial",
         "credits": "Impressum",
         "deleteAll": "Alle Daten endgültig löschen",
-        "deleteAllToast": "Alle Daten wurden gelöscht"
+        "deleteAllToast": "Alle Daten wurden gelöscht",
+        "download": "Anwendung herunterladen"
     },
     "home": {
         "title": "OHIOH Home",

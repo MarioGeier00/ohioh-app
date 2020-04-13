@@ -13,6 +13,7 @@ import { LanguageTranslatorService } from './shared/data-services/language-trans
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   public selectedIndex = 0;
   public appPages = [
     {
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
     public router: Router,
     private translation: LanguageTranslatorService,
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
   ) {
     this.initializeApp();
   }
@@ -127,6 +128,13 @@ export class AppComponent implements OnInit {
   deleteAll() {
     this.presentToast(this.translation.get('menu.deleteAllToast'));
     this.userService.deleteUser();
+  }
+
+
+  downloadAPK() {
+    window.location.href = 'https://ohioh.azurewebsites.net/ohiohApp.apk';
+    // TODO: translation
+    this.presentToast('Download gestartet');
   }
 
 }
