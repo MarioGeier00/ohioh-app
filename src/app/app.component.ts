@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'addLocations',
-      url: '/location/add',
+      url: '/add-location',
       icon: 'add-circle'
     },
     {

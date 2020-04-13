@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'qr-generator',
     loadChildren: () => import('./qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
+  },  {
+    path: 'add-location',
+    loadChildren: () => import('./add-location/add-location.module').then( m => m.AddLocationPageModule)
   }
+
 
 
 ];

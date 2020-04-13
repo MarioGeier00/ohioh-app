@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>add-location</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="addLocationForm" (ngSubmit)="addLocation()">
+
+    <!-- TODO: translation -->
+    <ion-item>
+      <ion-label position="floating">Staße und Hausnummer</ion-label>
+      <ion-input formControlName="street"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Postleitzahl</ion-label>
+      <ion-input formControlName="zipCode"></ion-input>
+    </ion-item>
+
+    <!-- TODO: translation -->
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary" (click)="applyData()">
+        {{ 'Aufenthalt Eintragen' }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'Abbrechen' }}
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>
