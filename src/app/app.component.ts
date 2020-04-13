@@ -131,10 +131,10 @@ export class AppComponent implements OnInit {
   }
 
 
-  downloadAPK() {
-    window.location.href = 'https://ohioh.azurewebsites.net/ohiohApp.apk';
-    // TODO: translation
-    this.presentToast('Download gestartet');
-  }
+  // downloadAPK() {
+  //   window.location.href = 'https://ohioh.azurewebsites.net/ohiohApp.apk';
+  //   // TODO: translation
+  //   this.presentToast('Download gestartet');
+  // }
 
 }
