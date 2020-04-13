@@ -29,7 +29,7 @@ export class AddLocationPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  applyData() {
+  addLocation() {
     // TODO: Validation
     if (!this.addLocationForm.valid) {
       return;
