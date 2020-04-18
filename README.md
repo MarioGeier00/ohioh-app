@@ -17,6 +17,7 @@ https://ohioh.azurewebsites.net/ohiohApp.apk
 * Ionic with Angular
 * Capacitor for Android and IOs Deployment
 
+### Developers
 Frontend Developement by Mario Geier and Jnnk
 
 ### MIT License
