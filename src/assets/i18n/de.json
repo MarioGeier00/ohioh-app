@@ -32,7 +32,7 @@
             "sync": {
                 "inSync": {
                     "title": "Daten synchronisiert",
-                    "lastUpload": "Deine Daten wurden {var} hochgeladen.",
+                    "lastUpload": "Deine Daten wurden {var} hochgeladen."
                 },
                 "noSync": {
                     "title": "Keine Daten synchronisiert",

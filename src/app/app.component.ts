@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 
 import { Platform, AlertController, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -71,7 +72,15 @@ export class AppComponent implements OnInit {
     this.initializeApp();
   }
 
+  private appInsights = new ApplicationInsights({
+    config: {
+      instrumentationKey: '2fa7b8a6-2a75-4576-b96a-38f4f47e741b'
+    }
+  });
+
   initializeApp() {
+    this.appInsights.loadAppInsights();
+
     this.userService.loadDeveloperMode().then(
       () => {
         this.translation.initLanguageTranslator().then(() => {
