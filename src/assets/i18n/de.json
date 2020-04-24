@@ -10,7 +10,7 @@
         "qrGenerator": "QR-Code erstellen",
         "welcome": "Einführungstutorial",
         "credits": "Impressum",
-        "deleteAll": "Alle Daten endgültig löschen",
+        "deleteAll": "Alle Daten endgültig löschen",  
         "deleteAllToast": "Alle Daten wurden gelöscht",
         "download": "Anwendung herunterladen"
     },
@@ -21,18 +21,18 @@
             "infection": {
                 "noWarning": {
                     "title": "Keine Infektionswarnung",
-                    "description": "Aktuell liegen keine Warnungen für Dich vor."
+                    "description": "Aktuell liegen keine Warnungen für dich vor."
                 },
                 "warning": {
                     "title": "Infektionswarnung",
-                    "description": "Wir haben errechnet, dass Du möglicherweise infiziert bist.",
+                    "description": "Wir haben errechnet, dass du möglicherweise infiziert bist.",
                     "showWarning": "Warnung anzeigen"
                 }
             },
             "sync": {
                 "inSync": {
                     "title": "Daten synchronisiert",
-                    "lastUpload": "Ihre Daten wurden {var} hochgeladen."
+                    "lastUpload": "Deine Daten wurden {var} hochgeladen.",
                 },
                 "noSync": {
                     "title": "Keine Daten synchronisiert",
@@ -45,12 +45,12 @@
             "gps": {
                 "active": {
                     "title": "Standorterfassung aktiv",
-                    "lastUpdate": "Ihr Standort wurde zuletzt um {val} erfasst.",
+                    "lastUpdate": "Dein Standort wurde zuletzt um {val} erfasst.",
                     "noData": "Es wurden noch keine Daten erfasst."
                 },
                 "inaccurate": {
                     "title": "Standorterfassung inaktiv",
-                    "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage Deinen Standort manuell nach."
+                    "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage deinen Standort manuell nach."
                 },
                 "deactivated": {
                     "title": "Standorterfassung aus",
@@ -91,26 +91,26 @@
             },
             "what": {
                 "title": "Was ist OHIOH?",
-                "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, QR-Code, Bluetooth)</b>, um Dich über ein mögliches Infektionsrisiko durch Deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
+                "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, Bluetooth, QR-Code)</b>, um dich über ein mögliches Infektionsrisiko durch deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
             },
             "warning": {
                 "title": "Wie funktioniert die Frühwarnung?",
-                "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch Deine Daten sind dafür hilfreich. Du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
+                "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch deine Daten sind dafür hilfreich. du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
             },
             "security": {
                 "title": "Wie sicher sind meine Daten?",
-                "description": "Wir achten darauf, dass weder Deine persönlichen Daten, noch Deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden Deine Daten automatisch vollständig gelöscht. Natürlich kannst Du auch manuell sämtliche Daten löschen."
+                "description": "Wir achten darauf, dass weder deine persönlichen Daten, noch deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden deine Daten automatisch vollständig gelöscht. Natürlich kannst du auch manuell sämtliche Daten löschen."
             },
             "video": {
                 "title": "Wie funktioniert die App?",
-                "description": "In folgenden Video kannst Du Dich über die App informieren:",
+                "description": "In folgendem Video kannst du dich über die App informieren:",
                 "videoLink": "OHIOH Erklärvideo"
             }
         }
     },
     "userData": {
         "title": "Benutzerdaten",
-        "description": "Hier kannst Du Deine Daten eingeben. Keine Felder müssen ausgefüllt sein.",
+        "description": "Hier kannst du deine Daten eingeben. Keine Felder müssen ausgefüllt sein.",
         "firstName": "Vorname",
         "firstNameMaxLengthMessage": "Der Vorname darf {val} Zeichen nicht überschreiten.",
         "lastName": "Nachname",
@@ -139,15 +139,15 @@
         "title": "Über die Entwickler",
         "motivation": {
             "title": "Entstehung und Motivation",
-            "description": "Beim Hackathon der Bundesregierung begann alles. Durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+            "description": "Beim Hackathon der Bundesregierung begann alles. durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
         },
         "team": {
             "title": "Team",
-            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
+            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich, wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
             "coordination": "Koordination",
             "frontendDevelopment": "Entwicklung Frontend",
-            "university": "Professoren/innen der Fachhochschule Kiel",
-            "thankYou": "Vielen Dank für die gute Zusammenarbeit!"
+            "university": "Die Professor*en*in der Fachhochschule Kiel",
+            "thankYou": "Danke für die gute Zusammenarbeit!"
         },
         "attribution": {
             "title": "Attribution"
@@ -174,24 +174,24 @@
         "nextSteps": {
             "maybeNotInfected": "Diese Warnung bedeutet nicht, dass du infiziert bist, sondern lediglich, dass ein erhötes Risiko einer Infektion ermittelt wurde",
             "goToDoctor": "Bitte suche zeitnah einen Arzt auf und bespreche das weitere Vorgehen",
-            "informAboutOhioh": "Bitte teile deinem Arzt mit, dass Du die OHIOH-APP nutzt",
+            "informAboutOhioh": "Bitte teile deinem Arzt mit, dass du die OHIOH-APP nutzt",
             "linksToDoctors": "Arzt Verlinkung in der Nähe"
         },
         "continue": "Weitere Schritte",
         "accept": "Warnung akzeptieren"
     },
     "qrScanner": {
-        "allowAccessMsg": "Die App benötigt Kamerazugriff, damit Du QR-Codes einscannen kannst. Möchtest Du den Zugriff erlauben?",
+        "allowAccessMsg": "Die App benötigt Kamerazugriff, damit du QR-Codes einscannen kannst. Möchtest du den Zugriff erlauben?",
         "allowAccessTitle": "Zugriff erlauben",
         "yes": "Ja",
         "cancel": "Abbrechen",
         "openSettings": "Einstellungen öffnen",
         "noCameraAccess": "Kein Kamerazugriff",
         "error": "Es ist ein unbekannter Fehler aufgetreten",
-        "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf Dein Gerät."
+        "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf dein Gerät."
     },
     "languageSelection": {
-        "description": "Bitte wähle Deine Sprache aus:",
+        "description": "Bitte wähle deine Sprache aus:",
         "de": "Deutsch",
         "en": "Englisch",
         "tr": "Türkisch",
