@@ -40,7 +40,7 @@
                 },
                 "connected": "Es besteht Internetverbindung.",
                 "checkConnection": "Internetverbindung wird überprüft...",
-                "disconnected": "Du bist nicht verbunden. Bitte überprüfe Deine Internetverbindung, damit Deine Daten synchronisiert werden können."
+                "disconnected": "Du bist nicht verbunden. Bitte überprüfe deine Internetverbindung, damit deine Daten synchronisiert werden können."
             },
             "gps": {
                 "active": {
