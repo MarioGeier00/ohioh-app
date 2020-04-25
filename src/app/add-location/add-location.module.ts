@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddLocationPageRoutingModule } from './add-location-routing.module';
 
 import { AddLocationPage } from './add-location.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { AddLocationPage } from './add-location.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    AddLocationPageRoutingModule
+    AddLocationPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [AddLocationPage]
 })

@@ -127,6 +127,12 @@
         "cancel": "Abbrechen",
         "reset": "Zurücksetzen"
     },
+    "addLocation": {
+        "street": "Staße und Hausnummer",
+        "zipCode": "Postleitzahl",
+        "cancel": "Abbrechen",
+        "submit": "Aufenthalt Eintragen"
+    },
     "settings": {
         "title": "Einstellungen",
         "saveDuration": "Speicherdauer",
