@@ -17,9 +17,6 @@ import { TranslateModule } from '@ngx-translate/core';
     CreditsPageRoutingModule,
     TranslateModule.forChild()
   ],
-  providers: [
-    Location
-  ],
   declarations: [CreditsPage]
 })
 export class CreditsPageModule {}
