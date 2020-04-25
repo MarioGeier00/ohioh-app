@@ -16,6 +16,8 @@ export class UserService {
 
   public DeveloperMode: boolean = true;
 
+  private hasAcceptedAGBs: boolean = false;
+
   private infectionStatus = false;
   private $isUserDataEmpty = new ReplaySubject<boolean>(1);
 
@@ -143,6 +145,13 @@ export class UserService {
   }
 
 
+  public getHasAcceptedAGBs(): boolean {
+    return this.hasAcceptedAGBs;
+  }
+  
+  public setHasAcceptedAGBs(value: boolean)  {
+    this.hasAcceptedAGBs = value;
+  }
 
   public loadDeveloperMode(): Promise<any> {
     return this.storage.get(UserService.DEV_KEY).then<any>(val => {
