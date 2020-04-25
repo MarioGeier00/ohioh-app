@@ -1,5 +1,4 @@
 {
-    "downloadStartet": "Download gestartet",
     "menu": {
         "title": "Menu",
         "home": "OHIOH Home",
@@ -13,7 +12,8 @@
         "credits": "Impressum",
         "deleteAll": "Alle Daten endgültig löschen",  
         "deleteAllToast": "Alle Daten wurden gelöscht",
-        "download": "Anwendung herunterladen"
+        "download": "Anwendung herunterladen",
+        "downloadStarted": "Download gestartet"
     },
     "home": {
         "title": "OHIOH Home",
@@ -40,7 +40,7 @@
                     "lastUpload": "Ihre Daten wurden nicht hochgeladen."
                 },
                 "connected": "Es besteht Internetverbindung.",
-                "checkConnection": "Internetverbindung wird überprüft...",
+                "checkingConnection": "Internetverbindung wird überprüft...",
                 "disconnected": "Du bist nicht verbunden. Bitte überprüfe deine Internetverbindung, damit deine Daten synchronisiert werden können."
             },
             "gps": {

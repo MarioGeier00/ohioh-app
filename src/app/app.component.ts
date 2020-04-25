@@ -143,8 +143,7 @@ export class AppComponent implements OnInit {
 
   downloadAPK() {
     window.location.href = 'https://ohioh.azurewebsites.net/ohiohApp.apk';
-    // TODO: translation
-    this.presentToast(this.translation.get('downloadApp'));
+    this.presentToast(this.translation.get('menu.downloadStarted'));
   }
 
 }
