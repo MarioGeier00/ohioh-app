@@ -28,6 +28,8 @@ export class HomePage implements OnInit, OnDestroy {
 
   private disconnectSubscription: Subscription;
   private connectSubscription: Subscription;
+  
+  public disconnected: boolean;
 
   constructor(
     private menuCtrl: MenuController,
@@ -61,6 +63,7 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.disconnected = true;
     this.setupNetworkConnectionCheck();
   }
 
@@ -97,11 +100,12 @@ export class HomePage implements OnInit, OnDestroy {
     // watch network for a disconnection
     this.disconnectSubscription = this.network.onDisconnect().subscribe(() => {
       console.log('network was disconnected :-(');
+      this.disconnected = true;
     });
-
     // watch network for a connection
     this.connectSubscription = this.network.onConnect().subscribe(() => {
       console.log('network connected!');
+      this.disconnected = false;
       // We just got a connection but we need to wait briefly
       // before we determine the connection type. Might need to wait.
       // prior to doing any api requests as well.

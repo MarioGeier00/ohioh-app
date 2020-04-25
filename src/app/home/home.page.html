@@ -32,13 +32,12 @@
         </ion-label>
       </ion-item>
 
-      <ion-item>
+      <ion-item [class.warning]="disconnected">
         <ion-icon name="cloud-done" slot="start"></ion-icon>
         <ion-label>
           <h2>{{ 'home.stateOverview.sync.noSync.title' | translate }}</h2>
           <p>{{ 'home.stateOverview.sync.noSync.lastUpload' | translate | replace: '{val}': 'gerade' }}</p>
-          <!-- TODO: Add internet connection check -->
-          <p>{{ 'home.stateOverview.sync.connected' | translate }}</p>
+          <p>{{ (disconnected ? 'home.stateOverview.sync.disconnected' : 'home.stateOverview.sync.connected') | translate }}</p>
         </ion-label>
       </ion-item>
 
