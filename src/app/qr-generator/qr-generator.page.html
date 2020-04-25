@@ -10,29 +10,28 @@
 
 <ion-content class="ion-padding">
 
-  <!-- TODO: tranlate -->
   <form [formGroup]="qrGeneratorForm" (ngSubmit)="generateQRCode()">
     <ion-item>
-      <ion-label position="floating">Name</ion-label>
+      <ion-label position="floating">{{ 'qrGenerator.name' | translate }}</ion-label>
       <ion-input formControlName="name" autofocus=true></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Staße und Hausnummer</ion-label>
+      <ion-label position="floating">{{ 'qrGenerator.street' | translate }}</ion-label>
       <ion-input formControlName="street"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Postleitzahl</ion-label>
+      <ion-label position="floating">{{ 'qrGenerator.zipCode' | translate }}</ion-label>
       <ion-input formControlName="zipCode"></ion-input>
     </ion-item>
 
     <div style="margin-top: 10px;">
       <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
-        Generieren</ion-button>
+        {{ 'qrGenerator.generateQR' | translate }}</ion-button>
       <ion-button [disabled]="!displayQRCode" class="ion-float-right" style="margin-left: 5px;" type="submit"
         color="primary" (click)="share()">
-        QR-Code teilen<ion-icon name="share-outline"></ion-icon>
+        {{ 'qrGenerator.shareQR' | translate }}<ion-icon name="share-outline"></ion-icon>
       </ion-button>
     </div>
 

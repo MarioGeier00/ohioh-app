@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { QrGeneratorPageRoutingModule } from './qr-generator-routing.module';
 
 import { QrGeneratorPage } from './qr-generator.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { QrGeneratorPage } from './qr-generator.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    QrGeneratorPageRoutingModule
+    QrGeneratorPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [QrGeneratorPage]
 })

@@ -197,6 +197,13 @@
         "error": "Es ist ein unbekannter Fehler aufgetreten",
         "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf dein Gerät."
     },
+    "qrGenerator": {
+        "name": "Name",
+        "street": "Staße und Hausnummer",
+        "zipCode": "Postleitzahl",
+        "generateQR": "Generieren",
+        "shareQR": "QR-Code teilen"
+    },
     "languageSelection": {
         "description": "Bitte wähle deine Sprache aus:",
         "de": "Deutsch",

@@ -191,6 +191,13 @@
         "error": "An unknown error has occurred",
         "noCameraInBrowserAvailable": "In the Browser may not be on the camera. Please download the application to your device."
     },
+    "qrGenerator": {
+        "name": "Name",
+        "street": "Street and number",
+        "zipCode": "Postal code",
+        "generateQR": "Generate",
+        "shareQR": "Share QR-Code"
+    },
     "languageSelection": {
         "description": "Please select your language:",
         "de": "German",
