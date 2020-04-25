@@ -14,6 +14,9 @@ export class LanguageTranslatorService {
   private readonly PrototypeInfoList_DE = `
   <ul>
     <li>
+      Um alle Features testen zu können, <b>lade die Android App herunter</b> (Menu > App herunterladen)
+    </li>
+    <li>
       Diese App befindet sich im Entwicklungszustand
     </li>
     <li>
@@ -33,6 +36,9 @@ export class LanguageTranslatorService {
 
   private readonly PrototypeInfoList_EN = `
   <ul>
+    <li>
+      To test all features, <b>please download the android app</b> (Menu > Download App)
+    </li>
     <li>
       This app is in developement
     </li>
