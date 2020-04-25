@@ -124,6 +124,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.appInsights.trackPageView();
   }
 
   async presentToast(msg: string) {
