@@ -129,6 +129,7 @@
         "reset": "Zurücksetzen"
     },
     "addLocation": {
+        "title": "Aufenthalt nachtragen",
         "street": "Staße und Hausnummer",
         "zipCode": "Postleitzahl",
         "cancel": "Abbrechen",

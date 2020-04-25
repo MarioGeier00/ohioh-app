@@ -7,7 +7,7 @@
         "userData": "Data change",
         "dataProtection": "Privacy settings",
         "settings": "Settings",
-        "addLocations": "Stay the night extend",
+        "addLocations": "Add a stay",
         "qrGenerator": "Create QR Code",
         "welcome": "Introduction tutorial",
         "credits": "Imprint",
@@ -127,6 +127,13 @@
         "submit": "Take",
         "cancel": "Cancel",
         "reset": "Reset"
+    },
+    "addLocation": {
+        "title": "Add a stay",
+        "street": "Street and number",
+        "zipCode": "Postal code",
+        "cancel": "Cancel",
+        "submit": "Add"
     },
     "settings": {
         "title": "Settings",
