@@ -4,7 +4,8 @@ It uses tracking technologies (GPS and Bluetooth) and also QR-Code
 to achieve warning the user about a possible infection.
 
 ### Running Prototype of this app
-> Note: This app should be installed on a mobile device to use all features.
+> Note: This app should be installed on a mobile device to use all features.  
+
 Try it out on your mobile android device for free:  
 Android App: https://ohioh.azurewebsites.net/ohiohApp.apk  
 Web App: https://ohioh.azurewebsites.net/  
