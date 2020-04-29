@@ -1,14 +1,13 @@
 # OHIOH App
-This app is created to fight against the COVID-19 virus.
-
+This app is created to fight against the COVID-19 virus.  
 It uses tracking technologies (GPS and Bluetooth) and also QR-Code
 to achieve warning the user about a possible infection.
 
 ### Running Prototype of this app
-https://ohioh.azurewebsites.net/
-This app should be installed on a mobile device.
-Try it out on your mobile android device for free:
-https://ohioh.azurewebsites.net/ohiohApp.apk
+> Note: This app should be installed on a mobile device to use all features.
+Try it out on your mobile android device for free:  
+Android App: https://ohioh.azurewebsites.net/ohiohApp.apk  
+Web App: https://ohioh.azurewebsites.net/  
 
 ### Current working features
 To test all features, please download the android app!
