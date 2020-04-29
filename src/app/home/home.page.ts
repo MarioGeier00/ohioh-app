@@ -22,13 +22,17 @@ export class HomePage implements OnInit, OnDestroy {
   public $gpsStatus: Observable<boolean>;
   public $gpsError: Observable<GPSError>;
 
+  private lastesLocationUpdateSubscription: Subscription;
+  private gpsStatusSubscription: Subscription;
+  private gpsErrorSubscription: Subscription;
+
   public gpsStatus: boolean;
   public gpsError: GPSError;
   public lastGPSData: number;
 
   private disconnectSubscription: Subscription;
   private connectSubscription: Subscription;
-  
+
   public disconnected: boolean;
 
   constructor(
@@ -44,19 +48,6 @@ export class HomePage implements OnInit, OnDestroy {
     this.$gpsStatus = this.geoData.isActive();
     this.$gpsError = this.geoData.hasError();
 
-    this.$lastesLocationUpdate.subscribe((val) => {
-      this.lastGPSData = val.time;
-      this.changeDetector.detectChanges();
-    });
-    this.$gpsStatus.subscribe((val) => {
-      this.gpsStatus = val;
-      this.changeDetector.detectChanges();
-    });
-    this.$gpsError.subscribe((val) => {
-      this.gpsError = val;
-      this.changeDetector.detectChanges();
-    });
-
     this.menuCtrl.enable(true);
     this.userService.isUserDataEmpty()
       .subscribe((isEmpty) => this.userDataAvailable = !isEmpty);
@@ -65,10 +56,26 @@ export class HomePage implements OnInit, OnDestroy {
   ngOnInit() {
     this.disconnected = true;
     this.setupNetworkConnectionCheck();
+
+    this.lastesLocationUpdateSubscription = this.$lastesLocationUpdate.subscribe((val) => {
+      this.lastGPSData = val.time;
+      this.changeDetector.detectChanges();
+    });
+    this.gpsStatusSubscription = this.$gpsStatus.subscribe((val) => {
+      this.gpsStatus = val;
+      this.changeDetector.detectChanges();
+    });
+    this.gpsErrorSubscription = this.$gpsError.subscribe((val) => {
+      this.gpsError = val;
+      this.changeDetector.detectChanges();
+    });
   }
 
   ngOnDestroy() {
     this.unsubscribeNetworkConnectionCheck();
+    this.lastesLocationUpdateSubscription.unsubscribe();
+    this.gpsStatusSubscription.unsubscribe();
+    this.gpsErrorSubscription.unsubscribe();
   }
 
   openQRScan() {
