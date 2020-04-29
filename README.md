@@ -3,7 +3,7 @@ This app is created to fight against the COVID-19 virus.
 It uses tracking technologies (GPS and Bluetooth) and also QR-Code
 to achieve warning the user about a possible infection.
 
-### Running Prototype of this app
+## Running Prototype of this app
 > Note: This app should be installed on a mobile device to use all features.  
 
 Try it out on your mobile android device for free:  
@@ -11,7 +11,7 @@ Android App: https://ohioh.azurewebsites.net/ohiohApp.apk
 
 Web App: https://ohioh.azurewebsites.net/  
 
-### Current working features
+## Current working features
 To test all features, please download the android app!  
 This app is currently in developement.  
 This app is not connected to any Backend yet.  
@@ -21,15 +21,15 @@ To see the captured data, developer mode* has to be activated.
 QR-Codes can be created (web app + mobile app) and scanned on a mobile device.  
 Generated QR-Codes can be shared.  
 
-### Used Frameworks
+## Used Frameworks
 * Ionic with Angular
 * Capacitor for Android and IOs Deployment
 
-### Developers
+## Developers
 Frontend Developement by Mario Geier and Jnnk
 
-### Documentation
-#### Project Structure
+## Documentation
+### Project Structure
 `add-location`: User is able to manually type where and when he spent time  
 `credits`: Overview of the team, imprint and AGBs  
 `data-protection`: Settings for choosing which data source should be used for tracking  
@@ -44,14 +44,14 @@ Frontend Developement by Mario Geier and Jnnk
 `welcome`: App introduction tour  
 `app-component`: main menu  
 
-#### \*Developer Mode
+### \*Developer Mode
 Can be activated by tapping more than five times at the bottom area of the credits page (called "Impressum")
 
-### Homepage of the OHIOH Team
+## Homepage of the OHIOH Team
 Homepage: https://ohioh.de/  
 E-Mail: kontakt@ohioh.de
 
-### MIT License
+## MIT License
 
 Copyright (c) 2020 Tjark Ziehm for OHIOH.de
 
