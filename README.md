@@ -1,26 +1,57 @@
 # OHIOH App
-This app is created to fight against the COVID-19 virus.
+This app is created to fight against the COVID-19 virus.  
 It uses tracking technologies (GPS and Bluetooth) and also QR-Code
 to achieve warning the user about a possible infection.
 
-### Homepage
-https://ohioh.de/
-contact: kontakt@ohioh.de
+## Running Prototype of this app
+> Note: This app should be installed on a mobile device to use all features.  
 
-### Running Prototype
-https://ohioh.azurewebsites.net/
-This app should be installed on a mobile device.
-Until now there is only a download for android available
-https://ohioh.azurewebsites.net/ohiohApp.apk
+Try it out on your mobile android device for free:  
+Android App: https://ohioh.azurewebsites.net/ohiohApp.apk  
 
-### Used Frameworks
+Web App: https://ohioh.azurewebsites.net/  
+
+## Current working features
+To test all features, please download the android app!  
+This app is currently in developement.  
+This app is not connected to any Backend yet.  
+No personal data is beeing sent.  
+The capture and the storage on the phone of GPS data is working.  
+To see the captured data, developer mode* has to be activated.  
+QR-Codes can be created (web app + mobile app) and scanned on a mobile device.  
+Generated QR-Codes can be shared.  
+
+## Used Frameworks
 * Ionic with Angular
 * Capacitor for Android and IOs Deployment
 
-### Developers
+## Developers
 Frontend Developement by Mario Geier and Jnnk
 
-### MIT License
+## Documentation
+### Project Structure
+`add-location`: User is able to manually type where and when he spent time  
+`credits`: Overview of the team, imprint and AGBs  
+`data-protection`: Settings for choosing which data source should be used for tracking  
+`geolocation-test`: List of recorded gps data (available by enabling developer mode*)  
+`home`: Main page with status display  
+`infection-warning`: Info page for the user to tell him he might be infected  
+`qr-generator`: Page to generate and share an ohioh qr code  
+`qr-scanner`: Page to scan ohioh qr code and add the containing data to the tracking data  
+`settings`: Change data storage duration and language  
+`shared`: Services and shared UI components  
+`user-data`: User for the input of user data like name, age, residence, etc.  
+`welcome`: App introduction tour  
+`app-component`: main menu  
+
+### \*Developer Mode
+Can be activated by tapping more than five times at the bottom area of the credits page (called "Impressum")
+
+## Homepage of the OHIOH Team
+Homepage: https://ohioh.de/  
+E-Mail: kontakt@ohioh.de
+
+## MIT License
 
 Copyright (c) 2020 Tjark Ziehm for OHIOH.de
 

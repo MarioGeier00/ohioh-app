@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  
+
   <h4>{{ 'credits.homePage' | translate }}</h4>
   <a href="https://ohioh.de/?page_id=63">AGBs und Datenschutz</a>
 
@@ -106,7 +106,13 @@
 
   <ion-item *ngIf="showDev">
     <ion-label>Entwicklermodus</ion-label>
-    <ion-toggle #toggle [checked]="this.userService.DeveloperMode" (ionChange)="changeDev(toggle.checked)">
+    <ion-toggle #devToggle [checked]="this.userService.DeveloperMode" (ionChange)="changeDev(devToggle.checked)">
+    </ion-toggle>
+  </ion-item>
+  
+  <ion-item *ngIf="showDev">
+    <ion-label>Debug</ion-label>
+    <ion-toggle #debugToggle [checked]="this.userService.DebugMode" (ionChange)="changeDebug(debugToggle.checked)">
     </ion-toggle>
   </ion-item>
 

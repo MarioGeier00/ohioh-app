@@ -13,8 +13,10 @@ export class UserService {
   private static readonly USER_STORE_KEY = 'user';
   private static readonly INFECTION_STATUS_KEY = 'infected';
   private static readonly DEV_KEY = 'dev';
-
+  private static readonly DEBUG_KEY = 'debug';
+  
   public DeveloperMode: boolean = true;
+  public DebugMode: boolean = true;
 
   private hasAcceptedAGBs: boolean = false;
 
@@ -158,9 +160,17 @@ export class UserService {
       this.DeveloperMode = val;
     });
   }
+  public loadDebugMode(): Promise<any> {
+    return this.storage.get(UserService.DEBUG_KEY).then<any>(val => {
+      this.DebugMode = val;
+    });
+  }
 
   public saveDeveloperMode(): Promise<any> {
     return this.storage.set(UserService.DEV_KEY, this.DeveloperMode);
+  }
+  public saveDebugMode(): Promise<any> {
+    return this.storage.set(UserService.DEBUG_KEY, this.DebugMode);
   }
 
 }

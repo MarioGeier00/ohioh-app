@@ -20,6 +20,12 @@
       <ion-input formControlName="zipCode"></ion-input>
     </ion-item>
 
+    <!-- TODO: Add time input here -->
+    <ion-item>
+      <ion-label>DD.MM.YYYYTHH:mm</ion-label>
+      <ion-datetime displayFormat="DD.MM.YYYY HH:mm"></ion-datetime>
+    </ion-item>
+
     <div style="margin-top: 10px;">
       <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
         {{ 'addLocation.submit' | translate }}</ion-button>
