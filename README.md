@@ -8,6 +8,7 @@ to achieve warning the user about a possible infection.
 
 Try it out on your mobile android device for free:  
 Android App: https://ohioh.azurewebsites.net/ohiohApp.apk  
+
 Web App: https://ohioh.azurewebsites.net/  
 
 ### Current working features
