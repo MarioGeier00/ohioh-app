@@ -81,6 +81,8 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.appInsights.loadAppInsights();
 
+    this.userService.loadDebugMode();
+
     this.userService.loadDeveloperMode().then(
       () => {
         this.translation.initLanguageTranslator().then(() => {
