@@ -12,7 +12,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "android": "ionic capacitor run android -l --host=0.0.0.0"
+    "android": "ionic capacitor run android -l --host=0.0.0.0",
+    "mobilebuild": "ionic capacitor copy android"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +43,7 @@
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "cordova-plugin-background-mode": "^0.7.3",
+    "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-network-information": "^2.0.2",
