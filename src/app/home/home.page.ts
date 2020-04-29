@@ -1,40 +1,74 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { MenuController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/data-services/user-service/user.service';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
+import { Observable } from 'rxjs';
+import { BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
+import { GeoDataService, GPSError } from '../shared/data-services/geo-data/geo-data.service';
+import { UserService } from '../shared/data-services/user/user.service';
+import { Subscription } from 'rxjs';
+import { Network } from '@ionic-native/network/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
 
   public userDataAvailable: boolean;
+
+  public $lastesLocationUpdate: Observable<BackgroundGeolocationResponse>;
+  public $gpsStatus: Observable<boolean>;
+  public $gpsError: Observable<GPSError>;
+
+  public gpsStatus: boolean;
+  public gpsError: GPSError;
+  public lastGPSData: number;
+
+  private disconnectSubscription: Subscription;
+  private connectSubscription: Subscription;
+  
+  public disconnected: boolean;
 
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
-    private translator: LanguageTranslatorService,
-    public userService: UserService) {
+    public userService: UserService,
+    public geoData: GeoDataService,
+    public popoverController: PopoverController,
+    private changeDetector: ChangeDetectorRef,
+    private network: Network
+  ) {
+    this.$lastesLocationUpdate = this.geoData.getLatestLocation();
+    this.$gpsStatus = this.geoData.isActive();
+    this.$gpsError = this.geoData.hasError();
+
+    this.$lastesLocationUpdate.subscribe((val) => {
+      this.lastGPSData = val.time;
+      this.changeDetector.detectChanges();
+    });
+    this.$gpsStatus.subscribe((val) => {
+      this.gpsStatus = val;
+      this.changeDetector.detectChanges();
+    });
+    this.$gpsError.subscribe((val) => {
+      this.gpsError = val;
+      this.changeDetector.detectChanges();
+    });
+
     this.menuCtrl.enable(true);
-    this.userService.isUserStored().then((isUserStored) => {
-      if (!isUserStored) {
-        this.router.navigate(['/welcome']);
-      }
-    });
-    this.userService.isUserDataEmpty().then(isEmpty => {
-      console.log(isEmpty);
-      this.userDataAvailable = !isEmpty;
-    });
+    this.userService.isUserDataEmpty()
+      .subscribe((isEmpty) => this.userDataAvailable = !isEmpty);
   }
 
   ngOnInit() {
+    this.disconnected = true;
+    this.setupNetworkConnectionCheck();
   }
 
-  ionViewDidEnter() {
-    this.translator.initLanguageTranslator().then();
+  ngOnDestroy() {
+    this.unsubscribeNetworkConnectionCheck();
   }
 
   openQRScan() {
@@ -44,5 +78,57 @@ export class HomePage implements OnInit {
   navigateToUserData() {
     this.router.navigate(['/user-data']);
   }
+
+  navigateToPrivacySettings() {
+    this.router.navigate(['/data-protection']);
+  }
+
+  activateGPS() {
+    this.geoData.useGPS(true);
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PrototypeInfoComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+  setupNetworkConnectionCheck() {
+    // watch network for a disconnection
+    this.disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+      console.log('network was disconnected :-(');
+      this.disconnected = true;
+    });
+    // watch network for a connection
+    this.connectSubscription = this.network.onConnect().subscribe(() => {
+      console.log('network connected!');
+      this.disconnected = false;
+      // We just got a connection but we need to wait briefly
+      // before we determine the connection type. Might need to wait.
+      // prior to doing any api requests as well.
+      setTimeout(() => {
+        if (this.network.type === 'wifi') {
+          console.log('we got a wifi connection, woohoo!');
+        }
+      }, 3000);
+    });
+
+  }
+
+  unsubscribeNetworkConnectionCheck() {
+    if (this.disconnectSubscription) {
+      // stop disconnect watch
+      this.disconnectSubscription.unsubscribe();
+    }
+
+    if (this.connectSubscription) {
+      // stop connect watch
+      this.connectSubscription.unsubscribe();
+    }
+  }
+
 
 }

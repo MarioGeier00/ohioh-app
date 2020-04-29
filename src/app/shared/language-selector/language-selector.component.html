@@ -4,13 +4,14 @@
     <h6>{{ 'languageSelection.description' | translate }}</h6>
   </ion-list-header>
 
-  <ion-radio-group #langSelector [value]="translator.getSelectedLanguage()"
+  <ion-radio-group #langSelector [value]="translator.getSelectedLanguageOrDefault()"
     (ionChange)="languageSelected(langSelector.value)">
 
     <ion-item *ngFor="let lang of languages">
-      <app-language-flag [language]="lang"></app-language-flag>
-      <ion-label>{{ ('languageSelection.' + lang) | translate }}</ion-label>
-      <ion-radio slot="end" [value]="lang"></ion-radio>
+      <app-language-flag [language]="lang.id"></app-language-flag>
+      <ion-label>{{ ('languageSelection.' + lang.id) | translate }}</ion-label>
+      <ion-badge *ngIf="lang.prototype" color="warning">{{ 'languageSelection.maschineTranslation' | translate }} </ion-badge>
+      <ion-radio slot="end" [value]="lang.id"></ion-radio>
     </ion-item>
 
   </ion-radio-group>

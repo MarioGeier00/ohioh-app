@@ -15,11 +15,9 @@ export class SettingsPage implements OnInit {
 
   constructor(
     private router: Router,
-    private translation: LanguageTranslatorService
   ) { }
 
   ngOnInit() {
-    this.translation.initLanguageTranslator().then();
   }
 
   settingsChanged() {

@@ -1,6 +1,6 @@
 <ion-content class="ion-padding" scroll-y="false" style="background-color: blue;">
 
-  <ion-slides #slider pager="true" [options]="slideOpts">
+  <ion-slides #slider pager="true" [options]="slideOpts" (ionSlideDidChange)="onSlideChange()">
 
     <ion-slide>
 
@@ -27,7 +27,12 @@
         <br />
         <b>{{ 'welcome.slides.welcome.advice' | translate }}</b>
       </p>
-      <ion-fab-button color="primary" (click)="slider.slideNext()">
+      <ion-item>
+        <ion-checkbox slot="start" (ionChange)="hasAcceptedChanged()" [(ngModel)]="hasAccepted"></ion-checkbox>
+        <p>Ich erkläre mich mit den AGBs einverstanden und habe die Datenschutzerklärungen zur Kenntnis genommen.</p>
+      </ion-item>
+      <a routerLink="/credits" style="padding-top: 10px">Impressum</a>
+      <ion-fab-button color="primary" (click)="checkAcceptedAndContinue()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-slide>

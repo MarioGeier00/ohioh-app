@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'addLocation.title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="addLocationForm" (ngSubmit)="addLocation()">
+    <ion-item>
+      <ion-label position="floating">{{ 'addLocation.street' | translate }}</ion-label>
+      <ion-input formControlName="street"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'addLocation.zipCode' | translate }}</ion-label>
+      <ion-input formControlName="zipCode"></ion-input>
+    </ion-item>
+
+    <!-- TODO: Add time input here -->
+    <ion-item>
+      <ion-label>DD.MM.YYYYTHH:mm</ion-label>
+      <ion-datetime displayFormat="DD.MM.YYYY HH:mm"></ion-datetime>
+    </ion-item>
+
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
+        {{ 'addLocation.submit' | translate }}</ion-button>
+      <ion-button class="ion-float-right" color="light" (click)="cancel()">{{ 'addLocation.cancel' | translate }}
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>

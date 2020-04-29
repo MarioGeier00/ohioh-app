@@ -2,13 +2,18 @@
     "menu": {
         "title": "Menü",
         "home": "OHİOH Ev",
+        "geo": "GPS verileri görüntülemek",
         "userData": "Veri değiştirin",
         "dataProtection": "Gizlilik Ayarları",
         "settings": "Ayarları",
         "addLocations": "Geceyi uzatmak",
+        "qrGenerator": "QR Kod oluşturma ",
         "welcome": "Giriş eğitimi",
         "credits": "Künye",
-        "deleteAll": "Tüm verileri kalıcı olarak silmek "
+        "deleteAll": "Tüm verileri kalıcı olarak silmek ",
+        "deleteAllToast": "Tüm veriler silinmiş ",
+        "download": "Uygulamayı indirin",
+        "downloadStarted": "İndirme başladı"
     },
     "home": {
         "title": "OHİOH Ev",
@@ -17,7 +22,7 @@
             "infection": {
                 "noWarning": {
                     "title": "Enfeksiyon Uyarı",
-                    "description": "Şu anda Senin için hiçbir uyarı vardır."
+                    "description": "Şu anda senin için hiçbir uyarı vardır."
                 },
                 "warning": {
                     "title": "Enfeksiyon uyarı",
@@ -28,14 +33,21 @@
             "sync": {
                 "inSync": {
                     "title": "Veri senkronize",
-                    "lastUpload": "Verilerinizi {val} tarih olmuştur.",
-                    "connected": "İnternete bağlı."
-                }
+                    "lastUpload": "Verilerinizi {var} tarih olmuştur."
+                },
+                "noSync": {
+                    "title": "Hiçbir veri senkronize",
+                    "lastUpload": "Verileri karşıya."
+                },
+                "connected": "İnternete bağlı.",
+                "checkingConnection": "İnternet bağlantısı kontrol edilir.",
+                "disconnected": "Bağlı değilsiniz. Lütfen İnternet bağlantınızı kontrol edin, verilerinizi senkronize olabilir."
             },
             "gps": {
                 "active": {
                     "title": "Konum izleme etkin ",
-                    "lastUpdate": "Konumunuzu bir Dakika önce kaydedilen son kişi oldu."
+                    "lastUpdate": "Bulunduğunuz yer {val} dün kaydedildi.",
+                    "noData": "Veri kaydedildi."
                 },
                 "inaccurate": {
                     "title": "Konum izleme etkin değil",
@@ -43,7 +55,14 @@
                 },
                 "deactivated": {
                     "title": "Konum izleme",
-                    "lastUpdate": "Ayarlarında Konum izleme devre dışı bırakmış."
+                    "description": "Ayarlarında Konum izleme devre dışı bırakmış.",
+                    "activate": "Etkinleştir GPS",
+                    "settings": "Açık ayarları"
+                },
+                "error": {
+                    "title": "Konum izleme",
+                    "description": "Site koleksiyonu etkinleştirilemedi. Hayır GPS mevcuttur.",
+                    "settings": "Açık ayarları"
                 }
             },
             "personalData": {
@@ -73,11 +92,11 @@
             },
             "what": {
                 "title": "Ne OHİOH mi?",
-                "description": "OHİOH elimizde sağlığımız için. OHİOH uygulamanın amacı, virüsün yayılmasını durdurmak için. <B>OHİOH erken uyarı sistemi<\/b> (GPS, QR Kod, Bluetooth)<\/b>, oturma yerinizi enfeksiyon tehlikesi hakkında bilgi vermek amacıyla. <b>Üç veri kaynakları kullanır App enfeksiyon belirtileri gösterir önce b>uyarı <sana<\/sağlar.b>"
+                "description": "OHİOH elimizde sağlığımız için. OHİOH uygulamanın amacı, virüsün yayılmasını durdurmak için. İkamet yerinizi enfeksiyon tehlikesi hakkında bilgi vermek amacıyla <b>OHİOH erken uyarı sistemi<\/b> (GPS, Bluetooth, QR-Kodu) <\/b><b> Üç veri kaynakları kullanır. App enfeksiyon belirtileri gösterir önce b>uyarı <sana<\/sağlar.b>"
             },
             "warning": {
                 "title": "Erken uyarı kadar?",
-                "description": "Enfeksiyon zincirleri bizden herkes için önemli. İletişim bilgilerini hükmü bu Durumda çok önemlidir. Cep telefonu veri kaynaklarının kullanımını Enfeksiyon zincirini Takip etmenizi sağlar. Veri yararlıdır. Uzun veri aktarılacak olan ve saklı olacak."
+                "description": "Enfeksiyon zincirleri bizden herkes için önemli. İletişim bilgilerini hükmü bu Durumda çok önemlidir. Cep telefonu veri kaynaklarının kullanımını Enfeksiyon zincirini Takip etmenizi sağlar. Veri yararlıdır. uzun veri aktarılacak olan ve saklı olacak."
             },
             "security": {
                 "title": "Bilgilerim ne kadar güvenli?",
@@ -106,7 +125,14 @@
         "city": "İkamet yeri ",
         "cityMaxLengthMessage": "Residence {val} karakteri geçmemelidir.",
         "submit": "Al",
-        "cancel": "İptal"
+        "cancel": "İptal",
+        "reset": "Sıfırla"
+    },
+    "addLocation": {
+        "street": "Sokak ve ev numarası",
+        "zipCode": "Posta kodu",
+        "cancel": "İptal",
+        "submit": "Kal Girin"
     },
     "settings": {
         "title": "Ayarları",
@@ -118,13 +144,14 @@
     },
     "credits": {
         "title": "Hakkında geliştirici",
+        "homePage": "Anasayfa",
         "motivation": {
             "title": "Oluşumu ve Motivasyon",
-            "description": "Bu Hackathon de, Federal hükümet başladı. Çerçeve ile, diğer şeyler arasında, OHİOH Takım hızlı Takım bulabilirler kendilerini. O zamandan beri, bir kavram, bir web sitesi ve Uygulama OHİOH olma fikri vardır."
+            "description": "Bu Hackathon de, Federal hükümet başladı. çerçeve ile, diğer şeyler arasında, OHİOH Takım hızlı Takım bulabilirler kendilerini. O zamandan beri, bir kavram, bir web sitesi ve Uygulama OHİOH olma fikri vardır."
         },
         "team": {
             "title": "Takım",
-            "description": "Proje OHİOH Olası birçok kişi yardımı olmadan mümkün olmazdı. Bu hepimiz için en İyi ... hiçbir ödül olmadan insanların nasıl inanılmaz. Hepinize bu nedenle, küçük bir teşekkür:",
+            "description": "Proje OHİOH Olası birçok kişi yardımı olmadan mümkün olmazdı. Bu insanlar herhangi bir ödül olmadan senin için hepimiz için en İyi vermek ... ... nasıl inanılmaz. Hepinize bu nedenle, küçük bir teşekkür:",
             "coordination": "Koordinasyon",
             "frontendDevelopment": "Önyüz Geliştirme ",
             "university": "**Uygulamalı Bilimler Üniversitesi s Profesör Kiel",
@@ -145,6 +172,7 @@
         "title": "Gizlilik Ayarları",
         "usePersonalData": "Özel veri",
         "useGps": "GPS verileri kullanabilirsiniz",
+        "useBluetooth": "Bluetooth kullanın",
         "sendData": "Veri iletimi"
     },
     "infectionWarning": {
@@ -160,14 +188,32 @@
         "continue": "Daha İleri Adımlar",
         "accept": "Uyarı kabul"
     },
+    "qrScanner": {
+        "allowAccessMsg": "App kamera erişim ihtiyacı böylece QR Kodları tarayabilir. Erişime izin vermek istiyor musunuz?",
+        "allowAccessTitle": "Erişime izin ver ",
+        "yes": "Evet",
+        "cancel": "İptal",
+        "openSettings": "Açık ayarları",
+        "noCameraAccess": "Hayır Kamera Erişim",
+        "error": "Bilinmeyen bir hata oluştu ",
+        "noCameraInBrowserAvailable": "Tarayıcıda kamera olmayabilir. Cihazınıza uygulama indirmek lütfen."
+    },
+    "qrGenerator": {
+        "name": "Adı",
+        "street": "Sokak ve ev numarası",
+        "zipCode": "Posta kodu",
+        "generateQR": "Üret",
+        "shareQR": "QR-Kod paylaşım"
+    },
     "languageSelection": {
         "description": "Lütfen dilinizi seçin:",
-        "de": "İngilizce",
+        "de": "Alman",
         "en": "İngilizce",
         "tr": "Türk",
         "ru": "Rus",
         "pl": "Polonya",
         "sa": "Arapça",
-        "ku": "Kürt"
+        "ku": "Kürt",
+        "maschineTranslation": "Makine Çevirisi"
     }
 }

@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   },
   {
+    path: 'geo',
+    loadChildren: () => import('./geolocation-test/geolocation-test.module').then( m => m.GeolocationTestPageModule)
+  },
+  {
     path: 'user-data',
     loadChildren: () => import('./user-data/user-data.module').then( m => m.UserDataPageModule)
   },
@@ -38,7 +42,16 @@ const routes: Routes = [
   {
     path: 'infection-warning',
     loadChildren: () => import('./infection-warning/infection-warning.module').then( m => m.InfectionWarningPageModule)
+  },
+  {
+    path: 'qr-generator',
+    loadChildren: () => import('./qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
+  },  {
+    path: 'add-location',
+    loadChildren: () => import('./add-location/add-location.module').then( m => m.AddLocationPageModule)
   }
+
+
 
 ];
 

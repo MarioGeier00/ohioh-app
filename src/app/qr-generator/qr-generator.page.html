@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>QR-Code Generator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="qrGeneratorForm" (ngSubmit)="generateQRCode()">
+    <ion-item>
+      <ion-label position="floating">{{ 'qrGenerator.name' | translate }}</ion-label>
+      <ion-input formControlName="name" autofocus=true></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'qrGenerator.street' | translate }}</ion-label>
+      <ion-input formControlName="street"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'qrGenerator.zipCode' | translate }}</ion-label>
+      <ion-input formControlName="zipCode"></ion-input>
+    </ion-item>
+
+    <div style="margin-top: 10px;">
+      <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
+        {{ 'qrGenerator.generateQR' | translate }}</ion-button>
+      <ion-button [disabled]="!displayQRCode" class="ion-float-right" style="margin-left: 5px;" type="submit"
+        color="primary" (click)="share()">
+        {{ 'qrGenerator.shareQR' | translate }}<ion-icon name="share-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div style="width: 90vw; max-width:300px;margin-right:auto;margin-left:auto">
+      <img style="width: 100%"  *ngIf="displayQRCode" [src]="generatedQRCode" />
+    </div>
+
+  </form>
+</ion-content>
