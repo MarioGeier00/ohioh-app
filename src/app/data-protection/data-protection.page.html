@@ -7,22 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- TODO: Translate -->
+<!-- TODO: Toogle info text according to the current state of the settings -->
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item>
-      <ion-label>{{ 'dataProtection.usePersonalData' | translate }}</ion-label>
+      <ion-label>
+        <h2>{{ 'dataProtection.usePersonalData' | translate }}</h2>
+        <p>Aktiviere die Einstellung, um deine persönlichen Daten wie Name, Geburtsdatum oder Wohnort für die Infektinsauswertung und Kontaktaufnahme freizugeben.</p>
+      </ion-label>
       <ion-toggle [(ngModel)]="usePersonalData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>
+
     <ion-item>
-      <ion-label>{{ 'dataProtection.useGps' | translate }}</ion-label>
+      <ion-label>
+        <h2>{{ 'dataProtection.useGps' | translate }}</h2>
+        <p>Damit aktivierst du die Aufzeichung von GPS Daten auf deinem Gerät. Durch die Aktivierung werden noch keine Daten versendet.</p>
+      </ion-label>
       <ion-toggle [(ngModel)]="useGpsData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>
+
     <ion-item>
-      <ion-label>{{ 'dataProtection.useBluetooth' | translate }}</ion-label>
+      <ion-label>
+        <h2>{{ 'dataProtection.useBluetooth' | translate }}</h2>
+        <p>Damit aktivierst du die Aufzeichung von Bluetooth Kontakten mit anderen Personen auf deinem Gerät. Durch die Aktivierung werden noch keine Daten versendet.</p>
+      </ion-label>
       <ion-toggle [(ngModel)]="useBluetoothData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>
+
     <ion-item>
-      <ion-label>{{ 'dataProtection.sendData' | translate }}</ion-label>
+      <ion-label>
+        <h2>{{ 'dataProtection.sendData' | translate }}</h2>
+        <p>Aktiviere die Einstellung, um die gesammelten Daten zur Berechnung einer Infektionswahrscheinlichkeit an ein Rechenzentrum übermittelt. Wenn du diese Einstellung nicht aktivierst kannst du keine Infektionswarnung erhalten.</p>
+      </ion-label>
       <ion-toggle [(ngModel)]="sendData" (ionChange)="settingsChanged()" slot="end"></ion-toggle>
     </ion-item>
   </ion-list>

@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
 import { Observable, ReplaySubject } from 'rxjs';
 import { Plugins } from '@capacitor/core';
+import { UserService } from '../user/user.service';
 
 const { Device } = Plugins;
 
@@ -62,7 +63,8 @@ export class GeoDataService {
 
   constructor(
     private backgroundGeolocation: BackgroundGeolocation,
-    private storage: Storage
+    private storage: Storage,
+    private userService: UserService
   ) {
     this.loadLocations().then<any>(val => {
       if (val) {
@@ -130,6 +132,8 @@ export class GeoDataService {
   }
 
   startBackgroudGeo() {
+    this.newConfig.debug = this.userService.DebugMode;
+
     this.$gpsError.next({ hasError: false, message: '' });
     console.log(this.newConfig);
     this.backgroundGeolocation.configure(this.newConfig)

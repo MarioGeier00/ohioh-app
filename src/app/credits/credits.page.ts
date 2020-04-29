@@ -49,4 +49,10 @@ export class CreditsPage implements OnInit {
     this.userService.saveDeveloperMode();
   }
 
+  changeDebug(val: boolean) {
+    console.log(val);
+    this.userService.DebugMode = val;
+    this.userService.saveDebugMode();
+  }
+
 }
