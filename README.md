@@ -47,8 +47,8 @@ Frontend Developement by Mario Geier and Jnnk
 Can be activated by tapping more than five times at the bottom area of the credits page (called "Impressum")
 
 ### Homepage of the OHIOH Team
-https://ohioh.de/
-contact: kontakt@ohioh.de
+Homepage: https://ohioh.de/  
+E-Mail: kontakt@ohioh.de
 
 ### MIT License
 
