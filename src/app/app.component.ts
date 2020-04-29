@@ -8,6 +8,9 @@ import { UserService } from './shared/data-services/user/user.service';
 import { Router } from '@angular/router';
 import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
 
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -68,6 +71,7 @@ export class AppComponent implements OnInit {
     private translation: LanguageTranslatorService,
     public alertController: AlertController,
     public toastController: ToastController,
+    private backgroundMode: BackgroundMode
   ) {
     this.initializeApp();
   }
@@ -79,6 +83,7 @@ export class AppComponent implements OnInit {
   });
 
   initializeApp() {
+    this.backgroundMode.enable();
     this.appInsights.loadAppInsights();
 
     this.userService.loadDebugMode();
