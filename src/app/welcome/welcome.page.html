@@ -4,19 +4,20 @@
 
     <ion-slide>
 
-      <ion-img style="height: 22vh; max-height: 400px; margin-left: auto; margin-right: auto; padding: 20px;" src="../../assets/imgs/OHIOH_Fachhochschule_Kiel_transparent.png"></ion-img>
-      <ion-img style="height: 15vh; max-height: 400px; margin-left: auto; margin-right: auto; padding: 20px;" src="../../assets/imgs/Fachhochschule_Kiel_transparent.png"></ion-img>
+      <app-logo></app-logo>
 
       <h2>{{ 'welcome.slides.welcome.title' | translate }}</h2>
       <p> {{ 'welcome.slides.welcome.description' | translate }}
         <br />
         <b>{{ 'welcome.slides.welcome.advice' | translate }}</b>
       </p>
+      <div style="margin-top: 40px; margin-bottom: 2px;">
+        <a routerLink="/credits" >Impressum</a>
+      </div>
       <ion-item>
         <ion-checkbox slot="start" (ionChange)="hasAcceptedChanged()" [(ngModel)]="hasAccepted"></ion-checkbox>
         <p>Ich erkläre mich mit den AGBs einverstanden und habe die Datenschutzerklärungen zur Kenntnis genommen.</p>
       </ion-item>
-      <a routerLink="/credits" style="padding-top: 10px">Impressum</a>
       <ion-fab-button color="primary" (click)="checkAcceptedAndContinue()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
