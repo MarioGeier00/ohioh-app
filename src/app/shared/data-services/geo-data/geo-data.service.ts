@@ -49,15 +49,6 @@ export class GeoDataService {
       stopOnStillActivity: false,
     };
 
-  config: BackgroundGeolocationConfig = {
-    desiredAccuracy: 100,
-    stationaryRadius: 1,
-    distanceFilter: 1,
-    debug: true, //  enable this hear sounds for background-geolocation life-cycle.
-    stopOnTerminate: false, // enable this to clear background location settings when the app terminates
-  };
-
-
   public backroundLocations: BackgroundGeolocationResponse[] = new Array();
   public status: string;
 
