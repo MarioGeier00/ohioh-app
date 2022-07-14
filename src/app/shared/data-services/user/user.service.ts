@@ -64,7 +64,7 @@ export class UserService {
     if (UserService.containsInvalidChars(user.firstName)) {
       return false;
     }
-    if (UserService.containsInvalidChars(user.name)) {
+    if (UserService.containsInvalidChars(user.lastName)) {
       return false;
     }
     return true;
@@ -166,7 +166,7 @@ export class UserService {
     let isUserEmpty;
     if (this.isUserStored()) {
       isUserEmpty = UserService.isEmpty(user.firstName) &&
-        UserService.isEmpty(user.name) &&
+        UserService.isEmpty(user.lastName) &&
         UserService.isEmpty(user.phone) &&
         UserService.isEmpty(user.city);
     } else {

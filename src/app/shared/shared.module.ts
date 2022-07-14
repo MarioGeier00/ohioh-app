@@ -25,8 +25,7 @@ import {PrototypeInfoComponent} from './prototype-info/prototype-info.component'
     CommonModule,
     IonicModule,
     TranslateModule.forChild()
-  ],
-  entryComponents: [PrototypeInfoComponent]
+  ]
 })
 export class SharedModule {
 }

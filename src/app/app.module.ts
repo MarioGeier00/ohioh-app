@@ -19,7 +19,6 @@ import {Network} from '@awesome-cordova-plugins/network/ngx';
   declarations: [
     AppComponent
   ],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -40,7 +39,7 @@ import {Network} from '@awesome-cordova-plugins/network/ngx';
     Network,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

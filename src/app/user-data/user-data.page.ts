@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MenuController, ToastController} from '@ionic/angular';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {UserService} from '../shared/data-services/user/user.service';
 
 @Component({
@@ -11,7 +11,14 @@ import {UserService} from '../shared/data-services/user/user.service';
 })
 export class UserDataPage implements OnInit {
 
-  public userDataForm: FormGroup;
+  readonly userDataForm = this.formBuilder.group({
+    firstName: new FormControl('', Validators.maxLength(100)),
+    lastName: new FormControl('', Validators.maxLength(100)),
+    phone: new FormControl('', [Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'), Validators.maxLength(15)]),
+    age: new FormControl(0, Validators.compose([Validators.min(1), Validators.max(200)])),
+    city: new FormControl('', Validators.maxLength(30)),
+    id: new FormControl(''),
+  });
 
   constructor(
     private router: Router,
@@ -24,14 +31,6 @@ export class UserDataPage implements OnInit {
   }
 
   ngOnInit() {
-    const textPattern = Validators.pattern('/^[A-Za-z]+$/');
-    this.userDataForm = this.formBuilder.group({
-      firstName: new FormControl('', Validators.maxLength(100)),
-      lastName: new FormControl('', Validators.maxLength(100)),
-      phone: new FormControl('', Validators.compose([Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'), Validators.maxLength(15)])),
-      age: new FormControl('', Validators.compose([Validators.min(1), Validators.max(200)])),
-      city: new FormControl('', Validators.maxLength(30)),
-    });
     if (this.userData.isUserStored()) {
       this.userDataForm.setValue(this.userData.getUser());
     }
@@ -42,18 +41,15 @@ export class UserDataPage implements OnInit {
       message: msg,
       duration: 2000
     });
-    toast.present();
-  }
-
-  private navigateHome(): void {
-    this.menuCtrl.enable(true);
-    this.router.navigate(['/home']);
+    await toast.present();
   }
 
   applyData() {
     if (this.userDataForm.invalid) {
       return;
     }
+    // TODO: Add value validation
+    // @ts-ignore
     this.userData.setUser(this.userDataForm.value)
       .then(
         () => this.navigateHome(),
@@ -75,5 +71,9 @@ export class UserDataPage implements OnInit {
     }
   }
 
+  private navigateHome(): void {
+    this.menuCtrl.enable(true);
+    this.router.navigate(['/home']);
+  }
 
 }
