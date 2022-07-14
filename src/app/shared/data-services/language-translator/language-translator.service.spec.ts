@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LanguageTranslatorService } from './language-translator.service';
+import {LanguageTranslatorService} from './language-translator.service';
 
 describe('LanguageTranslatorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

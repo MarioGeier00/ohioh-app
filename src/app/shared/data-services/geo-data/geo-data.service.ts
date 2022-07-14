@@ -1,23 +1,28 @@
-import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { BackgroundGeolocationResponse, BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation/ngx';
-import { Observable, ReplaySubject } from 'rxjs';
-import { Plugins } from '@capacitor/core';
-import { UserService } from '../user/user.service';
-
-const { Device } = Plugins;
+import {Injectable} from '@angular/core';
+import {Observable, ReplaySubject} from 'rxjs';
+import {StorageService} from '../../storage.service';
+import {Platform} from '@ionic/angular';
+import {
+  BackgroundGeolocation,
+  BackgroundGeolocationConfig,
+  BackgroundGeolocationEvents,
+  BackgroundGeolocationLocationProvider,
+  BackgroundGeolocationResponse
+} from '@awesome-cordova-plugins/background-geolocation/ngx';
 
 export interface GPSError {
   hasError: boolean;
   message: any;
 }
 
+const GPS_STORE_KEY = 'gps';
+
 @Injectable({
   providedIn: 'root'
 })
 export class GeoDataService {
 
-  private static readonly GPS_STORE_KEY = 'gps';
+  public backroundLocations: BackgroundGeolocationResponse[] = [];
 
   private $lastestLocation = new ReplaySubject<BackgroundGeolocationResponse>(1);
   private $isActivated = new ReplaySubject<boolean>(1);
@@ -25,9 +30,9 @@ export class GeoDataService {
 
   // locationInterval = 60000 * 5; // Time (in milliseconds) between location information polls.  E.g. 60000*5 = 5 minutes
   // DEBUG: Reduce Time intervall for faster debugging
-  locationInterval = 5000;
+  private locationInterval = 5000;
 
-  newConfig: BackgroundGeolocationConfig =
+  private newConfig: BackgroundGeolocationConfig =
     {
       desiredAccuracy: 0, //BackgroundGeolocationAccuracy.HIGH,
       stationaryRadius: 5,
@@ -49,13 +54,14 @@ export class GeoDataService {
       stopOnStillActivity: false,
     };
 
-  public backroundLocations: BackgroundGeolocationResponse[] = new Array();
-  public status: string;
+  private status: string;
+
+  private gpsAllowed = false;
 
   constructor(
     private backgroundGeolocation: BackgroundGeolocation,
-    private storage: Storage,
-    private userService: UserService
+    private storageService: StorageService,
+    private platform: Platform
   ) {
     this.loadLocations().then<any>(val => {
       if (val) {
@@ -65,7 +71,7 @@ export class GeoDataService {
             this.$lastestLocation.next(location[0]);
           }
         } else {
-          this.backroundLocations = new Array();
+          this.backroundLocations = [];
         }
       }
     });
@@ -79,26 +85,26 @@ export class GeoDataService {
   }
 
 
-  isAndroid(): Promise<boolean> {
-    return Device.getInfo().then<boolean>((info) => info.platform === 'android');
+  isAndroid() {
+    return this.platform.is('android');
   }
 
 
-  public isActive(): Observable<boolean> {
+  isActive(): Observable<boolean> {
     return this.$isActivated;
     // return this.backgroundGeolocation.checkStatus().then<boolean>((val) => val.isRunning);
   }
 
-  public hasError(): Observable<GPSError> {
+  hasError(): Observable<GPSError> {
     return this.$gpsError;
   }
 
-  public loadLocations(): Promise<any> {
-    return this.storage.get(GeoDataService.GPS_STORE_KEY);
+  loadLocations(): Promise<any> {
+    return this.storageService.get(GPS_STORE_KEY);
   }
 
-  private gpsAllowed = false;
-  public useGPS(val: boolean) {
+
+  useGPS(val: boolean) {
     this.gpsAllowed = val;
     if (this.gpsAllowed) {
       this.startBackgroudGeo();
@@ -107,25 +113,18 @@ export class GeoDataService {
     }
   }
 
-  public isGPSUseAllowed(): boolean {
+  isGPSUseAllowed(): boolean {
     return this.gpsAllowed;
   }
 
-  private addLocation(location: BackgroundGeolocationResponse): Promise<any> {
-    this.backroundLocations = [location, ...this.backroundLocations];
-    this.$lastestLocation.next(location);
-    return this.storage.set(GeoDataService.GPS_STORE_KEY, JSON.stringify(this.backroundLocations)).then();
-  }
 
-
-  public getLatestLocation(): Observable<BackgroundGeolocationResponse> {
+  getLatestLocation(): Observable<BackgroundGeolocationResponse> {
     return this.$lastestLocation;
   }
 
   startBackgroudGeo() {
-    this.newConfig.debug = this.userService.DebugMode;
 
-    this.$gpsError.next({ hasError: false, message: '' });
+    this.$gpsError.next({hasError: false, message: ''});
     console.log(this.newConfig);
     this.backgroundGeolocation.configure(this.newConfig)
       .then(() => {
@@ -172,7 +171,7 @@ export class GeoDataService {
       // }).then(() => toast.present());
 
       this.status = 'error';
-      this.$gpsError.next({ hasError: true, message: err });
+      this.$gpsError.next({hasError: true, message: err});
 
 
       // this.newConfig.notificationTitle = 'Error';
@@ -252,9 +251,10 @@ export class GeoDataService {
     });
 
     // start recording location
-    this.backgroundGeolocation.start().then(() => { },
+    this.backgroundGeolocation.start().then(() => {
+      },
       (err) => {
-        this.$gpsError.next({ hasError: true, message: err });
+        this.$gpsError.next({hasError: true, message: err});
       });
   }
 
@@ -262,50 +262,15 @@ export class GeoDataService {
     return JSON.stringify(val);
   }
 
-
-
   stopBackgroudGeo() {
     // If you wish to turn OFF background-tracking, call the #stop method.
     this.backgroundGeolocation.stop();
   }
 
-
-
-
-
-
-
-  // async presentToast(msg: string) {
-  //   const toast = await this.toastController.create({
-  //     message: msg,
-  //     duration: 2000
-  //   });
-  //   toast.present();
-  // }
-
-  // async presentToastWithOptions() {
-  //   const toast = await this.toastController.create({
-  //     header: 'Toast header',
-  //     message: 'Click to Close',
-  //     position: 'top',
-  //     buttons: [
-  //       {
-  //         side: 'start',
-  //         icon: 'star',
-  //         text: 'Favorite',
-  //         handler: () => {
-  //           console.log('Favorite clicked');
-  //         }
-  //       }, {
-  //         text: 'Done',
-  //         role: 'cancel',
-  //         handler: () => {
-  //           console.log('Cancel clicked');
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   toast.present();
-  // }
+  private addLocation(location: BackgroundGeolocationResponse): Promise<any> {
+    this.backroundLocations = [location, ...this.backroundLocations];
+    this.$lastestLocation.next(location);
+    return this.storageService.set(GPS_STORE_KEY, JSON.stringify(this.backroundLocations)).then();
+  }
 
 }

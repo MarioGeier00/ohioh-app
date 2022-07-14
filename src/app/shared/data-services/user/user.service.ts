@@ -1,24 +1,23 @@
-import { Injectable } from '@angular/core';
-import { User } from '../../data-structures/user';
-import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
-import { ReplaySubject, Observable } from 'rxjs';
-import { promise } from 'protractor';
+import {Injectable} from '@angular/core';
+import {User} from '../../data-structures/user';
+import {Router} from '@angular/router';
+import {Observable, ReplaySubject} from 'rxjs';
+import {StorageService} from '../../storage.service';
+
+const USER_STORE_KEY = 'user';
+const INFECTION_STATUS_KEY = 'infected';
+const DEV_KEY = 'dev';
+const DEBUG_KEY = 'debug';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private static readonly USER_STORE_KEY = 'user';
-  private static readonly INFECTION_STATUS_KEY = 'infected';
-  private static readonly DEV_KEY = 'dev';
-  private static readonly DEBUG_KEY = 'debug';
-  
-  public DeveloperMode: boolean = true;
-  public DebugMode: boolean = true;
+  developerMode = true;
+  debugMode = true;
 
-  private hasAcceptedAGBs: boolean = false;
+  private hasAcceptedAGBs = false;
 
   private infectionStatus = false;
   private $isUserDataEmpty = new ReplaySubject<boolean>(1);
@@ -26,73 +25,78 @@ export class UserService {
   private userData: User;
 
   constructor(
-    private storage: Storage,
-    private router: Router
+    private storage: StorageService,
+    private router: Router,
   ) {
-    this.storage.get(UserService.INFECTION_STATUS_KEY)
-      .then(status => {
+    this.storage.get(INFECTION_STATUS_KEY).then(status => {
         if (status !== undefined) {
           this.setInfectionStatus(status);
         }
       });
-    this.loadUser().then(
+    this.loadUser()?.then(
       data => {
         this.updateUserData(data);
       }
     );
   }
 
-  private loadUser(): Promise<User> {
-    return this.storage.get(UserService.USER_STORE_KEY);
-  }
-
-  private updateUserData(user: User): Promise<any> {
-    this.userData = user;
-    let isUserEmpty;
-    if (this.isUserStored()) {
-      isUserEmpty = this.isEmpty(user.firstName) && this.isEmpty(user.name) && this.isEmpty(user.phone) && this.isEmpty(user.city);
-    } else {
-      isUserEmpty = true;
+  private static isEmpty(value: string): boolean {
+    if (!value) {
+      return true;
     }
-    this.$isUserDataEmpty.next(isUserEmpty);
-    return this.storage.set(UserService.USER_STORE_KEY, user);
+    return value.length === 0;
   }
 
-  public deleteUser(): void {
-    this.storage.remove(UserService.INFECTION_STATUS_KEY);
-    this.storage.remove(UserService.DEV_KEY);
-    this.storage.remove(UserService.USER_STORE_KEY);
+  private static containsInvalidChars(val: string) {
+    if (!val) {
+      return false;
+    }
+    return val.match('[!@#$%^&*(),.?":{}|<>]');
+  }
+
+  private static validateUser(user: User): boolean {
+    if (!user) {
+      return true;
+    }
+    if (UserService.containsInvalidChars(user.city)) {
+      return false;
+    }
+    if (UserService.containsInvalidChars(user.firstName)) {
+      return false;
+    }
+    if (UserService.containsInvalidChars(user.name)) {
+      return false;
+    }
+    return true;
+  }
+
+
+  deleteUser() {
+    void this.storage.remove(INFECTION_STATUS_KEY);
+    void this.storage.remove(DEV_KEY);
+    void this.storage.remove(USER_STORE_KEY);
     this.userData = undefined;
     this.$isUserDataEmpty.next(true);
   }
 
-  public isUserStored(): boolean {
-    if (this.userData) {
-      return true;
-    } else {
-      return false;
-    }
+  isUserStored(): boolean {
+    return !!this.userData;
   }
 
-  private isEmpty(value: string): boolean {
-    if (!value) return true;
-    return value.length === 0;
-  }
 
-  public isUserDataEmpty(): Observable<boolean> {
+  isUserDataEmpty(): Observable<boolean> {
     return this.$isUserDataEmpty;
   }
 
-
-  public getUser(): User {
+  getUser(): User {
     return this.userData;
   }
 
-  public async setUser(user: User): Promise<any> {
+  async setUser(user: User) {
     // TODO: Security and XSS Check
-    return new Promise(
+    return new Promise<void>(
       (resolve, reject) => {
-        if (this.validateUser(user)) {
+        if (UserService.validateUser(user)) {
           this.updateUserData(user)
             .then(
               () => resolve(),
@@ -105,72 +109,71 @@ export class UserService {
     );
   }
 
-  private validateUser(user: User): boolean {
-    if (!user) {
-      return true;
-    }
-    if (this.containsInvalidChars(user.city)) {
-      return false;
-    }
-    if (this.containsInvalidChars(user.firstName)) {
-      return false;
-    }
-    if (this.containsInvalidChars(user.name)) {
-      return false;
-    }
-    return true;
-  }
 
-  private containsInvalidChars(val: string) {
-    if (!val) {
-      return false;
-    }
-    return val.match('[!@#$%^&*(),.?":{}|<>]');
-  }
-
-
-  public setInfectionStatus(value: boolean): void {
+  setInfectionStatus(value: boolean): void {
     this.infectionStatus = value;
-    this.storage.set(UserService.INFECTION_STATUS_KEY, this.infectionStatus);
+    this.storage.set(INFECTION_STATUS_KEY, this.infectionStatus);
 
-    if (this.infectionStatus && !this.DeveloperMode) {
+    if (this.infectionStatus && !this.developerMode) {
       this.openInfectionWarning();
     }
   }
 
-  public openInfectionWarning() {
+  openInfectionWarning() {
     this.router.navigate(['/infection-warning']);
   }
 
-  public isInfected(): boolean {
+  isInfected(): boolean {
     return this.infectionStatus;
   }
 
 
-  public getHasAcceptedAGBs(): boolean {
+  getHasAcceptedAGBs(): boolean {
     return this.hasAcceptedAGBs;
   }
-  
-  public setHasAcceptedAGBs(value: boolean)  {
+
+  setHasAcceptedAGBs(value: boolean) {
     this.hasAcceptedAGBs = value;
   }
 
-  public loadDeveloperMode(): Promise<any> {
-    return this.storage.get(UserService.DEV_KEY).then<any>(val => {
-      this.DeveloperMode = val;
-    });
-  }
-  public loadDebugMode(): Promise<any> {
-    return this.storage.get(UserService.DEBUG_KEY).then<any>(val => {
-      this.DebugMode = val;
+  loadDeveloperMode(): Promise<any> {
+    return this.storage.get(DEV_KEY).then(val => {
+      this.developerMode = val;
     });
   }
 
-  public saveDeveloperMode(): Promise<any> {
-    return this.storage.set(UserService.DEV_KEY, this.DeveloperMode);
+  loadDebugMode(): Promise<any> {
+    return this.storage.get(DEBUG_KEY).then(val => {
+      this.debugMode = val;
+    });
   }
-  public saveDebugMode(): Promise<any> {
-    return this.storage.set(UserService.DEBUG_KEY, this.DebugMode);
+
+  saveDeveloperMode(): Promise<any> {
+    return this.storage.set(DEV_KEY, this.developerMode);
+  }
+
+  saveDebugMode(): Promise<any> {
+    return this.storage.set(DEBUG_KEY, this.debugMode);
+  }
+
+
+  private loadUser(): Promise<User> {
+    return this.storage.get(USER_STORE_KEY);
+  }
+
+  private updateUserData(user: User): Promise<any> {
+    this.userData = user;
+    let isUserEmpty;
+    if (this.isUserStored()) {
+      isUserEmpty = UserService.isEmpty(user.firstName) &&
+        UserService.isEmpty(user.name) &&
+        UserService.isEmpty(user.phone) &&
+        UserService.isEmpty(user.city);
+    } else {
+      isUserEmpty = true;
+    }
+    this.$isUserDataEmpty.next(isUserEmpty);
+    return this.storage.set(USER_STORE_KEY, user);
   }
 
 }

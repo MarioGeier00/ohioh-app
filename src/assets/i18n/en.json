@@ -1,219 +1,219 @@
 {
-    "downloadStartet": "Download startet",
-    "menu": {
-        "title": "Menu",
-        "home": "OHIOH Home",
-        "geo": "GPS data view",
-        "userData": "Data change",
-        "dataProtection": "Privacy settings",
-        "settings": "Settings",
-        "addLocations": "Add a stay",
-        "qrGenerator": "Create QR Code",
-        "welcome": "Introduction tutorial",
-        "credits": "Imprint",
-        "deleteAll": "Delete all data permanently",
-        "deleteAllToast": "All data has been removed",
-        "download": "Application download"
-    },
-    "home": {
-        "title": "OHIOH Home",
-        "simulationInfectionWarning": "Simulated Infection Warning",
-        "stateOverview": {
-            "infection": {
-                "noWarning": {
-                    "title": "No Infection Warning",
-                    "description": "There are currently no warnings for you."
-                },
-                "warning": {
-                    "title": "Infection warning",
-                    "description": "We have calculated that you are possibly infected.",
-                    "showWarning": "Warning"
-                }
-            },
-            "sync": {
-                "inSync": {
-                    "title": "Data synchronized",
-                    "lastUpload": "Your data has been uploaded to the {var}."
-                },
-                "noSync": {
-                    "title": "No data synchronized",
-                    "lastUpload": "Your data has not been uploaded yet."
-                },
-                "connected": "Internet connection established.",
-                "checkConnection": "The Internet connection is being checked...",
-                "disconnected": "You are not connected. Please check your Internet connection, so Your data can be synchronized."
-            },
-            "gps": {
-                "active": {
-                    "title": "Location tracking is active",
-                    "lastUpdate": "Your location was last recorded to {val}.",
-                    "noData": "No data has been recorded yet."
-                },
-                "inaccurate": {
-                    "title": "Location tracking inactive",
-                    "lastUpdate": "GPS is currently too imprecise. Please use OHIOH QR-Codes, or add your location manually."
-                },
-                "deactivated": {
-                    "title": "Location tracking from",
-                    "description": "You have disabled the Location tracking in the settings.",
-                    "activate": "Enable GPS",
-                    "settings": "Open settings"
-                },
-                "error": {
-                    "title": "Location tracking from",
-                    "description": "The site collection could not be activated. There is no GPS is available.",
-                    "settings": "Open settings"
-                }
-            },
-            "personalData": {
-                "active": {
-                    "title": "User data is stored",
-                    "description": "You have stored user data."
-                },
-                "inactive": {
-                    "title": "No data stored",
-                    "description": "You have not yet entered any user data."
-                },
-                "addData": "Data enter"
-            }
+  "downloadStartet": "Download startet",
+  "menu": {
+    "title": "Menu",
+    "home": "OHIOH Home",
+    "geo": "GPS data view",
+    "userData": "Data change",
+    "dataProtection": "Privacy settings",
+    "settings": "Settings",
+    "addLocations": "Add a stay",
+    "qrGenerator": "Create QR Code",
+    "welcome": "Introduction tutorial",
+    "credits": "Imprint",
+    "deleteAll": "Delete all data permanently",
+    "deleteAllToast": "All data has been removed",
+    "download": "Application download"
+  },
+  "home": {
+    "title": "OHIOH Home",
+    "simulationInfectionWarning": "Simulated Infection Warning",
+    "stateOverview": {
+      "infection": {
+        "noWarning": {
+          "title": "No Infection Warning",
+          "description": "There are currently no warnings for you."
         },
-        "qrCodeScanner": "QR-Code Scanner"
-    },
-    "welcome": {
-        "slides": {
-            "welcome": {
-                "title": "Welcome to OHIOH",
-                "description": "You will be guided in the Following step-by-step to the App.",
-                "advice": "Swipe left for the next step!"
-            },
-            "language": {
-                "title": "Welcome",
-                "advice": "The language can later be changed in the preferences."
-            },
-            "what": {
-                "title": "What is OHIOH?",
-                "description": "OHIOH is for Our Health In Our Hands. The aim of the OHIOH App is to curb the spread of viruses. The <b>OHIOH early warning system<\/b> uses <b>three data sources (GPS, Bluetooth, QR-Code)<\/b>, in order to inform you about a possible risk of infection by your residence location. The App allows you to <b>a warning before symptoms of infection show.<\/b>"
-            },
-            "warning": {
-                "title": "How does the early warning?",
-                "description": "The chains of Infection are of concern to everyone of us. The provision of contact details is in this Situation, it is essential. The use of data sources of the mobile phone allows you to Track the chain of Infection. Your data are useful. you decide which data will be transmitted and how long is it stored."
-            },
-            "security": {
-                "title": "How safe is my data?",
-                "description": "We make sure that neither your personal data, your location data will be stored and to prevent unauthorised access by encryption and the observance of high safety standards.<p>In the aftermath of the pandemic will be deleted, your data is automatically complete. Of course you can also manually delete all of the data."
-            },
-            "video": {
-                "title": "How the App works?",
-                "description": "In the following Video you can learn more about the App:",
-                "videoLink": "OHIOH explanatory video"
-            }
+        "warning": {
+          "title": "Infection warning",
+          "description": "We have calculated that you are possibly infected.",
+          "showWarning": "Warning"
         }
-    },
-    "userData": {
-        "title": "User data",
-        "description": "Here you can enter your data. No fields need to be filled.",
-        "firstName": "First name",
-        "firstNameMaxLengthMessage": "The first name may not exceed {val} characters.",
-        "lastName": "Surname",
-        "lastNameMaxLengthMessage": "The last name may not exceed {val} characters.",
-        "phone": "Tele onnummer",
-        "phoneMaxLengthMessage": "The phone number may not be longer than {val} characters in length.",
-        "phoneInvalidMessage": "The phone number is invalid.",
-        "age": "Age",
-        "minAgeValidationMessage": "Your age must be greater than {val} year.",
-        "maxAgeValidationMessage": "Your age must be less than {val} years.",
-        "city": "Place of residence",
-        "cityMaxLengthMessage": "The residence must not exceed {val} characters.",
-        "submit": "Take",
-        "cancel": "Cancel",
-        "reset": "Reset"
-    },
-    "addLocation": {
-        "title": "Add a stay",
-        "street": "Street and number",
-        "zipCode": "Postal code",
-        "cancel": "Cancel",
-        "submit": "Add"
-    },
-    "settings": {
-        "title": "Settings",
-        "saveDuration": "Storage duration",
-        "language": "Language",
-        "gpsDataStorageDuration": "Storage duration of GPS data (days)",
-        "otherDataStorageDuration": "Storage period other data (days)",
-        "trackingInterval": "Storage Interval (Minutes)"
-    },
-    "credits": {
-        "title": "About the developer",
-        "motivation": {
-            "title": "Formation and Motivation",
-            "description": "At the Hackathon, the Federal government started it all. through the framework, among other things, the OHIOH Team could quickly find themselves together in Teams. Since then, a concept, a website and App are from the idea of OHIOH become."
+      },
+      "sync": {
+        "inSync": {
+          "title": "Data synchronized",
+          "lastUpload": "Your data has been uploaded to the {var}."
         },
-        "team": {
-            "title": "Team",
-            "description": "The project OHIOH would not have been possible without the help of many individuals possible. It is unbelievable how these people give without any reward for you ... no for all of us ... your the Best. Therefore, a small thanks to all of you:",
-            "coordination": "Coordination",
-            "frontendDevelopment": "Development Of Frontend",
-            "university": "The Professor*s*in the University of applied Sciences Kiel",
-            "thankYou": "Thank you for the good cooperation!"
+        "noSync": {
+          "title": "No data synchronized",
+          "lastUpload": "Your data has not been uploaded yet."
         },
-        "attribution": {
-            "title": "Attribution"
+        "connected": "Internet connection established.",
+        "checkConnection": "The Internet connection is being checked...",
+        "disconnected": "You are not connected. Please check your Internet connection, so Your data can be synchronized."
+      },
+      "gps": {
+        "active": {
+          "title": "Location tracking is active",
+          "lastUpdate": "Your location was last recorded to {val}.",
+          "noData": "No data has been recorded yet."
         },
-        "copyright": {
-            "title": "Imprint",
-            "phone": "Phone"
+        "inaccurate": {
+          "title": "Location tracking inactive",
+          "lastUpdate": "GPS is currently too imprecise. Please use OHIOH QR-Codes, or add your location manually."
         },
-        "gtc": {
-            "title": "Terms and conditions"
+        "deactivated": {
+          "title": "Location tracking from",
+          "description": "You have disabled the Location tracking in the settings.",
+          "activate": "Enable GPS",
+          "settings": "Open settings"
+        },
+        "error": {
+          "title": "Location tracking from",
+          "description": "The site collection could not be activated. There is no GPS is available.",
+          "settings": "Open settings"
         }
-    },
-    "dataProtection": {
-        "title": "Privacy settings",
-        "usePersonalData": "Private data",
-        "useGps": "GPS data use",
-        "useBluetooth": "Use Bluetooth",
-        "sendData": "Data transmit"
-    },
-    "infectionWarning": {
-        "pageTitle": "Warning",
-        "title": "Infection warning",
-        "description": "We have identified an increased risk of infection.",
-        "nextSteps": {
-            "maybeNotInfected": "This warning does not mean that you're infected, but merely that a erhötes risk of infection was determined ",
-            "goToDoctor": "Please search promptly see a doctor and discuss the further procedure",
-            "informAboutOhioh": "Please contact your doctor that you are using the OHIOH APP ",
-            "linksToDoctors": "Doctor linking in the vicinity"
+      },
+      "personalData": {
+        "active": {
+          "title": "User data is stored",
+          "description": "You have stored user data."
         },
-        "continue": "Further Steps",
-        "accept": "Warning accept"
+        "inactive": {
+          "title": "No data stored",
+          "description": "You have not yet entered any user data."
+        },
+        "addData": "Data enter"
+      }
     },
-    "qrScanner": {
-        "allowAccessMsg": "The App needs camera access so you can scan QR-Codes. Do you want to allow access?",
-        "allowAccessTitle": "Allow access",
-        "yes": "Yes",
-        "cancel": "Cancel",
-        "openSettings": "Open settings",
-        "noCameraAccess": "No Camera Access",
-        "error": "An unknown error has occurred",
-        "noCameraInBrowserAvailable": "In the Browser may not be on the camera. Please download the application to your device."
-    },
-    "qrGenerator": {
-        "name": "Name",
-        "street": "Street and number",
-        "zipCode": "Postal code",
-        "generateQR": "Generate",
-        "shareQR": "Share QR-Code"
-    },
-    "languageSelection": {
-        "description": "Please select your language:",
-        "de": "German",
-        "en": "English",
-        "tr": "Turkish",
-        "ru": "Russian",
-        "pl": "Polish",
-        "sa": "Arabic",
-        "ku": "Kurdish",
-        "maschineTranslation": "Machine translation"
+    "qrCodeScanner": "QR-Code Scanner"
+  },
+  "welcome": {
+    "slides": {
+      "welcome": {
+        "title": "Welcome to OHIOH",
+        "description": "You will be guided in the Following step-by-step to the App.",
+        "advice": "Swipe left for the next step!"
+      },
+      "language": {
+        "title": "Welcome",
+        "advice": "The language can later be changed in the preferences."
+      },
+      "what": {
+        "title": "What is OHIOH?",
+        "description": "OHIOH is for Our Health In Our Hands. The aim of the OHIOH App is to curb the spread of viruses. The <b>OHIOH early warning system<\/b> uses <b>three data sources (GPS, Bluetooth, QR-Code)<\/b>, in order to inform you about a possible risk of infection by your residence location. The App allows you to <b>a warning before symptoms of infection show.<\/b>"
+      },
+      "warning": {
+        "title": "How does the early warning?",
+        "description": "The chains of Infection are of concern to everyone of us. The provision of contact details is in this Situation, it is essential. The use of data sources of the mobile phone allows you to Track the chain of Infection. Your data are useful. you decide which data will be transmitted and how long is it stored."
+      },
+      "security": {
+        "title": "How safe is my data?",
+        "description": "We make sure that neither your personal data, your location data will be stored and to prevent unauthorised access by encryption and the observance of high safety standards.<p>In the aftermath of the pandemic will be deleted, your data is automatically complete. Of course you can also manually delete all of the data."
+      },
+      "video": {
+        "title": "How the App works?",
+        "description": "In the following Video you can learn more about the App:",
+        "videoLink": "OHIOH explanatory video"
+      }
     }
+  },
+  "userData": {
+    "title": "User data",
+    "description": "Here you can enter your data. No fields need to be filled.",
+    "firstName": "First name",
+    "firstNameMaxLengthMessage": "The first name may not exceed {val} characters.",
+    "lastName": "Surname",
+    "lastNameMaxLengthMessage": "The last name may not exceed {val} characters.",
+    "phone": "Tele onnummer",
+    "phoneMaxLengthMessage": "The phone number may not be longer than {val} characters in length.",
+    "phoneInvalidMessage": "The phone number is invalid.",
+    "age": "Age",
+    "minAgeValidationMessage": "Your age must be greater than {val} year.",
+    "maxAgeValidationMessage": "Your age must be less than {val} years.",
+    "city": "Place of residence",
+    "cityMaxLengthMessage": "The residence must not exceed {val} characters.",
+    "submit": "Take",
+    "cancel": "Cancel",
+    "reset": "Reset"
+  },
+  "addLocation": {
+    "title": "Add a stay",
+    "street": "Street and number",
+    "zipCode": "Postal code",
+    "cancel": "Cancel",
+    "submit": "Add"
+  },
+  "settings": {
+    "title": "Settings",
+    "saveDuration": "Storage duration",
+    "language": "Language",
+    "gpsDataStorageDuration": "Storage duration of GPS data (days)",
+    "otherDataStorageDuration": "Storage period other data (days)",
+    "trackingInterval": "Storage Interval (Minutes)"
+  },
+  "credits": {
+    "title": "About the developer",
+    "motivation": {
+      "title": "Formation and Motivation",
+      "description": "At the Hackathon, the Federal government started it all. through the framework, among other things, the OHIOH Team could quickly find themselves together in Teams. Since then, a concept, a website and App are from the idea of OHIOH become."
+    },
+    "team": {
+      "title": "Team",
+      "description": "The project OHIOH would not have been possible without the help of many individuals possible. It is unbelievable how these people give without any reward for you ... no for all of us ... your the Best. Therefore, a small thanks to all of you:",
+      "coordination": "Coordination",
+      "frontendDevelopment": "Development Of Frontend",
+      "university": "The Professor*s*in the University of applied Sciences Kiel",
+      "thankYou": "Thank you for the good cooperation!"
+    },
+    "attribution": {
+      "title": "Attribution"
+    },
+    "copyright": {
+      "title": "Imprint",
+      "phone": "Phone"
+    },
+    "gtc": {
+      "title": "Terms and conditions"
+    }
+  },
+  "dataProtection": {
+    "title": "Privacy settings",
+    "usePersonalData": "Private data",
+    "useGps": "GPS data use",
+    "useBluetooth": "Use Bluetooth",
+    "sendData": "Data transmit"
+  },
+  "infectionWarning": {
+    "pageTitle": "Warning",
+    "title": "Infection warning",
+    "description": "We have identified an increased risk of infection.",
+    "nextSteps": {
+      "maybeNotInfected": "This warning does not mean that you're infected, but merely that a erhötes risk of infection was determined ",
+      "goToDoctor": "Please search promptly see a doctor and discuss the further procedure",
+      "informAboutOhioh": "Please contact your doctor that you are using the OHIOH APP ",
+      "linksToDoctors": "Doctor linking in the vicinity"
+    },
+    "continue": "Further Steps",
+    "accept": "Warning accept"
+  },
+  "qrScanner": {
+    "allowAccessMsg": "The App needs camera access so you can scan QR-Codes. Do you want to allow access?",
+    "allowAccessTitle": "Allow access",
+    "yes": "Yes",
+    "cancel": "Cancel",
+    "openSettings": "Open settings",
+    "noCameraAccess": "No Camera Access",
+    "error": "An unknown error has occurred",
+    "noCameraInBrowserAvailable": "In the Browser may not be on the camera. Please download the application to your device."
+  },
+  "qrGenerator": {
+    "name": "Name",
+    "street": "Street and number",
+    "zipCode": "Postal code",
+    "generateQR": "Generate",
+    "shareQR": "Share QR-Code"
+  },
+  "languageSelection": {
+    "description": "Please select your language:",
+    "de": "German",
+    "en": "English",
+    "tr": "Turkish",
+    "ru": "Russian",
+    "pl": "Polish",
+    "sa": "Arabic",
+    "ku": "Kurdish",
+    "maschineTranslation": "Machine translation"
+  }
 }

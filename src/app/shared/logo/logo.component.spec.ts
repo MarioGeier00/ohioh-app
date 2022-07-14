@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { LogoComponent } from './logo.component';
+import {LogoComponent} from './logo.component';
 
 describe('LogoComponent', () => {
   let component: LogoComponent;

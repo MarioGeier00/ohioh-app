@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { ToastController, MenuController, AlertController, Platform } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import {Component, OnInit} from '@angular/core';
+import {AlertController, MenuController, Platform, ToastController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {LanguageTranslatorService} from '../shared/data-services/language-translator/language-translator.service';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -19,9 +18,8 @@ export class QrScannerPage implements OnInit {
   public openSettingsNeeded: boolean;
 
   private scanSubscription: Subscription;
-
+  private qrScanner: any;
   constructor(
-    private qrScanner: QRScanner,
     public alertController: AlertController,
     public toastController: ToastController,
     private menuCtrl: MenuController,
@@ -77,22 +75,22 @@ export class QrScannerPage implements OnInit {
   }
 
   requestCameraAccess() {
-    this.qrScanner.prepare().then(
-      status => this.onStatusReceived(status),
-      err => this.errorReceived(err)
-    );
+    // this.qrScanner.prepare().then(
+    //   status => this.onStatusReceived(status),
+    //   err => this.errorReceived(err)
+    // );
   }
 
-  onStatusReceived(status: QRScannerStatus) {
-    this.noAccessGranted = !status.authorized;
-    this.openSettingsNeeded = status.denied;
-    console.log(this.noAccessGranted);
-    console.log(this.openSettingsNeeded);
-    if (status.authorized) {
-      // camera permission was granted
-      this.startQRCodeScan();
-    }
-  }
+  // onStatusReceived(status: QRScannerStatus) {
+  //   this.noAccessGranted = !status.authorized;
+  //   this.openSettingsNeeded = status.denied;
+  //   console.log(this.noAccessGranted);
+  //   console.log(this.openSettingsNeeded);
+  //   if (status.authorized) {
+  //     // camera permission was granted
+  //     this.startQRCodeScan();
+  //   }
+  // }
 
   close() {
     if (this.scanSubscription) {
@@ -135,7 +133,7 @@ export class QrScannerPage implements OnInit {
     console.log(err);
     this.isApp = this.platform.is('mobile') && !this.platform.is('mobileweb');
     this.error = true;
-    this.qrScanner.destroy().then((status) => this.onStatusReceived(status));
+    // this.qrScanner.destroy().then((status) => this.onStatusReceived(status));
   }
 
   openSettings() {

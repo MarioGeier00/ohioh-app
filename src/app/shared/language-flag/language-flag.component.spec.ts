@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { LanguageFlagComponent } from './language-flag.component';
+import {LanguageFlagComponent} from './language-flag.component';
 
 describe('LanguageFlagComponent', () => {
   let component: LanguageFlagComponent;

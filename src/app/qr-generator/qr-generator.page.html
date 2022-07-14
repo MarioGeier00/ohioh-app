@@ -29,14 +29,15 @@
     <div style="margin-top: 10px;">
       <ion-button class="ion-float-right" style="margin-left: 5px;" type="submit" color="primary">
         {{ 'qrGenerator.generateQR' | translate }}</ion-button>
-      <ion-button [disabled]="!displayQRCode" class="ion-float-right" style="margin-left: 5px;" type="submit"
-        color="primary" (click)="share()">
-        {{ 'qrGenerator.shareQR' | translate }}<ion-icon name="share-outline"></ion-icon>
+      <ion-button [disabled]="qrCodeData" class="ion-float-right" style="margin-left: 5px;" type="submit"
+                  color="primary" (click)="share()">
+        {{ 'qrGenerator.shareQR' | translate }}
+        <ion-icon name="share-outline"></ion-icon>
       </ion-button>
     </div>
 
-    <div style="width: 90vw; max-width:300px;margin-right:auto;margin-left:auto">
-      <img style="width: 100%"  *ngIf="displayQRCode" [src]="generatedQRCode" />
+    <div style="width: 90vw; max-width:300px;margin-right:auto;margin-left:auto" *ngIf="qrCodeData as data">
+      <ngx-qrcode [value]="data" #qrCode></ngx-qrcode>
     </div>
 
   </form>

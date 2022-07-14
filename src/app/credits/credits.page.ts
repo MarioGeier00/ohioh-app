@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/data-services/user/user.service';
-import { MenuController } from '@ionic/angular';
-import { Router, NavigationEnd } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../shared/data-services/user/user.service';
+import {MenuController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-credits',
@@ -13,8 +13,6 @@ export class CreditsPage implements OnInit {
 
   public showDev = false;
   private counter = 0;
-
-  public comesFromWelcomePage: boolean;
 
   constructor(
     private router: Router,
@@ -29,8 +27,8 @@ export class CreditsPage implements OnInit {
     //   this.history = [...this.history, urlAfterRedirects];
     // });
     this.menuCtrl.enable(false);
-    
-    this.showDev = this.userService.DeveloperMode;
+
+    this.showDev = this.userService.developerMode;
   }
 
   ngOnInit() {
@@ -45,13 +43,13 @@ export class CreditsPage implements OnInit {
 
   changeDev(val: boolean) {
     console.log(val);
-    this.userService.DeveloperMode = val;
+    this.userService.developerMode = val;
     this.userService.saveDeveloperMode();
   }
 
   changeDebug(val: boolean) {
     console.log(val);
-    this.userService.DebugMode = val;
+    this.userService.debugMode = val;
     this.userService.saveDebugMode();
   }
 

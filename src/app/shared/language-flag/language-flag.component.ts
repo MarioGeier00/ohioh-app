@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-language-flag',
   templateUrl: './language-flag.component.html',
   styleUrls: ['./language-flag.component.scss'],
 })
-export class LanguageFlagComponent implements OnInit {
+export class LanguageFlagComponent {
 
   @Input()
   public language: string;
-
-  constructor() { }
-
-  ngOnInit() {}
 
 }

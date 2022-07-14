@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-import { Platform, AlertController, ToastController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { UserService } from './shared/data-services/user/user.service';
-import { Router } from '@angular/router';
-import { LanguageTranslatorService } from './shared/data-services/language-translator/language-translator.service';
-
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
-
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AlertController, ToastController} from '@ionic/angular';
+import {LanguageTranslatorService} from './shared/data-services/language-translator/language-translator.service';
+import {UserService} from './shared/data-services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +10,6 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  public selectedIndex = 0;
   public appPages = [
     {
       title: 'home',
@@ -63,40 +54,28 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private userService: UserService,
     public router: Router,
-    private translation: LanguageTranslatorService,
     public alertController: AlertController,
     public toastController: ToastController,
-    private backgroundMode: BackgroundMode
+    private userService: UserService,
+    private translation: LanguageTranslatorService,
   ) {
-    this.initializeApp();
   }
 
-  private appInsights = new ApplicationInsights({
-    config: {
-      instrumentationKey: '2fa7b8a6-2a75-4576-b96a-38f4f47e741b'
-    }
-  });
-
-  initializeApp() {
-    this.backgroundMode.enable();
-    this.appInsights.loadAppInsights();
-
+  ngOnInit() {
     this.userService.loadDebugMode();
 
-    this.userService.loadDeveloperMode().then(
-      () => {
-        this.translation.initLanguageTranslator().then(() => {
-          if (!this.userService.DeveloperMode) {
-            this.presentInfoAlert();
-          }
-        });
+    this.translation.initLanguageTranslator().then(() => {
+      if (!this.userService.developerMode) {
+        this.presentInfoAlert();
+      }
+    });
 
-        if (this.userService.DeveloperMode) {
+    this.userService.loadDeveloperMode()?.then(
+      () => {
+
+
+        if (this.userService.developerMode) {
           this.appPages.push({
             title: 'geo',
             url: '/geo',
@@ -104,19 +83,12 @@ export class AppComponent implements OnInit {
           });
         }
 
-        if (!this.userService.isUserStored() && !this.userService.DeveloperMode) {
+        if (!this.userService.isUserStored() && !this.userService.developerMode) {
           this.router.navigate(['/welcome']);
         }
 
       }
     );
-
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-
-
   }
 
   async presentInfoAlert() {
@@ -129,10 +101,6 @@ export class AppComponent implements OnInit {
     await alert.present();
   }
 
-
-  ngOnInit() {
-    this.appInsights.trackPageView();
-  }
 
   async presentToast(msg: string) {
     const toast = await this.toastController.create({

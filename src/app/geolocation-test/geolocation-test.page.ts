@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
-import { GeoDataService } from '../shared/data-services/geo-data/geo-data.service';
+import {Component, OnInit} from '@angular/core';
+import {ToastController} from '@ionic/angular';
+import {GeoDataService} from '../shared/data-services/geo-data/geo-data.service';
+import {BackgroundGeolocationResponse} from '@awesome-cordova-plugins/background-geolocation';
 
 @Component({
   selector: 'app-geolocation-test',
@@ -10,50 +10,34 @@ import { GeoDataService } from '../shared/data-services/geo-data/geo-data.servic
 })
 export class GeolocationTestPage implements OnInit {
 
-  public backroundLocations: BackgroundGeolocationResponse[] = new Array();
+  public backgroundGeolocations: BackgroundGeolocationResponse[] = [];
 
   public data: string;
 
   constructor(
     public toastController: ToastController,
-    private cdr: ChangeDetectorRef,
-    public geoData: GeoDataService
+    public geoData: GeoDataService,
   ) {
-
   }
 
   ngOnInit() {
     this.geoData.loadLocations().then(val => {
       this.data = val;
       if (val) {
-        this.backroundLocations = JSON.parse(val);
+        this.backgroundGeolocations = JSON.parse(val);
       }
     });
   }
 
   sync() {
-    this.backroundLocations = this.geoData.backroundLocations;
-
+    this.backgroundGeolocations = this.geoData.backroundLocations;
   }
 
   syncStore() {
     this.geoData.loadLocations().then(val => {
       this.data = val;
-      this.backroundLocations = JSON.parse(val);
+      this.backgroundGeolocations = JSON.parse(val);
     });
   }
-
-  // changeValB(value: number) {
-  //   this.config.stationaryRadius = value;
-  // }
-
-  // changeValAcc(value: number) {
-  //   this.config.desiredAccuracy = value;
-  // }
-
-  // changeValA(value: number) {
-  //   this.config.distanceFilter = value;
-  // }
-
 
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { LanguageTranslatorService } from '../data-services/language-translator/language-translator.service';
+import {Component} from '@angular/core';
+import {LanguageTranslatorService} from '../data-services/language-translator/language-translator.service';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { LanguageTranslatorService } from '../data-services/language-translator/
   templateUrl: './prototype-info.component.html',
   styleUrls: ['./prototype-info.component.scss'],
 })
-export class PrototypeInfoComponent implements OnInit {
+export class PrototypeInfoComponent {
 
   public content: string;
 
@@ -15,9 +15,6 @@ export class PrototypeInfoComponent implements OnInit {
     private languageService: LanguageTranslatorService
   ) {
     this.content = this.languageService.getPrototypeInfoText();
-   }
-
-  ngOnInit() {
   }
 
 }

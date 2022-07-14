@@ -1,13 +1,12 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { MenuController, PopoverController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { PrototypeInfoComponent } from '../shared/prototype-info/prototype-info.component';
-import { Observable } from 'rxjs';
-import { BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
-import { GeoDataService, GPSError } from '../shared/data-services/geo-data/geo-data.service';
-import { UserService } from '../shared/data-services/user/user.service';
-import { Subscription } from 'rxjs';
-import { Network } from '@ionic-native/network/ngx';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {MenuController, PopoverController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {PrototypeInfoComponent} from '../shared/prototype-info/prototype-info.component';
+import {Observable, Subscription} from 'rxjs';
+import {GeoDataService, GPSError} from '../shared/data-services/geo-data/geo-data.service';
+import {UserService} from '../shared/data-services/user/user.service';
+import {BackgroundGeolocationResponse} from '@awesome-cordova-plugins/background-geolocation';
+import {Network} from '@awesome-cordova-plugins/network/ngx';
 
 @Component({
   selector: 'app-home',
@@ -16,30 +15,30 @@ import { Network } from '@ionic-native/network/ngx';
 })
 export class HomePage implements OnInit, OnDestroy {
 
-  public userDataAvailable: boolean;
+  userDataAvailable: boolean;
 
-  public $lastesLocationUpdate: Observable<BackgroundGeolocationResponse>;
-  public $gpsStatus: Observable<boolean>;
-  public $gpsError: Observable<GPSError>;
+  $lastesLocationUpdate: Observable<BackgroundGeolocationResponse>;
+  $gpsStatus: Observable<boolean>;
+  $gpsError: Observable<GPSError>;
 
   private lastesLocationUpdateSubscription: Subscription;
   private gpsStatusSubscription: Subscription;
   private gpsErrorSubscription: Subscription;
 
-  public gpsStatus: boolean;
-  public gpsError: GPSError;
-  public lastGPSData: number;
+  gpsStatus: boolean;
+  gpsError: GPSError;
+  lastGPSData: number;
 
   private disconnectSubscription: Subscription;
   private connectSubscription: Subscription;
 
-  public disconnected: boolean;
+  disconnected: boolean;
 
   constructor(
     private menuCtrl: MenuController,
     private router: Router,
     public userService: UserService,
-    public geoData: GeoDataService,
+    private geoData: GeoDataService,
     public popoverController: PopoverController,
     private changeDetector: ChangeDetectorRef,
     private network: Network

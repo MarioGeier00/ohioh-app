@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReplacePipe } from './replace.pipe';
-import { LanguageSelectorComponent } from './language-selector/language-selector.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { LanguageFlagComponent } from './language-flag/language-flag.component';
-import { IonicModule } from '@ionic/angular';
-import { PrototypeInfoComponent } from './prototype-info/prototype-info.component';
-import { Globalization } from '@ionic-native/globalization/ngx';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReplacePipe} from './replace.pipe';
+import {LanguageSelectorComponent} from './language-selector/language-selector.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {LanguageFlagComponent} from './language-flag/language-flag.component';
+import {IonicModule} from '@ionic/angular';
+import {PrototypeInfoComponent} from './prototype-info/prototype-info.component';
 
 
 @NgModule({
@@ -27,9 +26,7 @@ import { Globalization } from '@ionic-native/globalization/ngx';
     IonicModule,
     TranslateModule.forChild()
   ],
-  providers: [
-    Globalization
-  ],
   entryComponents: [PrototypeInfoComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+}

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -22,7 +21,7 @@ export class SettingsPage implements OnInit {
 
   settingsChanged() {
     // TODO send data to backend
-    console.log(`gpsDataStorageDuration: ${this.gpsDataStorageDuration}, otherDataStorageDuration: ${this.otherDataStorageDuration}, trackingInterval: ${this.trackingInterval}`)
+    console.log(`gpsDataStorageDuration: ${this.gpsDataStorageDuration}, otherDataStorageDuration: ${this.otherDataStorageDuration}, trackingInterval: ${this.trackingInterval}`);
   }
 
 

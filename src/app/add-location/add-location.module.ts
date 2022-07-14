@@ -1,13 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
-
-import { AddLocationPageRoutingModule } from './add-location-routing.module';
-
-import { AddLocationPage } from './add-location.page';
-import { TranslateModule } from '@ngx-translate/core';
+import {IonicModule} from '@ionic/angular';
+import {AddLocationPageRoutingModule} from './add-location-routing.module';
+import {AddLocationPage} from './add-location.page';
 
 @NgModule({
   imports: [
@@ -16,8 +13,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     IonicModule,
     AddLocationPageRoutingModule,
-    TranslateModule.forChild()
   ],
   declarations: [AddLocationPage]
 })
-export class AddLocationPageModule {}
+export class AddLocationPageModule {
+}

@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { CreditsPage } from './credits.page';
+import {CreditsPage} from './credits.page';
 
 describe('CreditsPage', () => {
   let component: CreditsPage;

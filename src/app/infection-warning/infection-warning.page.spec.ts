@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { InfectionWarningPage } from './infection-warning.page';
+import {InfectionWarningPage} from './infection-warning.page';
 
 describe('InfectionWarningPage', () => {
   let component: InfectionWarningPage;

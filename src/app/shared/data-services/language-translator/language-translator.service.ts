@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateService } from '@ngx-translate/core';
-import { Storage } from '@ionic/storage';
-import { Globalization } from '@ionic-native/globalization/ngx';
-import { AlertController } from '@ionic/angular';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateService} from '@ngx-translate/core';
+import {AlertController} from '@ionic/angular';
+import {StorageService} from '../../storage.service';
+
+const DEFAULT_LANGUAGE = 'de';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageTranslatorService {
 
-  private readonly PrototypeInfoList_DE = `
+  private readonly prototypeInfoListDE = `
   <ul>
     <li>
       Um alle Features testen zu können, <b>lade die Android App herunter</b> (Menu > App herunterladen)
@@ -34,7 +35,7 @@ export class LanguageTranslatorService {
   </ul>
   `;
 
-  private readonly PrototypeInfoList_EN = `
+  private readonly prototypeInfoListEN = `
   <ul>
     <li>
       To test all features, <b>please download the android app</b> (Menu > Download App)
@@ -58,32 +59,20 @@ export class LanguageTranslatorService {
   `;
 
 
-  static DEFAULT_LANGUAGE = 'de';
   private selectedLanguage: string = null;
 
   constructor(
     private translator: TranslateService,
-    private globalization: Globalization,
     private http: HttpClient,
-    private storage: Storage,
+    private storageService: StorageService,
     public alertController: AlertController,
-
   ) {
-    this.globalization.getLocaleName()
-      .then(res => {
-        // if (res && res.value && res.value.length >= 2) {
-        //   LanguageTranslatorService.DEFAULT_LANGUAGE = res.value.substring(0, 2);
-        //   this.translator.setDefaultLang(LanguageTranslatorService.DEFAULT_LANGUAGE);
-        //   this.presentInfoAlert();
-        // }
-      })
-      .catch(e => console.log(e));
   }
 
   async presentInfoAlert() {
     const alert = await this.alertController.create({
       header: 'Prototype App',
-      message: LanguageTranslatorService.DEFAULT_LANGUAGE,
+      message: DEFAULT_LANGUAGE,
       buttons: ['OK']
     });
 
@@ -106,18 +95,18 @@ export class LanguageTranslatorService {
     if (this.selectedLanguage) {
       return this.selectedLanguage;
     } else {
-      return LanguageTranslatorService.DEFAULT_LANGUAGE;
+      return DEFAULT_LANGUAGE;
     }
   }
 
   changeSelectedLanguage(language: string) {
     this.selectedLanguage = language;
     this.translator.use(this.selectedLanguage).toPromise();
-    this.storage.set('lang', language);
+    this.storageService.set('lang', language);
   }
 
-  loadSelectedLanguagePromise(): Promise<string> {
-    return this.storage.get('lang');
+  loadSelectedLanguagePromise() {
+    return this.storageService.get('lang');
   }
 
   loadSelectedLanguage(): Promise<void> {
@@ -129,24 +118,20 @@ export class LanguageTranslatorService {
   }
 
   async initLanguageTranslator() {
-    this.translator.setDefaultLang(LanguageTranslatorService.DEFAULT_LANGUAGE);
+    this.translator.setDefaultLang(DEFAULT_LANGUAGE);
     if (!this.selectedLanguage) {
       await this.loadSelectedLanguage();
-    }
-
-    if (this.selectedLanguage) {
+    } else {
       await this.translator.use(this.selectedLanguage).toPromise();
     }
   }
 
 
-
-
   public getPrototypeInfoText(): string {
     if (this.selectedLanguage === 'de') {
-      return this.PrototypeInfoList_DE;
+      return this.prototypeInfoListDE;
     }
-    return this.PrototypeInfoList_EN;
+    return this.prototypeInfoListEN;
   }
 
 }

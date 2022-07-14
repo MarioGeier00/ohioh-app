@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MenuController, ToastController } from '@ionic/angular';
-import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../shared/data-services/user/user.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {MenuController, ToastController} from '@ionic/angular';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../shared/data-services/user/user.service';
 
 @Component({
   selector: 'app-user-data',

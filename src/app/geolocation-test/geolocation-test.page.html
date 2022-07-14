@@ -32,10 +32,10 @@
       <ion-label slot="end">200m</ion-label>
     </ion-range>
   </ion-item> -->
-  <div *ngIf="backroundLocations">
-    <p>{{backroundLocations.length}}</p>
+  <div *ngIf="backgroundGeolocations">
+    <p>{{backgroundGeolocations.length}}</p>
     <ion-list>
-      <ion-item *ngFor="let location of backroundLocations">
+      <ion-item *ngFor="let location of backgroundGeolocations">
         <small>{{location.time | date: 'HH:mm:ss'}}</small>
         <p style="margin: 8px;">{{location.accuracy | number:'2.0-0'}}m</p>
         <p style="margin: 8px;">{{location.latitude}}</p>

@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { UserDataPage } from './user-data.page';
+import {UserDataPage} from './user-data.page';
 
 describe('UserDataPage', () => {
   let component: UserDataPage;

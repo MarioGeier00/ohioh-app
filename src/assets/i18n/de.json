@@ -1,220 +1,220 @@
 {
-    "menu": {
-        "title": "Menu",
-        "home": "OHIOH Home",
-        "geo": "GPS Daten einsehen",
-        "userData": "Daten zur Person ändern",
-        "dataProtection": "Privatsphäreneinstellungen",
-        "settings": "Einstellungen",
-        "addLocations": "Aufenthalt nachtragen",
-        "qrGenerator": "QR-Code erstellen",
-        "welcome": "Einführungstutorial",
-        "credits": "Impressum",
-        "deleteAll": "Alle Daten endgültig löschen",  
-        "deleteAllToast": "Alle Daten wurden gelöscht",
-        "download": "Anwendung herunterladen",
-        "downloadStarted": "Download gestartet"
-    },
-    "home": {
-        "title": "OHIOH Home",
-        "simulationInfectionWarning": "Simuliere Infektionswarnung",
-        "stateOverview": {
-            "infection": {
-                "noWarning": {
-                    "title": "Keine Infektionswarnung",
-                    "description": "Aktuell liegen keine Warnungen für dich vor."
-                },
-                "warning": {
-                    "title": "Infektionswarnung",
-                    "description": "Wir haben errechnet, dass du möglicherweise infiziert bist.",
-                    "showWarning": "Warnung anzeigen"
-                }
-            },
-            "sync": {
-                "inSync": {
-                    "title": "Daten synchronisiert",
-                    "lastUpload": "Deine Daten wurden {var} hochgeladen."
-                },
-                "noSync": {
-                    "title": "Keine Daten synchronisiert",
-                    "lastUpload": "Ihre Daten wurden nicht hochgeladen."
-                },
-                "connected": "Es besteht Internetverbindung.",
-                "checkingConnection": "Internetverbindung wird überprüft...",
-                "disconnected": "Du bist nicht verbunden. Bitte überprüfe deine Internetverbindung, damit deine Daten synchronisiert werden können."
-            },
-            "gps": {
-                "active": {
-                    "title": "Standorterfassung aktiv",
-                    "lastUpdate": "Dein Standort wurde zuletzt um {val} erfasst.",
-                    "noData": "Es wurden noch keine Daten erfasst."
-                },
-                "inaccurate": {
-                    "title": "Standorterfassung inaktiv",
-                    "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage deinen Standort manuell nach."
-                },
-                "deactivated": {
-                    "title": "Standorterfassung aus",
-                    "description": "Du hast die Standorterfassung in den Einstellungen deaktiviert.",
-                    "activate": "GPS aktivieren",
-                    "settings": "Einstellungen öffnen"
-                },
-                "error": {
-                    "title": "Standorterfassung aus",
-                    "description": "Die Standorterfassung konnte nicht aktiviert werden. Es ist kein GPS vorhanden.",
-                    "settings": "Einstellungen öffnen"
-                }
-            },
-            "personalData": {
-                "active": {
-                    "title": "Benutzerdaten hinterlegt",
-                    "description": "Du hast Benutzerdaten hinterlegt."
-                },
-                "inactive": {
-                    "title": "Keine Daten hinterlegt",
-                    "description": "Du hast noch keine Benutzerdaten eingetragen."
-                },
-                "addData": "Daten eintragen"
-            }
+  "menu": {
+    "title": "Menu",
+    "home": "OHIOH Home",
+    "geo": "GPS Daten einsehen",
+    "userData": "Daten zur Person ändern",
+    "dataProtection": "Privatsphäreneinstellungen",
+    "settings": "Einstellungen",
+    "addLocations": "Aufenthalt nachtragen",
+    "qrGenerator": "QR-Code erstellen",
+    "welcome": "Einführungstutorial",
+    "credits": "Impressum",
+    "deleteAll": "Alle Daten endgültig löschen",
+    "deleteAllToast": "Alle Daten wurden gelöscht",
+    "download": "Anwendung herunterladen",
+    "downloadStarted": "Download gestartet"
+  },
+  "home": {
+    "title": "OHIOH Home",
+    "simulationInfectionWarning": "Simuliere Infektionswarnung",
+    "stateOverview": {
+      "infection": {
+        "noWarning": {
+          "title": "Keine Infektionswarnung",
+          "description": "Aktuell liegen keine Warnungen für dich vor."
         },
-        "qrCodeScanner": "QR-Code Scanner"
-    },
-    "welcome": {
-        "slides": {
-            "welcome": {
-                "title": "Willkommen zu OHIOH",
-                "description": "Du wirst im Folgenden Schritt für Schritt an die App herangeführt.",
-                "advice": "Wische nach links für den nächsten Schritt!"
-            },
-            "language": {
-                "title": "Willkommen",
-                "advice": "Die Sprache kann später in den Einstellungen geändert werden."
-            },
-            "what": {
-                "title": "Was ist OHIOH?",
-                "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, Bluetooth, QR-Code)</b>, um dich über ein mögliches Infektionsrisiko durch deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
-            },
-            "warning": {
-                "title": "Wie funktioniert die Frühwarnung?",
-                "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch deine Daten sind dafür hilfreich. du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
-            },
-            "security": {
-                "title": "Wie sicher sind meine Daten?",
-                "description": "Wir achten darauf, dass weder deine persönlichen Daten, noch deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden deine Daten automatisch vollständig gelöscht. Natürlich kannst du auch manuell sämtliche Daten löschen."
-            },
-            "video": {
-                "title": "Wie funktioniert die App?",
-                "description": "In folgendem Video kannst du dich über die App informieren:",
-                "videoLink": "OHIOH Erklärvideo"
-            }
+        "warning": {
+          "title": "Infektionswarnung",
+          "description": "Wir haben errechnet, dass du möglicherweise infiziert bist.",
+          "showWarning": "Warnung anzeigen"
         }
-    },
-    "userData": {
-        "title": "Benutzerdaten",
-        "description": "Hier kannst du deine Daten eingeben. Keine Felder müssen ausgefüllt sein.",
-        "firstName": "Vorname",
-        "firstNameMaxLengthMessage": "Der Vorname darf {val} Zeichen nicht überschreiten.",
-        "lastName": "Nachname",
-        "lastNameMaxLengthMessage": "Der Nachname darf {val} Zeichen nicht überschreiten.",
-        "phone": "Telenonnummer",
-        "phoneMaxLengthMessage": "Die Telefonnummer darf nicht länger als {val} Zeichen lang sein.",
-        "phoneInvalidMessage": "Die Telefonnummer ist ungültig.",
-        "age": "Alter",
-        "minAgeValidationMessage": "Ihr Alter muss größer als {val} Jahr sein.",
-        "maxAgeValidationMessage": "Ihr Alter muss kleiner als {val} Jahre sein.",
-        "city": "Wohnort",
-        "cityMaxLengthMessage": "Der Wohnort darf {val} Zeichen nicht überschreiten.",
-        "submit": "Übernehmen",
-        "cancel": "Abbrechen",
-        "reset": "Zurücksetzen"
-    },
-    "addLocation": {
-        "title": "Aufenthalt nachtragen",
-        "street": "Staße und Hausnummer",
-        "zipCode": "Postleitzahl",
-        "cancel": "Abbrechen",
-        "submit": "Aufenthalt Eintragen"
-    },
-    "settings": {
-        "title": "Einstellungen",
-        "saveDuration": "Speicherdauer",
-        "language": "Sprache",
-        "gpsDataStorageDuration": "Speicherdauer GPS-Daten (Tage)",
-        "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
-        "trackingInterval": "Speicherintervall (Minuten)"
-    },
-    "credits": {
-        "title": "Über die Entwickler",
-        "homePage": "Homepage",
-        "motivation": {
-            "title": "Entstehung und Motivation",
-            "description": "Beim Hackathon der Bundesregierung begann alles. durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+      },
+      "sync": {
+        "inSync": {
+          "title": "Daten synchronisiert",
+          "lastUpload": "Deine Daten wurden {var} hochgeladen."
         },
-        "team": {
-            "title": "Team",
-            "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich, wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
-            "coordination": "Koordination",
-            "frontendDevelopment": "Entwicklung Frontend",
-            "university": "Die Professor*en*in der Fachhochschule Kiel",
-            "thankYou": "Danke für die gute Zusammenarbeit!"
+        "noSync": {
+          "title": "Keine Daten synchronisiert",
+          "lastUpload": "Ihre Daten wurden nicht hochgeladen."
         },
-        "attribution": {
-            "title": "Attribution"
+        "connected": "Es besteht Internetverbindung.",
+        "checkingConnection": "Internetverbindung wird überprüft...",
+        "disconnected": "Du bist nicht verbunden. Bitte überprüfe deine Internetverbindung, damit deine Daten synchronisiert werden können."
+      },
+      "gps": {
+        "active": {
+          "title": "Standorterfassung aktiv",
+          "lastUpdate": "Dein Standort wurde zuletzt um {val} erfasst.",
+          "noData": "Es wurden noch keine Daten erfasst."
         },
-        "copyright": {
-            "title": "Impressum",
-            "phone": "Telefon"
+        "inaccurate": {
+          "title": "Standorterfassung inaktiv",
+          "lastUpdate": "GPS ist aktuell zu ungenau. Bitte nutze OHIOH QR-Codes oder trage deinen Standort manuell nach."
         },
-        "gtc": {
-            "title": "AGBs"
+        "deactivated": {
+          "title": "Standorterfassung aus",
+          "description": "Du hast die Standorterfassung in den Einstellungen deaktiviert.",
+          "activate": "GPS aktivieren",
+          "settings": "Einstellungen öffnen"
+        },
+        "error": {
+          "title": "Standorterfassung aus",
+          "description": "Die Standorterfassung konnte nicht aktiviert werden. Es ist kein GPS vorhanden.",
+          "settings": "Einstellungen öffnen"
         }
-    },
-    "dataProtection": {
-        "title": "Privatsphäreeinstellungen",
-        "usePersonalData": "Privatdaten nutzen",
-        "useGps": "GPS-Daten nutzen",
-        "useBluetooth": "Bluetooth nutzen",
-        "sendData": "Daten übermitteln"
-    },
-    "infectionWarning": {
-        "pageTitle": "Warnmeldung",
-        "title": "Infektionswarnung",
-        "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
-        "nextSteps": {
-            "maybeNotInfected": "Diese Warnung bedeutet nicht, dass du infiziert bist, sondern lediglich, dass ein erhötes Risiko einer Infektion ermittelt wurde",
-            "goToDoctor": "Bitte suche zeitnah einen Arzt auf und bespreche das weitere Vorgehen",
-            "informAboutOhioh": "Bitte teile deinem Arzt mit, dass du die OHIOH-APP nutzt",
-            "linksToDoctors": "Arzt Verlinkung in der Nähe"
+      },
+      "personalData": {
+        "active": {
+          "title": "Benutzerdaten hinterlegt",
+          "description": "Du hast Benutzerdaten hinterlegt."
         },
-        "continue": "Weitere Schritte",
-        "accept": "Warnung akzeptieren"
+        "inactive": {
+          "title": "Keine Daten hinterlegt",
+          "description": "Du hast noch keine Benutzerdaten eingetragen."
+        },
+        "addData": "Daten eintragen"
+      }
     },
-    "qrScanner": {
-        "allowAccessMsg": "Die App benötigt Kamerazugriff, damit du QR-Codes einscannen kannst. Möchtest du den Zugriff erlauben?",
-        "allowAccessTitle": "Zugriff erlauben",
-        "yes": "Ja",
-        "cancel": "Abbrechen",
-        "openSettings": "Einstellungen öffnen",
-        "noCameraAccess": "Kein Kamerazugriff",
-        "error": "Es ist ein unbekannter Fehler aufgetreten",
-        "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf dein Gerät."
-    },
-    "qrGenerator": {
-        "name": "Name",
-        "street": "Staße und Hausnummer",
-        "zipCode": "Postleitzahl",
-        "generateQR": "Generieren",
-        "shareQR": "QR-Code teilen"
-    },
-    "languageSelection": {
-        "description": "Bitte wähle deine Sprache aus:",
-        "de": "Deutsch",
-        "en": "Englisch",
-        "tr": "Türkisch",
-        "ru": "Russisch",
-        "pl": "Polnisch",
-        "sa": "Arabisch",
-        "ku": "Kurdisch",
-        "maschineTranslation": "Maschinelle Übersetzung"
+    "qrCodeScanner": "QR-Code Scanner"
+  },
+  "welcome": {
+    "slides": {
+      "welcome": {
+        "title": "Willkommen zu OHIOH",
+        "description": "Du wirst im Folgenden Schritt für Schritt an die App herangeführt.",
+        "advice": "Wische nach links für den nächsten Schritt!"
+      },
+      "language": {
+        "title": "Willkommen",
+        "advice": "Die Sprache kann später in den Einstellungen geändert werden."
+      },
+      "what": {
+        "title": "Was ist OHIOH?",
+        "description": "OHIOH steht für Our Health In Our Hands. Das Ziel der OHIOH App ist die Ausbreitung von Viren einzudämmen. Das <b>OHIOH Frühwarnsystem</b> nutzt <b>drei Datenquellen (GPS, Bluetooth, QR-Code)</b>, um dich über ein mögliches Infektionsrisiko durch deinen Aufenthaltsstandort zu informieren. Die App ermöglicht <b>eine Warnung schon bevor sich Symptome einer Infektion zeigen.</b>"
+      },
+      "warning": {
+        "title": "Wie funktioniert die Frühwarnung?",
+        "description": "Die Infektionsketten betreffen jeden von uns. Die Bereitstellung von Kontaktdaten ist in dieser Situation unerlässlich. Die Nutzung von Datenquellen des Mobiltelefons ermöglicht das Nachvollziehen von Infektionsketten. Auch deine Daten sind dafür hilfreich. du entscheidest, welche Daten übermittelt werden und wie lange diese gespeichert werden."
+      },
+      "security": {
+        "title": "Wie sicher sind meine Daten?",
+        "description": "Wir achten darauf, dass weder deine persönlichen Daten, noch deine Standortdaten gemeinsam gespeichert werden und verhindern unberechtigten Zugriff durch Verschlüsselung und der Einhaltung hoher Sicherheitsstandards.<p>In der Zeit nach der Pandemie werden deine Daten automatisch vollständig gelöscht. Natürlich kannst du auch manuell sämtliche Daten löschen."
+      },
+      "video": {
+        "title": "Wie funktioniert die App?",
+        "description": "In folgendem Video kannst du dich über die App informieren:",
+        "videoLink": "OHIOH Erklärvideo"
+      }
     }
+  },
+  "userData": {
+    "title": "Benutzerdaten",
+    "description": "Hier kannst du deine Daten eingeben. Keine Felder müssen ausgefüllt sein.",
+    "firstName": "Vorname",
+    "firstNameMaxLengthMessage": "Der Vorname darf {val} Zeichen nicht überschreiten.",
+    "lastName": "Nachname",
+    "lastNameMaxLengthMessage": "Der Nachname darf {val} Zeichen nicht überschreiten.",
+    "phone": "Telenonnummer",
+    "phoneMaxLengthMessage": "Die Telefonnummer darf nicht länger als {val} Zeichen lang sein.",
+    "phoneInvalidMessage": "Die Telefonnummer ist ungültig.",
+    "age": "Alter",
+    "minAgeValidationMessage": "Ihr Alter muss größer als {val} Jahr sein.",
+    "maxAgeValidationMessage": "Ihr Alter muss kleiner als {val} Jahre sein.",
+    "city": "Wohnort",
+    "cityMaxLengthMessage": "Der Wohnort darf {val} Zeichen nicht überschreiten.",
+    "submit": "Übernehmen",
+    "cancel": "Abbrechen",
+    "reset": "Zurücksetzen"
+  },
+  "addLocation": {
+    "title": "Aufenthalt nachtragen",
+    "street": "Staße und Hausnummer",
+    "zipCode": "Postleitzahl",
+    "cancel": "Abbrechen",
+    "submit": "Aufenthalt Eintragen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "saveDuration": "Speicherdauer",
+    "language": "Sprache",
+    "gpsDataStorageDuration": "Speicherdauer GPS-Daten (Tage)",
+    "otherDataStorageDuration": "Speicherdauer andere Daten (Tage)",
+    "trackingInterval": "Speicherintervall (Minuten)"
+  },
+  "credits": {
+    "title": "Über die Entwickler",
+    "homePage": "Homepage",
+    "motivation": {
+      "title": "Entstehung und Motivation",
+      "description": "Beim Hackathon der Bundesregierung begann alles. durch den Rahmen konnten sich schnell Teams zusammenfinden, unter anderem auch das OHIOH Team. Seitdem sind aus der Idee OHIOH ein Konzept, Homepage und App geworden."
+    },
+    "team": {
+      "title": "Team",
+      "description": "Das Projekt OHIOH wäre ohne die Hilfe vieler einzelner Menschen nicht möglich gewesen. Es ist unglaublich, wie diese Menschen ohne Lohn für euch … nein für uns alle … ihr Bestes geben. Deshalb ein kleiner Dank an euch alle:",
+      "coordination": "Koordination",
+      "frontendDevelopment": "Entwicklung Frontend",
+      "university": "Die Professor*en*in der Fachhochschule Kiel",
+      "thankYou": "Danke für die gute Zusammenarbeit!"
+    },
+    "attribution": {
+      "title": "Attribution"
+    },
+    "copyright": {
+      "title": "Impressum",
+      "phone": "Telefon"
+    },
+    "gtc": {
+      "title": "AGBs"
+    }
+  },
+  "dataProtection": {
+    "title": "Privatsphäreeinstellungen",
+    "usePersonalData": "Privatdaten nutzen",
+    "useGps": "GPS-Daten nutzen",
+    "useBluetooth": "Bluetooth nutzen",
+    "sendData": "Daten übermitteln"
+  },
+  "infectionWarning": {
+    "pageTitle": "Warnmeldung",
+    "title": "Infektionswarnung",
+    "description": "Wir haben ein erhöhtes Infektionsrisiko ermittelt.",
+    "nextSteps": {
+      "maybeNotInfected": "Diese Warnung bedeutet nicht, dass du infiziert bist, sondern lediglich, dass ein erhötes Risiko einer Infektion ermittelt wurde",
+      "goToDoctor": "Bitte suche zeitnah einen Arzt auf und bespreche das weitere Vorgehen",
+      "informAboutOhioh": "Bitte teile deinem Arzt mit, dass du die OHIOH-APP nutzt",
+      "linksToDoctors": "Arzt Verlinkung in der Nähe"
+    },
+    "continue": "Weitere Schritte",
+    "accept": "Warnung akzeptieren"
+  },
+  "qrScanner": {
+    "allowAccessMsg": "Die App benötigt Kamerazugriff, damit du QR-Codes einscannen kannst. Möchtest du den Zugriff erlauben?",
+    "allowAccessTitle": "Zugriff erlauben",
+    "yes": "Ja",
+    "cancel": "Abbrechen",
+    "openSettings": "Einstellungen öffnen",
+    "noCameraAccess": "Kein Kamerazugriff",
+    "error": "Es ist ein unbekannter Fehler aufgetreten",
+    "noCameraInBrowserAvailable": "Im Browser kann nicht auf die Kamera zugegriffen werden. Bitte lade die Anwendung auf dein Gerät."
+  },
+  "qrGenerator": {
+    "name": "Name",
+    "street": "Staße und Hausnummer",
+    "zipCode": "Postleitzahl",
+    "generateQR": "Generieren",
+    "shareQR": "QR-Code teilen"
+  },
+  "languageSelection": {
+    "description": "Bitte wähle deine Sprache aus:",
+    "de": "Deutsch",
+    "en": "Englisch",
+    "tr": "Türkisch",
+    "ru": "Russisch",
+    "pl": "Polnisch",
+    "sa": "Arabisch",
+    "ku": "Kurdisch",
+    "maschineTranslation": "Maschinelle Übersetzung"
+  }
 }

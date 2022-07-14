@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GeoDataService } from '../shared/data-services/geo-data/geo-data.service';
+import {Component, OnInit} from '@angular/core';
+import {GeoDataService} from '../shared/data-services/geo-data/geo-data.service';
 
 @Component({
   selector: 'app-data-protection',

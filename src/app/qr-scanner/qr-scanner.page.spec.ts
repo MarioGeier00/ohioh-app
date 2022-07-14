@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { QrScannerPage } from './qr-scanner.page';
+import {QrScannerPage} from './qr-scanner.page';
 
 describe('QrScannerPage', () => {
   let component: QrScannerPage;

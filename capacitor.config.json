@@ -1,8 +1,0 @@
-{
-  "appId": "com.mgprogramms.ohioh",
-  "appName": "OHIOH",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "cordova": {}
-}

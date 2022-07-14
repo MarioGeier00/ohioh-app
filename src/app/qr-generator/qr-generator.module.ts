@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { QrGeneratorPageRoutingModule } from './qr-generator-routing.module';
+import {QrGeneratorPageRoutingModule} from './qr-generator-routing.module';
 
-import { QrGeneratorPage } from './qr-generator.page';
-import { TranslateModule } from '@ngx-translate/core';
+import {QrGeneratorPage} from './qr-generator.page';
+import {TranslateModule} from '@ngx-translate/core';
+import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   imports: [
@@ -16,8 +17,10 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     IonicModule,
     QrGeneratorPageRoutingModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    NgxQRCodeModule
   ],
   declarations: [QrGeneratorPage]
 })
-export class QrGeneratorPageModule {}
+export class QrGeneratorPageModule {
+}

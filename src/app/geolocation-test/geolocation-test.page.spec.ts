@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { GeolocationTestPage } from './geolocation-test.page';
+import {GeolocationTestPage} from './geolocation-test.page';
 
 describe('GeolocationTestPage', () => {
   let component: GeolocationTestPage;

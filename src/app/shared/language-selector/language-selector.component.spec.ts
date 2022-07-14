@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { LanguageSelectorComponent } from './language-selector.component';
+import {LanguageSelectorComponent} from './language-selector.component';
 
 describe('LanguageSelectorComponent', () => {
   let component: LanguageSelectorComponent;

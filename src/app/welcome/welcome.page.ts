@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-import { LanguageTranslatorService } from '../shared/data-services/language-translator/language-translator.service';
-import { UserService } from '../shared/data-services/user/user.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
+import {MenuController} from '@ionic/angular';
+import {UserService} from '../shared/data-services/user/user.service';
 
 @Component({
   selector: 'app-welcome',

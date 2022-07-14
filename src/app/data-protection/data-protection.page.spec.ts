@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { DataProtectionPage } from './data-protection.page';
+import {DataProtectionPage} from './data-protection.page';
 
 describe('DataProtectionPage', () => {
   let component: DataProtectionPage;

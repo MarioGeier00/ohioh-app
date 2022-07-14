@@ -1,173 +1,173 @@
 {
-    "menu": {
-        "title": "Menu",
-        "home": "OHIOH Home",
-        "userData": "Dane o osobie zmienić",
-        "dataProtection": "Prywatności ustawienia",
-        "settings": "Parametry",
-        "addLocations": "Pobyt noc wystają",
-        "welcome": "Wprowadzenie poradnik",
-        "credits": "Odcisk",
-        "deleteAll": "Usunąć wszystkie dane na zawsze "
-    },
-    "home": {
-        "title": "OHIOH Home",
-        "simulationInfectionWarning": "Simuliere Ostrzeżenie Zakażenia",
-        "stateOverview": {
-            "infection": {
-                "noWarning": {
-                    "title": "Brak Zakażenia Ostrzeżenie",
-                    "description": "Obecnie nie ma żadnych ostrzeżeń dla Ciebie leży."
-                },
-                "warning": {
-                    "title": "Zakażenia, ostrzeżenie",
-                    "description": "Mamy zorientowali się, że może być zainfekowany.",
-                    "showWarning": "Ostrzeżenie"
-                }
-            },
-            "sync": {
-                "inSync": {
-                    "title": "Dane są synchronizowane",
-                    "lastUpload": "Twoje dane zostały pobrane {val}.",
-                    "connected": "Jest on podłączony do Internetu."
-                }
-            },
-            "gps": {
-                "active": {
-                    "title": "Śledzenie lokalizacji aktywnie",
-                    "lastUpdate": "Witryna została zarejestrowana po raz ostatni minutę temu."
-                },
-                "inaccurate": {
-                    "title": "Miejsce zbiórki nieaktywne",
-                    "lastUpdate": "GPS jest obecnie niedokładne. Użyj OHIOH kody QR lub po przenoszenia lokalizacji ręcznie."
-                },
-                "deactivated": {
-                    "title": "Miejsce zbiórki z",
-                    "lastUpdate": "Wyłączyłaś śledzenia Lokalizacji w ustawieniach."
-                }
-            },
-            "personalData": {
-                "active": {
-                    "title": "Przechowywanie danych użytkownika",
-                    "description": "Jesteś na przechowywanie danych użytkownika."
-                },
-                "inactive": {
-                    "title": "Żadnych danych na przechowywanie",
-                    "description": "Nie wprowadzono dane użytkownika."
-                },
-                "addData": "Dane wpisać"
-            }
+  "menu": {
+    "title": "Menu",
+    "home": "OHIOH Home",
+    "userData": "Dane o osobie zmienić",
+    "dataProtection": "Prywatności ustawienia",
+    "settings": "Parametry",
+    "addLocations": "Pobyt noc wystają",
+    "welcome": "Wprowadzenie poradnik",
+    "credits": "Odcisk",
+    "deleteAll": "Usunąć wszystkie dane na zawsze "
+  },
+  "home": {
+    "title": "OHIOH Home",
+    "simulationInfectionWarning": "Simuliere Ostrzeżenie Zakażenia",
+    "stateOverview": {
+      "infection": {
+        "noWarning": {
+          "title": "Brak Zakażenia Ostrzeżenie",
+          "description": "Obecnie nie ma żadnych ostrzeżeń dla Ciebie leży."
         },
-        "qrCodeScanner": "Kod QR skanera"
-    },
-    "welcome": {
-        "slides": {
-            "welcome": {
-                "title": "Zapraszamy do OHIOH",
-                "description": "Będzie prowadził w przyszłości, krok po kroku podejście do aplikacji.",
-                "advice": "Przesuń palcem w lewo, aby przejść do następnego kroku!"
-            },
-            "language": {
-                "title": "Witamy",
-                "advice": "Język można zmienić później w ustawieniach."
-            },
-            "what": {
-                "title": "Co OHIOH?",
-                "description": "OHIOH oznacza Our Health In Our Hands. Celem OHIOH aplikacja powstrzymać rozprzestrzenianie się wirusa. <B>OHIOH wczesnego ostrzegania<\/b>, używając <b>trzech źródeł danych (GPS, kod QR, Bluetooth)<\/b>, aby poinformować o możliwym ryzyku zakażenia przez twoje miejsce Zamieszkania. Aplikacja pozwala na <b>ostrzeżenie już przed pokazaniem objawy zakażenia.<\/b>"
-            },
-            "warning": {
-                "title": "Jak działa system wczesnego ostrzegania?",
-                "description": "Infekcja łańcucha dotyczą każdego z nas. Podanie danych kontaktowych w tej sytuacji znaczenie. Wykorzystanie źródeł danych telefonu komórkowego pozwala Śledzić łańcuch Zakażenia. Twoje dane są dla niego korzystne. Ty decydujesz, które dane są przesyłane i jak długo są one przechowywane."
-            },
-            "security": {
-                "title": "Jak bezpieczne są moje dane osobowe?",
-                "description": "Zwracamy uwagę na to, że ani dane, ani dane o lokalizacji są przechowywane razem i zapobieganie nieautoryzowanym dostępem za pomocą szyfrowania i zgodność z najwyższymi standardami bezpieczeństwa.<p>W okresie po pandemii usuwane są wszystkie dane są w pełni automatycznie. Oczywiście, można również usunąć wszystkie dane ręcznie."
-            },
-            "video": {
-                "title": "Jak działa aplikacja?",
-                "description": "W poniższym wideo możecie powiedzieć o tej aplikacji:",
-                "videoLink": "OHIOH wykładnie wideo"
-            }
+        "warning": {
+          "title": "Zakażenia, ostrzeżenie",
+          "description": "Mamy zorientowali się, że może być zainfekowany.",
+          "showWarning": "Ostrzeżenie"
         }
-    },
-    "userData": {
-        "title": "Dane użytkownika",
-        "description": "Tutaj możesz wpisać Swoje dane. Nie ma pola muszą być wypełnione.",
-        "firstName": "Nazwisko",
-        "firstNameMaxLengthMessage": "Nazwa nie powinna przekraczać {val} znaków.",
-        "lastName": "Nazwisko",
-        "lastNameMaxLengthMessage": "Nazwisko nie powinna przekraczać {val} znaków.",
-        "phone": "Tele onnummer",
-        "phoneMaxLengthMessage": "Numer telefonu nie może przekroczyć {val} znaków.",
-        "phoneInvalidMessage": "Numer telefonu jest nieprawidłowy.",
-        "age": "Wiek",
-        "minAgeValidationMessage": "Twój wiek musi być większy {val} roku.",
-        "maxAgeValidationMessage": "Twój wiek nie powinien być mniejszy {val} roku.",
-        "city": "Miejsce zamieszkania",
-        "cityMaxLengthMessage": "Miejsca zamieszkania nie powinien przekraczać {val} znaków.",
-        "submit": "Zastosuj",
-        "cancel": "Anuluj"
-    },
-    "settings": {
-        "title": "Parametry",
-        "saveDuration": "Okres przechowywania",
-        "language": "Język",
-        "gpsDataStorageDuration": "Długość przechowywania danych GPS (dni)",
-        "otherDataStorageDuration": "Okres dostawy inne dane (dni)",
-        "trackingInterval": "Pamięci Interwał (Minuty)"
-    },
-    "credits": {
-        "title": "O autorze",
-        "motivation": {
-            "title": "Edukacja i motywacja",
-            "description": "Przy hackathon rządu wszystko się zaczęło. Przez granice, a w szczególności OHIOH zespół mogli szybko znaleźć polecenia. Od tego czasu koncepcja, Home i aplikacji z pomysłów OHIOH stało."
-        },
-        "team": {
-            "title": "Zespół",
-            "description": "Projekt OHIOH nie byłoby bez pomocy wielu osób możliwe. To niesamowite, jak ci ludzie bez wynagrodzenia dla was nie ma ... dla nas wszystkich ... wszystko. Dlatego niewielka dziękuję wam wszystkim:",
-            "coordination": "Koordynacja",
-            "frontendDevelopment": "Opracowanie Frontend",
-            "university": "Profesor*en*w Fachhochschule Kiel",
-            "thankYou": "Dziękuję za dobrą współpracę!"
-        },
-        "attribution": {
-            "title": "Attribution"
-        },
-        "copyright": {
-            "title": "Odcisk",
-            "phone": "Telefon"
-        },
-        "gtc": {
-            "title": "Warunki"
+      },
+      "sync": {
+        "inSync": {
+          "title": "Dane są synchronizowane",
+          "lastUpload": "Twoje dane zostały pobrane {val}.",
+          "connected": "Jest on podłączony do Internetu."
         }
-    },
-    "dataProtection": {
-        "title": "Prywatności ustawienia",
-        "usePersonalData": "Prywatny danymi",
-        "useGps": "Dane GPS użyć",
-        "sendData": "Dane przekazują"
-    },
-    "infectionWarning": {
-        "pageTitle": "Ostrzeżenie",
-        "title": "Zakażenia, ostrzeżenie",
-        "description": "Okazało się zwiększone ryzyko zakażenia.",
-        "nextSteps": {
-            "maybeNotInfected": "Ostrzeżenie to nie oznacza, że jesteś zainfekowany, a po prostu, że erhötes ryzyko zakażenia został określony ",
-            "goToDoctor": "Proszę na poszukiwanie lekarza i w odpowiednim czasie o dalsze działania",
-            "informAboutOhioh": "Części zamienne z lekarzem proszę, że używasz OHIOH APLIKACJA ",
-            "linksToDoctors": "Lekarz перелинковка obok"
+      },
+      "gps": {
+        "active": {
+          "title": "Śledzenie lokalizacji aktywnie",
+          "lastUpdate": "Witryna została zarejestrowana po raz ostatni minutę temu."
         },
-        "continue": "Dalsze Kroki",
-        "accept": "Ostrzeżenie akceptuję"
+        "inaccurate": {
+          "title": "Miejsce zbiórki nieaktywne",
+          "lastUpdate": "GPS jest obecnie niedokładne. Użyj OHIOH kody QR lub po przenoszenia lokalizacji ręcznie."
+        },
+        "deactivated": {
+          "title": "Miejsce zbiórki z",
+          "lastUpdate": "Wyłączyłaś śledzenia Lokalizacji w ustawieniach."
+        }
+      },
+      "personalData": {
+        "active": {
+          "title": "Przechowywanie danych użytkownika",
+          "description": "Jesteś na przechowywanie danych użytkownika."
+        },
+        "inactive": {
+          "title": "Żadnych danych na przechowywanie",
+          "description": "Nie wprowadzono dane użytkownika."
+        },
+        "addData": "Dane wpisać"
+      }
     },
-    "languageSelection": {
-        "description": "Proszę, wybierz swój język:",
-        "de": "Niemiecki",
-        "en": "Angielski",
-        "tr": "Turecki",
-        "ru": "Rosyjski",
-        "pl": "Polski",
-        "sa": "Arabski",
-        "ku": "Kurdyjski"
+    "qrCodeScanner": "Kod QR skanera"
+  },
+  "welcome": {
+    "slides": {
+      "welcome": {
+        "title": "Zapraszamy do OHIOH",
+        "description": "Będzie prowadził w przyszłości, krok po kroku podejście do aplikacji.",
+        "advice": "Przesuń palcem w lewo, aby przejść do następnego kroku!"
+      },
+      "language": {
+        "title": "Witamy",
+        "advice": "Język można zmienić później w ustawieniach."
+      },
+      "what": {
+        "title": "Co OHIOH?",
+        "description": "OHIOH oznacza Our Health In Our Hands. Celem OHIOH aplikacja powstrzymać rozprzestrzenianie się wirusa. <B>OHIOH wczesnego ostrzegania<\/b>, używając <b>trzech źródeł danych (GPS, kod QR, Bluetooth)<\/b>, aby poinformować o możliwym ryzyku zakażenia przez twoje miejsce Zamieszkania. Aplikacja pozwala na <b>ostrzeżenie już przed pokazaniem objawy zakażenia.<\/b>"
+      },
+      "warning": {
+        "title": "Jak działa system wczesnego ostrzegania?",
+        "description": "Infekcja łańcucha dotyczą każdego z nas. Podanie danych kontaktowych w tej sytuacji znaczenie. Wykorzystanie źródeł danych telefonu komórkowego pozwala Śledzić łańcuch Zakażenia. Twoje dane są dla niego korzystne. Ty decydujesz, które dane są przesyłane i jak długo są one przechowywane."
+      },
+      "security": {
+        "title": "Jak bezpieczne są moje dane osobowe?",
+        "description": "Zwracamy uwagę na to, że ani dane, ani dane o lokalizacji są przechowywane razem i zapobieganie nieautoryzowanym dostępem za pomocą szyfrowania i zgodność z najwyższymi standardami bezpieczeństwa.<p>W okresie po pandemii usuwane są wszystkie dane są w pełni automatycznie. Oczywiście, można również usunąć wszystkie dane ręcznie."
+      },
+      "video": {
+        "title": "Jak działa aplikacja?",
+        "description": "W poniższym wideo możecie powiedzieć o tej aplikacji:",
+        "videoLink": "OHIOH wykładnie wideo"
+      }
     }
+  },
+  "userData": {
+    "title": "Dane użytkownika",
+    "description": "Tutaj możesz wpisać Swoje dane. Nie ma pola muszą być wypełnione.",
+    "firstName": "Nazwisko",
+    "firstNameMaxLengthMessage": "Nazwa nie powinna przekraczać {val} znaków.",
+    "lastName": "Nazwisko",
+    "lastNameMaxLengthMessage": "Nazwisko nie powinna przekraczać {val} znaków.",
+    "phone": "Tele onnummer",
+    "phoneMaxLengthMessage": "Numer telefonu nie może przekroczyć {val} znaków.",
+    "phoneInvalidMessage": "Numer telefonu jest nieprawidłowy.",
+    "age": "Wiek",
+    "minAgeValidationMessage": "Twój wiek musi być większy {val} roku.",
+    "maxAgeValidationMessage": "Twój wiek nie powinien być mniejszy {val} roku.",
+    "city": "Miejsce zamieszkania",
+    "cityMaxLengthMessage": "Miejsca zamieszkania nie powinien przekraczać {val} znaków.",
+    "submit": "Zastosuj",
+    "cancel": "Anuluj"
+  },
+  "settings": {
+    "title": "Parametry",
+    "saveDuration": "Okres przechowywania",
+    "language": "Język",
+    "gpsDataStorageDuration": "Długość przechowywania danych GPS (dni)",
+    "otherDataStorageDuration": "Okres dostawy inne dane (dni)",
+    "trackingInterval": "Pamięci Interwał (Minuty)"
+  },
+  "credits": {
+    "title": "O autorze",
+    "motivation": {
+      "title": "Edukacja i motywacja",
+      "description": "Przy hackathon rządu wszystko się zaczęło. Przez granice, a w szczególności OHIOH zespół mogli szybko znaleźć polecenia. Od tego czasu koncepcja, Home i aplikacji z pomysłów OHIOH stało."
+    },
+    "team": {
+      "title": "Zespół",
+      "description": "Projekt OHIOH nie byłoby bez pomocy wielu osób możliwe. To niesamowite, jak ci ludzie bez wynagrodzenia dla was nie ma ... dla nas wszystkich ... wszystko. Dlatego niewielka dziękuję wam wszystkim:",
+      "coordination": "Koordynacja",
+      "frontendDevelopment": "Opracowanie Frontend",
+      "university": "Profesor*en*w Fachhochschule Kiel",
+      "thankYou": "Dziękuję za dobrą współpracę!"
+    },
+    "attribution": {
+      "title": "Attribution"
+    },
+    "copyright": {
+      "title": "Odcisk",
+      "phone": "Telefon"
+    },
+    "gtc": {
+      "title": "Warunki"
+    }
+  },
+  "dataProtection": {
+    "title": "Prywatności ustawienia",
+    "usePersonalData": "Prywatny danymi",
+    "useGps": "Dane GPS użyć",
+    "sendData": "Dane przekazują"
+  },
+  "infectionWarning": {
+    "pageTitle": "Ostrzeżenie",
+    "title": "Zakażenia, ostrzeżenie",
+    "description": "Okazało się zwiększone ryzyko zakażenia.",
+    "nextSteps": {
+      "maybeNotInfected": "Ostrzeżenie to nie oznacza, że jesteś zainfekowany, a po prostu, że erhötes ryzyko zakażenia został określony ",
+      "goToDoctor": "Proszę na poszukiwanie lekarza i w odpowiednim czasie o dalsze działania",
+      "informAboutOhioh": "Części zamienne z lekarzem proszę, że używasz OHIOH APLIKACJA ",
+      "linksToDoctors": "Lekarz перелинковка obok"
+    },
+    "continue": "Dalsze Kroki",
+    "accept": "Ostrzeżenie akceptuję"
+  },
+  "languageSelection": {
+    "description": "Proszę, wybierz swój język:",
+    "de": "Niemiecki",
+    "en": "Angielski",
+    "tr": "Turecki",
+    "ru": "Rosyjski",
+    "pl": "Polski",
+    "sa": "Arabski",
+    "ku": "Kurdyjski"
+  }
 }

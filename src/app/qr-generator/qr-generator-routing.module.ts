@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { QrGeneratorPage } from './qr-generator.page';
+import {QrGeneratorPage} from './qr-generator.page';
+import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    NgxQRCodeModule
+  ],
   exports: [RouterModule],
 })
-export class QrGeneratorPageRoutingModule {}
+export class QrGeneratorPageRoutingModule {
+}
